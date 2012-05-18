@@ -1,0 +1,276 @@
+# Classic Red Alert Mod -- Package Manifest
+
+GenericVoice:
+	Variants:
+		soviet: .r01,.r03
+		allies: .v01,.v03
+		uac: .v01,.v03
+		nod: .d01,.d03
+		gdi: .d01,.d03
+		fed: .d01,.d03
+		gla: .r01,.r03
+	Voices:
+		Select: await1,ready,report1,yessir1
+		Move: ackno,affirm1,noprob,overout,ritaway,roger,ugotit
+		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman6,dedman7,dedman8,dedman10
+	DisableVariants: Die
+
+VehicleVoice:
+	Variants:
+		soviet: .r00,.r02
+		allies: .v00,.v02
+		uac: .v00,.v02
+		nod: .d00,.d02
+		gdi: .d00,.d02
+		fed: .d00,.d02
+		gla: .r00,.r02
+	Voices:
+		Select: vehic1,yessir1,report1,await1
+		Move: ackno,affirm1
+
+ShipVoice:
+	Variants:
+		soviet: .r00,.r02
+		allies: .v00,.v02
+		uac: .v00,.v02
+		nod: .d00,.d02
+		gdi: .d00,.d02
+		fed: .d00,.d02
+		gla: .r00,.r02
+	Voices:
+		Select: vehic1,yessir1,report1,await1
+		Move: ackno,affirm1
+
+EngineerVoice:
+	Voices:
+		Select: eengin1,eyessir1
+		Move: eaffirm1
+		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman6,dedman7,dedman8,dedman10
+
+MedicVoice:
+	Voices:
+		Select: mrespon1,myessir1
+		Move: maffirm1,mmovout1
+		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman6,dedman7,dedman8,dedman10
+
+TanyaVoice:
+	Voices:
+		Select: yo1,yes1,yeah1
+		Move: rokroll1,onit1
+		Attack: tuffguy1,bombit1,laugh1
+		Die: tandeth1
+		Build: laugh1
+		Kill: laugh1,tuffguy1,bombit1,laugh1,keepem1
+		Demolish: keepem1
+
+DogVoice:
+	Voices:
+		Select: dogw3px
+		Move: dogy1
+		Attack: dogg5p
+		Die: dogw7
+
+SpyVoice:
+	Voices:
+		Select: syessir1,scomnd1
+		Move: sonway1,sindeed1,sking1
+		Attack: sking1
+		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman6,dedman7,dedman8,dedman10
+		Build: sking1
+
+ThiefVoice:
+	Voices:
+		Select: swhat1,syeah1
+		Move: saffirm1,smout1,sokay1
+		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman6,dedman7,dedman8,dedman10
+
+CivilianMaleVoice:
+	Voices:
+		Select: guyyeah1
+		Move: guyokay1
+		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman6,dedman7,dedman8,dedman10
+
+CivilianFemaleVoice:
+	Voices:
+		Select: girlyeah
+		Move: girlokay
+		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman6,dedman7,dedman8,dedman10
+
+EinsteinVoice:
+	Voices:
+		Select: einah1,einok1,einyes1
+		Move: einah1,einok1,einyes1
+		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman6,dedman7,dedman8,dedman10
+
+ShokVoice:
+	Voices:
+		Select: jjuice1,jjump1,jyes1
+		Move: jchrge1,jdance1,jpower1
+		Attack: jburn1,jcrisp1,jshock1,jlight1
+		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman6,dedman7,dedman8,dedman10
+
+ShokVoice2:
+	Voices:
+		Select: jjuice1,jjump1,jyes1
+		Move: jchrge1,jdance1,jpower1
+		Attack: jburn1,jcrisp1,jshock1,jlight1
+		Die: dedman11,dedman12,dedman13,dedman14,dedman15,plrtospc
+		Build: jyes1
+		Kill: jburn1,jcrisp1,jshock1,jlight1,jdance1
+
+CommandoVoice: 
+	Voices:
+		Select: cyeah1,cyes1,cyo1
+		Move: ccmon1,conit1,cgotit1
+		Attack: conit1,cgotit1
+		Demolish: cbombit1
+		Die: ramyell1
+		Build: crokroll1
+		Kill: ckeepem1,claugh1,clefty1
+
+MechanicVoice:
+	Voices:
+		Select: mhear1,mhowdy1,mhuh1,mlaff1,mrise1,myes1
+		Move: myeehaw1,mwrench1,mhotdig1,mboss1
+		Die: dedman1,dedman2,dedman3,dedman4,dedman5,dedman6,dedman7,dedman8,dedman10
+
+SeigeVoice:
+	Voices:
+		Select: 45-i000,45-i002,45-i004,45-i006
+		Move: 45-i010,45-i012,45-i014,45-i016
+		Attack: 45-i010,45-i012,45-i014,45-i016
+		Build: 45-i008
+
+GenericDoomVoice:
+	Variants:
+		soviet: .r01,.r03
+		allies: .v01,.v03
+		uac: .v01,.v03
+		nod: .d01,.d03
+		gdi: .d01,.d03
+		fed: .d01,.d03
+		gla: .r01,.r03
+	Voices:
+		Select: await1,ready,report1,yessir1
+		Move: ackno,affirm1,noprob,overout,ritaway,roger,ugotit
+		Die: dspldeth
+	DisableVariants: Die
+
+DoomImpVoice:
+	Voices:
+		Select: dsbgsit1,dsbgsit2
+		Move: dsbgact
+		Die: dsbgdth1,dsbgdth2
+		Attack: dsbgsit1,dsbgsit2
+
+DoomCacodemonVoice:
+	Voices:
+		Select: dsdmact
+		Move: dsdmact
+		Die: dscacdth
+		Attack: dsdmact
+
+DoomBaronVoice:
+	Voices:
+		Select: dsdmact
+		Move: dsdmact
+		Die: dsbrsdth
+		Attack: dsbrssit
+		Build: dsbrssit
+
+DoomCyberdemonVoice:
+	Voices:
+		Select: dsdmact
+		Move: dsdmact
+		Die: dscybdth
+		Attack: dsdmact
+		Build: dscybsit
+
+ArnieVoice:
+	Voices:
+		Select: arniewht1,arniewht2,arniewht3
+		Move: arnieyes1,arnieyes2,arnieyes3,arnieyes4
+		Die: arniedead
+		Attack: arnieatk1,arnieatk2,arnieatk3,arnieatk4,arnieyes1,arnieyes2,arnieyes3,arnieyes4
+		Build: arniebuild
+		Kill: arniekil1,arniekil2,arniekil3,arniekil4,arniekil5
+
+BishopVoice:
+	Voices:
+		Select: ipatsea,ipatseb,ipatsec,ipatsed,ipatsee
+		Move: ipatmoa,ipatmob,ipatmoc,ipatmod,ipatmoe
+		Die: dedman11,dedman12,dedman13,dedman14,dedman15,plrtospc
+		Attack: ipatata,ipatatb,ipatatc,ipatatd,ipatate
+		Build: ipatsef
+		Kill: ipatatc,ipatatd,ipatate
+
+SolCannonVoice:
+	Voices:
+		Select: vnuksea,vnukseb,vnuksed,vnuksee
+		Move: vnukmoa,vnukmob,vnukmoc,vnukmod,vnukmoe
+		Attack: vnukata,vnukatb,vnukatc,vnukatd,vnukate
+		Build: vnuksef
+
+SolCannonDeployedVoice:
+	Voices:
+		Select: vnuksea,vnukseb,vnuksed,vnuksee
+		Move: vnukmoa,vnukmob,vnukmoc,vnukmod,vnukmoe
+		Attack: vnukata,vnukatb,vnukatc,vnukatd,vnukate
+		Build: vnukdeb
+
+SuperTankVoice:
+	Voices:
+		Select: voveseb,vovesec,vovesee,voveseg,vovecra
+		Move: vovemob,vovemoc,vovemod,vovemoe,vovemof,vovemog
+		Die: dedman11,dedman12,dedman13,dedman14,dedman15,plrtospc
+		Attack: voveata,voveatb,voveatc,voveatd,voveate,voveatf,voveatg,vovecrb
+		Build: vovesed
+		Kill: vovemob,vovemoc,voveatc,voveatg,vovecra,vovecrb
+
+HelixVoice:
+	Voices:
+		Select: vhelsea,vhelseb,vhelsec,vhelsed,vhelsee
+		Move: vhelmoa,vhelmob,vhelmoc,vhelmod,vhelmoe
+		Die: dedman11,dedman12,dedman13,dedman14,dedman15,plrtospc
+		Attack: vhelata,vhelatb,vhelatc,vhelatd,vhelate,vhelatf,vhelatg
+		Build: vhelath
+		Kill: vhelkila,vhelkilb,vhelatb,vhelatc,vhelmod
+
+SlyVoice:
+	Voices:
+		Select: islysea,islyseb,islysec,islyree
+		Move: islymoa,islymob,islymoc,islymod,islymoe
+		Die: dedman11,dedman12,dedman13,dedman14,dedman15,plrtospc
+		Attack: islyata,islyatb,islyatc,islyatd,islyate,islymoa,islymob,islymoc,islymod,islymoe
+		Build: islyseb
+		Kill: islyata,islyatb,islyatc,islyatd,islyred,islyrec,islyreb
+
+WorkerVoice:
+	Voices:
+		Select: iworsea,iworseb,iworsec,iworsed,iworsee,iworsef,iworseg,iworseh,iworsei
+		Move: iwormoa,iwormob,iwormoc,iwormod,iwormoe,iwormof
+		Harvest: iworspa,iworspb,iworspc,iworspd
+
+TerroristVoice:
+	Voices:
+		Select: itersea,iterseb,itersec,itersed,itersee,itersef,iterseg
+		Move: itermoa,itermob,itermoc,itermod,itermoe,itermof,itermog
+		Attack: iterata,iteratb,iteratc,iteratd,iterate
+		Die: iterdia,iterdib,iterdic,iterdid,iterdie
+
+JarmenVoice:
+	Voices:
+		Select: ijarsea,ijarseb,ijarsed,ijarsee,ijarsef
+		Move: ijarmoa,ijarmob,ijarmoc,ijarmod,ijarmoe
+		Die: dedman11,dedman12,dedman13,dedman14,dedman15,plrtospc
+		Attack: ijarsea,ijarseb,ijarsed,ijarsee,ijarsef,ijaratc
+		Build: ijarsec
+		Kill: ijarata,ijaratb,ijaratd,ijarate
+
+HijackerVoice:
+	Voices:
+		Select: ihijsea,ihijseb,ihijsec,ihijsed,ihijsee
+		Move: ihijmoa,ihijmob,ihijmoc,ihijmod,ihijmoe
+		Die: dedman11,dedman12,dedman13,dedman14,dedman15,plrtospc
+		Attack: ihijata,ihijatb,ihijatc,ihijatd,ihijate
+		Build: ihijsef

@@ -1,0 +1,502 @@
+
+BIO:
+	Inherits: ^Building
+	Buildable:
+		Queue: Special
+		BuildPaletteOrder: 900
+		Prerequisites: techcenter
+		Owner: soviet
+	Valued:
+		Cost: 2000
+	Tooltip:
+		Name: Control Center
+		Description: Provides income and \nParatroopers.\n  Special Ability: Paratroopers\n
+	Building:
+		Power: -100
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 600
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 4
+	Bib:
+	IronCurtainable:
+	ParatroopersPower:
+		Image: pinficon
+		ChargeTime: 300
+		Description: Paratroopers
+		LongDesc: A Badger drops a squad of Riflemen \nanywhere on the map
+		Prerequisites: AFLD
+		DropItems: E1,E1,E1,E1,E1,E2,E2,E3,E3
+		SelectTargetSound: slcttgt1.aud
+		UnitType: badr.paradrop
+		AllowMultiple: Yes	
+	CashTrickler:
+		Period: 400
+		Amount: 30
+
+BIO2:
+	Inherits: ^Building
+	Buildable:
+		Queue: Special
+		BuildPaletteOrder: 900
+		Prerequisites: techcenter
+		Owner: allies
+	Valued:
+		Cost: 2000
+	Tooltip:
+		Name: Control Center
+		Icon: BIOICON
+		Description: Provides income and \nParatroopers.\n  Special Ability: Paratroopers\n
+	Building:
+		Power: -100
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 600
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 4
+	Bib:
+	IronCurtainable:
+	ParatroopersPower:
+		Image: pinficon
+		ChargeTime: 300
+		Description: Paratroopers
+		LongDesc: A Badger drops a squad of Riflemen \nanywhere on the map
+		Prerequisites: AFLD2
+		DropItems: E1,E1,E1,E1,E1,MEDI,E1,E3,E3
+		SelectTargetSound: slcttgt1.aud
+		UnitType: badr.paradrop
+		AllowMultiple: Yes
+	CashTrickler:
+		Period: 400
+		Amount: 30
+	RenderBuilding:
+		Image: BIO
+
+BIO3:
+	Inherits: ^Building
+	Buildable:
+		Queue: Special
+		BuildPaletteOrder: 900
+		Prerequisites: bio2
+		Owner: allies
+	Valued:
+		Cost: 2500
+	Tooltip:
+		Name: Control Center II
+		Icon: BIOICON
+		Description: Provides income and \nParatanks.\n  Special Ability: Paratanks\n
+	ProvidesCustomPrerequisite:
+		Prerequisite: controlcenter
+	Building:
+		Power: -100
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 600
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 4
+	Bib:
+	IronCurtainable:
+	ParatroopersPower:
+		Image: pinficon
+		ChargeTime: 600
+		Description: Paratanks
+		LongDesc: A Badger drops a few tanks \nanywhere on the map
+		Prerequisites: AFLD2
+		DropItems: 2tnk,2tnk,2tnk,2tnk,2tnk
+		SelectTargetSound: slcttgt1.aud
+		UnitType: badr.paradrop
+		AllowMultiple: Yes
+	CashTrickler:
+		Period: 400
+		Amount: 30
+	RenderBuilding:
+		Image: BIO
+
+BIO4:
+	Inherits: ^Building
+	Buildable:
+		Queue: Special
+		BuildPaletteOrder: 900
+		Prerequisites: bio
+		Owner: soviet
+	Valued:
+		Cost: 2500
+	Tooltip:
+		Name: Control Center II
+		Icon: BIOICON
+		Description: Provides income and \nParatanks.\n  Special Ability: Paratanks\n
+	ProvidesCustomPrerequisite:
+		Prerequisite: controlcenter
+	Building:
+		Power: -100
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 600
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 4
+	Bib:
+	IronCurtainable:
+	ParatroopersPower:
+		Image: pinficon
+		ChargeTime: 600
+		Description: Paratanks
+		LongDesc: A Badger drops a few tanks \nanywhere on the map
+		Prerequisites: AFLD
+		DropItems: 3tnk,3tnk,3tnk,3tnk
+		SelectTargetSound: slcttgt1.aud
+		UnitType: badr.paradrop
+		AllowMultiple: Yes
+	CashTrickler:
+		Period: 400
+		Amount: 30
+	RenderBuilding:
+		Image: BIO
+
+BIO5:
+	Inherits: ^Building
+	Buildable:
+		Queue: Special
+		BuildPaletteOrder: 900
+		Prerequisites: techcenter
+		Owner: gdi
+	Valued:
+		Cost: 2000
+	Tooltip:
+		Name: Control Center
+		Icon: BIOICON
+		Description: Provides income and \nParatroopers.\n  Special Ability: Paratroopers\n
+	Building:
+		Power: -100
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 600
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 4
+	Bib:
+	IronCurtainable:
+	ParatroopersPower:
+		Image: pinficon
+		ChargeTime: 300
+		Description: Paratroopers
+		LongDesc: A Badger drops a squad of Riflemen \nanywhere on the map
+		Prerequisites: AFLD2
+		DropItems: E1,E1,E1,E2,E2,MEDI,E1,E3,E3
+		SelectTargetSound: slcttgt1.aud
+		UnitType: badr.paradrop
+		AllowMultiple: Yes
+	CashTrickler:
+		Period: 400
+		Amount: 30
+	RenderBuilding:
+		Image: BIO
+
+BIO6:
+	Inherits: ^Building
+	Buildable:
+		Queue: Special
+		BuildPaletteOrder: 900
+		Prerequisites: bio5
+		Owner: gdi
+	Valued:
+		Cost: 2500
+	Tooltip:
+		Name: Control Center II
+		Icon: BIOICON
+		Description: Provides income and \nParatanks.\n  Special Ability: Paratanks\n
+	ProvidesCustomPrerequisite:
+		Prerequisite: controlcenter
+	Building:
+		Power: -100
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 600
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 4
+	Bib:
+	IronCurtainable:
+	ParatroopersPower:
+		Image: pinficon
+		ChargeTime: 600
+		Description: Paratanks
+		LongDesc: A Badger drops a few tanks \nanywhere on the map
+		Prerequisites: AFLD2
+		DropItems: mtnkd,mtnkd,mtnkd,mtnkd
+		SelectTargetSound: slcttgt1.aud
+		UnitType: badr.paradrop
+		AllowMultiple: Yes
+	CashTrickler:
+		Period: 400
+		Amount: 30
+	RenderBuilding:
+		Image: BIO
+
+BIO7:
+	Inherits: ^Building
+	Buildable:
+		Queue: Special
+		BuildPaletteOrder: 900
+		Prerequisites: techcenter
+		Owner: nod
+	Valued:
+		Cost: 2000
+	Tooltip:
+		Name: Control Center
+		Icon: BIOICON
+		Description: Provides income and \nParatroopers.\n  Special Ability: Paratroopers\n
+	Building:
+		Power: -100
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 600
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 4
+	Bib:
+	IronCurtainable:
+	ParatroopersPower:
+		Image: pinficon
+		ChargeTime: 300
+		Description: Paratroopers
+		LongDesc: A Badger drops a squad of Riflemen \nanywhere on the map
+		Prerequisites: AFLD2
+		DropItems: E1,E1,E1,E1,E1,E4,E1,E3,E3
+		SelectTargetSound: slcttgt1.aud
+		UnitType: badr.paradrop
+		AllowMultiple: Yes
+	CashTrickler:
+		Period: 400
+		Amount: 30
+	RenderBuilding:
+		Image: BIO
+
+BIO8:
+	Inherits: ^Building
+	Buildable:
+		Queue: Special
+		BuildPaletteOrder: 900
+		Prerequisites: bio7
+		Owner: nod
+	Valued:
+		Cost: 2500
+	Tooltip:
+		Name: Control Center II
+		Icon: BIOICON
+		Description: Provides income and \nParatanks.\n  Special Ability: Paratanks\n
+	ProvidesCustomPrerequisite:
+		Prerequisite: controlcenter
+	Building:
+		Power: -100
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 600
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 4
+	Bib:
+	IronCurtainable:
+	ParatroopersPower:
+		Image: pinficon
+		ChargeTime: 600
+		Description: Paratanks
+		LongDesc: A Badger drops a few tanks \nanywhere on the map
+		Prerequisites: AFLD2
+		DropItems: ltnkd,ltnkd,ltnkd,ltnkd
+		SelectTargetSound: slcttgt1.aud
+		UnitType: badr.paradrop
+		AllowMultiple: Yes
+	CashTrickler:
+		Period: 400
+		Amount: 30
+	RenderBuilding:
+		Image: BIO
+
+BIO9:
+	Inherits: ^Building
+	Buildable:
+		Queue: Special
+		BuildPaletteOrder: 900
+		Prerequisites: techcenter
+		Owner: fed
+	Valued:
+		Cost: 2000
+	Tooltip:
+		Name: Control Center
+		Icon: BIOICON
+		Description: Provides income and \nParatroopers.\n  Special Ability: Paratroopers\n
+	Building:
+		Power: -100
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 600
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 4
+	Bib:
+	IronCurtainable:
+	ParatroopersPower:
+		Image: pinficon
+		ChargeTime: 300
+		Description: Paratroopers
+		LongDesc: A Badger drops a squad of Riflemen \nanywhere on the map
+		Prerequisites: AFLD2
+		DropItems: FE2,FE2,FE2,FE2,FE2,FMEDI
+		SelectTargetSound: slcttgt1.aud
+		UnitType: badr.paradrop
+		AllowMultiple: Yes
+	CashTrickler:
+		Period: 400
+		Amount: 30
+	RenderBuilding:
+		Image: BIO
+
+BIO10:
+	Inherits: ^Building
+	Buildable:
+		Queue: Special
+		BuildPaletteOrder: 900
+		Prerequisites: bio9
+		Owner: fed
+	Valued:
+		Cost: 2500
+	Tooltip:
+		Name: Control Center II
+		Icon: BIOICON
+		Description: Provides income and \nParatanks.\n  Special Ability: Paratanks\n
+	ProvidesCustomPrerequisite:
+		Prerequisite: controlcenter
+	Building:
+		Power: -100
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 600
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 4
+	Bib:
+	IronCurtainable:
+	ParatroopersPower:
+		Image: pinficon
+		ChargeTime: 600
+		Description: Paratanks
+		LongDesc: A Badger drops a few tanks \nanywhere on the map
+		Prerequisites: AFLD2
+		DropItems: BTNK,MONGOOSE,MONGOOSE
+		SelectTargetSound: slcttgt1.aud
+		UnitType: badr.paradrop
+		AllowMultiple: Yes
+	CashTrickler:
+		Period: 400
+		Amount: 30
+	RenderBuilding:
+		Image: BIO
+
+
+BIO11:
+	Inherits: ^Building
+	Buildable:
+		Queue: Special
+		BuildPaletteOrder: 900
+		Prerequisites: techcenter
+		Owner: uac
+	Valued:
+		Cost: 2000
+	Tooltip:
+		Name: Control Center
+		Icon: BIOICON
+		Description: Provides income and \nParatroopers.\n  Special Ability: Paratroopers\n
+	Building:
+		Power: -100
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 600
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 4
+	Bib:
+	IronCurtainable:
+	ParatroopersPower:
+		Image: pinficon
+		ChargeTime: 300
+		Description: Paratroopers
+		LongDesc: A Badger drops a squad of Riflemen \nanywhere on the map
+		Prerequisites: AFLD2
+		DropItems: DM2,DM2,DM2,DM2,DM2,DM2
+		SelectTargetSound: slcttgt1.aud
+		UnitType: badr.paradrop
+		AllowMultiple: Yes
+	CashTrickler:
+		Period: 400
+		Amount: 30
+	RenderBuilding:
+		Image: BIO
+
+BIO12:
+	Inherits: ^Building
+	Buildable:
+		Queue: Special
+		BuildPaletteOrder: 900
+		Prerequisites: bio11
+		Owner: uac
+	Valued:
+		Cost: 2500
+	Tooltip:
+		Name: Control Center II
+		Icon: BIOICON
+		Description: Provides income and \nParadoom.\n  Special Ability: Paradoom\n
+	ProvidesCustomPrerequisite:
+		Prerequisite: controlcenter
+	Building:
+		Power: -100
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 600
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 4
+	Bib:
+	IronCurtainable:
+	ParatroopersPower:
+		Image: paradoomicon
+		ChargeTime: 600
+		Description: Paradoom
+		LongDesc: A Badger drops a powerful squad \nanywhere on the map
+		Prerequisites: AFLD2
+		DropItems: DM1,DM1,DM1,DM2,DM2,DM2,DMMEDI
+		SelectTargetSound: slcttgt1.aud
+		UnitType: badr.paradrop
+		AllowMultiple: Yes
+	CashTrickler:
+		Period: 400
+		Amount: 30
+	RenderBuilding:
+		Image: BIO

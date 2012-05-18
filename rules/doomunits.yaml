@@ -1,0 +1,718 @@
+DM1:
+	Inherits: ^Infantry
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 20
+		Owner: uac
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: RPG Marine
+		Description: Anti-infantry infantry.\n  Strong vs Infantry, Light Vehicles\n  Weak vs Structures
+	Selectable:
+		Voice: GenericDoomVoice
+		Bounds: 14,19,0,-9
+	Health:
+		HP: 125
+	Mobile:
+		Speed: 4
+	AttackFrontal:
+		PrimaryWeapon: DoomRPG
+		PrimaryOffset: 0,8,0,-2
+	RenderInfantry:
+	-TeslaInstantKills:
+	RevealsShroud:
+		Range: 5
+	CrushableInfantry:
+		CrushClasses: lightvehicle
+
+DM2:
+	Inherits: ^Infantry
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 10
+		Owner: uac
+	Valued:
+		Cost: 350
+	Tooltip:
+		Name: Rifle Marine
+		Description: General purpose infantry.\n  Strong vs Infantry\n  Weak vs Vehicles
+	Selectable:
+		Voice: GenericDoomVoice
+		Bounds: 14,19,0,-9
+	Health:
+		HP: 110
+	Mobile:
+		Speed: 5
+	AttackFrontal:
+		PrimaryWeapon: DoomM16
+	TakeCover:
+	-RenderInfantry:
+	RenderInfantryProne:
+		Image: TSE1
+		IdleAnimations: idle1,idle2
+	-TeslaInstantKills:
+#	CrushableInfantry:
+#		CrushClasses: lightvehicle
+
+DM3:
+	Inherits: ^Infantry
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 30
+		Prerequisites: Radar
+		Owner: uac
+	Valued:
+		Cost: 650
+	Tooltip:
+		Name: Plasma Marine
+		Description: Anti-Infantry and heavy vehicle infantry.\n  Strong vs Infantry, Heavy Vehicles\n  Weak vs Structures
+	Selectable:
+		Voice: GenericDoomVoice
+		Bounds: 14,19,0,-9
+	Health:
+		HP: 150
+	Mobile:
+		Speed: 4
+	AttackFrontal:
+		PrimaryWeapon: DoomPlasma
+		PrimaryOffset: 0,8,0,-2
+	RenderInfantry:
+	-TeslaInstantKills:
+	RevealsShroud:
+		Range: 5
+	CrushableInfantry:
+		CrushClasses: lightvehicle
+
+DME6:
+	Inherits: ^Infantry
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 50
+		Owner: uac,gla
+	Valued:
+		Cost: 550
+	Tooltip:
+		Name: Engineer
+		Icon: E6ICON
+		Description: Infiltrates and captures enemy structures.\n  Strong vs Nothing\n  Weak vs Everything
+	Selectable:
+		Voice: EngineerVoice
+		Bounds: 12,17,0,-9
+	Health:
+		HP: 60
+	Mobile:
+		Speed: 4
+	Passenger:
+		PipType: Yellow
+	EngineerRepair:
+	Captures:
+	TakeCover:
+	-AutoTarget:
+	AttackMove:
+		JustMove: true
+	-RenderInfantry:
+	RenderInfantryProne:
+		Image: tsengi
+		IdleAnimations: idle1,idle2
+#	CrushableInfantry:
+#		CrushClasses: lightvehicle
+
+DM4:
+	Inherits: ^Infantry
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 120
+		Prerequisites: techcenter, bio12, mslo
+		Owner: uac
+	Valued:
+		Cost: 2600
+	Tooltip:
+		Name: Sarge
+		Description: Elite anti-everything commando.\n  Strong vs Everything\n  Weak vs Aircraft
+	Selectable:
+		Voice: ArnieVoice
+		Bounds: 30,30,0,-10
+	Health:
+		HP: 500
+	Mobile:
+		Speed: 5
+		SharesCell: false
+	AttackFrontal:
+		PrimaryWeapon: DoomBFG
+		PrimaryOffset: 0,8,0,-2
+	RenderInfantry:
+	AutoTarget:
+		ScanRadius: 8
+	-TeslaInstantKills:
+	Passenger:
+		PipType: Red
+		Weight: 3
+	C4Demolition:
+		C4Delay: 45
+	RevealsShroud:
+		Range: 8
+	AnnounceOnBuild:
+	AnnounceOnKill:
+	GpsDot:
+		String:Vehicle
+	CrushableInfantry:
+		CrushClasses: lightvehicle
+
+DMMEDI:
+	Inherits: ^Infantry
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 20
+		Owner: uac
+	Valued:
+		Cost: 900
+	Tooltip:
+		Name: Medic
+		Icon: mediicon
+		Description: Heals nearby infantry.\n  Unarmed
+	Selectable:
+		Voice: MedicVoice
+		Bounds: 12,17,0,-9
+	Health:
+		HP: 130
+	Mobile:
+		Speed: 4
+	RevealsShroud:
+		Range: 3
+	Passenger:
+		PipType: Yellow
+	AutoHeal:
+	AttackMedic:
+		PrimaryWeapon: Heal
+	TakeCover:
+	-AutoTarget:
+	AttackMove:
+		JustMove: true
+	-RenderInfantry:
+	RenderInfantryProne:
+		Image: tsmedi
+		IdleAnimations: idle1,idle2
+	SelfHealing:
+		Step: 1
+		Ticks: 15
+		HealIfBelow: 100%
+	CrushableInfantry:
+		CrushClasses: lightvehicle
+
+DME7:
+	Inherits: ^Infantry
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 110
+		Prerequisites: techcenter
+		Owner: uac
+	Valued:
+		Cost: 1750
+	Tooltip:
+		Name: Tanya
+		Icon: E7ICON
+		Description: Elite commando infantry, armed with \na sniper rifle and C4.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles\n  Special Ability: Destroy Building with C4
+	Selectable:
+		Voice: TanyaVoice
+		Bounds: 14,19,0,-9
+	Health:
+		HP: 250
+	Mobile:
+		Speed: 5
+	RevealsShroud:
+		Range: 9
+	C4Demolition:
+		C4Delay: 45
+	Passenger:
+		PipType: Red
+		Weight: 2
+	AttackFrontal:
+		PrimaryWeapon: DoomSniper
+	TakeCover:
+	-RenderInfantry:
+	AnnounceOnBuild:
+	AnnounceOnKill:
+	RenderInfantryProne:
+		Image: TSTANYA
+		IdleAnimations: idle1,idle2
+
+GAUSS:
+	Inherits: ^Infantry
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 115
+		Prerequisites: techcenter
+		Owner: uac
+	Valued:
+		Cost: 2200
+	Tooltip:
+		Name: Gauss Gunner
+		Description: Anti-ground elite infantry.\n  Strong vs Everything\n  Weak vs Aircraft
+	Selectable:
+		Voice: SlyVoice
+		Bounds: 14,19,0,-9
+	Health:
+		HP: 275
+	Mobile:
+		Speed: 5
+	AttackFrontal:
+		PrimaryWeapon: GaussRifle
+		PrimaryOffset: 0,8,0,-9
+	-RenderInfantry:
+	TakeCover:
+	RenderInfantryProne:
+		Image: TSRMBO
+		IdleAnimations: idle1,idle2		
+	-TeslaInstantKills:
+	Passenger:
+		PipType: Red
+		Weight: 3
+	RevealsShroud:
+		Range: 8
+	AnnounceOnBuild:
+	AnnounceOnKill:
+	AutoTarget:
+		ScanRadius: 7
+	CrushableInfantry:
+		CrushClasses: lightvehicle
+
+
+DSTNK:
+	Inherits: ^Tank
+	Buildable:
+		Queue: Vehicle
+		Prerequisites: barr
+		BuildPaletteOrder: 50
+		Owner: uac
+	Valued:
+		Cost: 1100
+	Tooltip:
+		Name: UAC Raider
+		Icon: DMRDICON
+		Description: Sturdy infantry transport.\n  Strong vs Infantry, Light Vehicles\n  Weak vs Tanks, Aircraft
+	Health:
+		HP: 450
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 8
+	Turreted:
+		ROT: 8
+	RevealsShroud:
+		Range: 5
+	AttackTurreted:
+		PrimaryWeapon: DoomAPCRPG
+		PrimaryOffset: 0,5,0,-2
+		PrimaryLocalOffset: -4,0,0
+		PrimaryRecoil: 2
+		AlignIdleTurrets: true
+	RenderUnitTurretedAim:
+		Image: STNK
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+#	Cloak:
+#		InitialDelay: 0
+#		CloakDelay: 100
+#		CloakSound: ironcur9.aud
+#		UncloakSound: ironcur9.aud
+	Cargo:
+		Types: Infantry
+		Passengers: 4
+		MaxWeight: 4
+		UnloadFacing: 220
+		PipCount: 4
+	AutoTarget:
+	Passenger: 
+		CargoType: Vehicle
+		PipType: Blue
+		Weight: 5
+
+DMGTNK:
+	Inherits: ^Tank
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 100
+		Prerequisites: fix,techcenter,bio12
+		Owner: uac
+	Valued:
+		Cost: 2100
+	Tooltip:
+		Name: Mammoth Tank III
+		Description: Big and slow tank, anti-ground.\n  Strong vs Tanks, Infantry\n  Weak vs Aircraft
+	Health:
+		HP: 850
+	Armor:
+		Type: Heavy
+	Mobile:
+		Crushes: wall, atmine, crate, infantry, lightvehicle
+		Speed: 3
+	RevealsShroud:
+		Range: 6
+	Turreted:
+		ROT: 3
+	AttackTurreted:
+		PrimaryWeapon: GaussRifleTank
+		SecondaryWeapon: MammothTuskWeak
+		PrimaryLocalOffset: -4,-5,0,0,0, 4,-5,0,0,0
+		SecondaryLocalOffset: -7,2,0,0,25, 7,2,0,0,-25
+		PrimaryRecoil: 4
+		PrimaryRecoilRecovery: 0.7
+		SecondaryRecoil: 1
+		AlignIdleTurrets: true
+	RenderUnitTurreted:
+	Passenger: 
+		CargoType: Vehicle
+		PipType: Yellow
+		Weight: 4
+	AutoTarget:
+#	LeavesHusk:
+#		HuskActor: 4TNK.Husk
+	ShakeOnDeath:
+	Explodes:
+		Weapon: UnitExplodeHeavy
+		EmptyWeapon: UnitExplodeHeavy
+	SelfHealing:
+		Step: 1
+		Ticks: 1
+		HealIfBelow: 50%
+		DamageCooldown: 200
+	Selectable:
+		Bounds: 44,38,0,-4
+	Cargo:
+		Types: Infantry
+		MaxWeight: 5
+		PipCount: 5
+		UnloadFacing: 0
+
+HELLD4:
+	Inherits: ^Infantry
+	Buildable:
+		Queue: Infantry
+		Prerequisites: pdox2
+		BuildPaletteOrder: 150
+		Owner: uac
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Imp
+		Description: Anti-infantry demon.\n  Strong vs Infantry, Light Vehicles\n  Weak vs Structures
+	Selectable:
+		Voice: DoomImpVoice
+		Bounds: 14,19,0,-9
+	Health:
+		HP: 300
+	Mobile:
+		Speed: 5
+	AttackFrontal:
+		PrimaryWeapon: DoomImp
+		PrimaryOffset: 0,8,0,-9
+	RenderInfantry:
+	-TeslaInstantKills:
+	RevealsShroud:
+		Range: 6
+	Passenger: 
+		CargoType: Infantry
+		PipType: Yellow
+		Weight: 2
+	CrushableInfantry:
+		CrushClasses: lightvehicle
+
+HELLD1:
+	Inherits: ^Infantry
+	Buildable:
+		Queue: Infantry
+		Prerequisites: pdox2
+		BuildPaletteOrder: 160
+		Owner: uac
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Cacodemon
+		Description: Floating anti-infantry demon.\nFloats over everything.\n  Strong vs Infantry, Light Vehicles\n  Weak vs Structures, AA Defenses
+	Selectable:
+		Voice: DoomCacodemonVoice
+		Bounds: 27,27,0,-9
+	Health:
+		HP: 400
+	Mobile:
+		Crushes: apmine, crate
+		SharesCell: false
+		TerrainSpeeds:
+			Clear: 90
+			Rough: 80
+			Road: 100
+			Ore: 80
+			Beach: 80	
+			Water: 80	
+			River: 40	
+			Wall: 40	
+			Rock: 40	
+		Speed: 7
+	AttackFrontal:
+		PrimaryWeapon: DoomCacodemon
+		PrimaryOffset: 0,8,0,-9
+	RenderInfantry:
+	-TeslaInstantKills:
+	Chronoshiftable:
+	RevealsShroud:
+		Range: 7
+	TargetableUnit:
+		TargetTypes: Ground
+	Passenger: 
+		CargoType: Infantry
+		PipType: Yellow
+		Weight: 4
+	GpsDot:
+		String:Helicopter
+	CrushableInfantry:
+		CrushClasses: lightvehicle
+
+HELLD2:
+	Inherits: ^Infantry
+	Buildable:
+		Queue: Infantry
+		Prerequisites: pdox2
+		BuildPaletteOrder: 170
+		Owner: uac
+	Valued:
+		Cost: 1350
+	Tooltip:
+		Name: Baron of Hell
+		Description: Anti-armour demon.\n  Strong vs Vehicles\n  Weak vs Infantry
+	Selectable:
+		Voice: DoomBaronVoice
+		Bounds: 20,30,0,-15
+	Health:
+		HP: 700
+	Mobile:
+		SharesCell: false
+		Speed: 5
+	Armor:
+		Type: Heavy
+	AttackFrontal:
+		PrimaryWeapon: DoomBaron
+		SecondaryWeapon: DoomBaronScratch
+		PrimaryOffset: 0,8,0,-9
+	RenderInfantry:
+	-TeslaInstantKills:
+	RevealsShroud:
+		Range: 8
+	Passenger: 
+		CargoType: Infantry
+		PipType: Yellow
+		Weight: 4
+	#AnnounceOnBuild:
+	Chronoshiftable:
+	GpsDot:
+		String:Vehicle
+	-CrushableInfantry:
+
+helld3:
+	Inherits: ^Infantry
+	Buildable:
+		Queue: Infantry
+		Prerequisites: pdox2,mslo
+		BuildPaletteOrder: 180
+		Owner: uac
+	Valued:
+		Cost: 3200
+	Tooltip:
+		Name: Cyberdemon
+		Description: Anti-everything demon.\n  Strong vs Everything\n  Weak vs Nothing
+	Selectable:
+		Voice: DoomCyberdemonVoice
+		Bounds: 25,35,0,-15
+	Health:
+		HP: 1000
+	Mobile:
+		Crushes: wall, atmine, crate, infantry, lightvehicle
+		SharesCell: false
+		Speed: 4
+	Armor:
+		Type: Heavy
+	AttackFrontal:
+		PrimaryWeapon: DoomCyberdemon
+		SecondaryWeapon: DoomCyberdemonAir
+		PrimaryOffset: 0,8,0,-9
+		SecondaryOffset: 0,8,0,-9
+	RenderInfantry:
+	-TeslaInstantKills:
+	RevealsShroud:
+		Range: 9
+	Passenger: 
+		CargoType: Infantry
+		PipType: Red
+		Weight: 6
+	AnnounceOnBuild:
+	Chronoshiftable:
+	ParachuteAttachment:
+		ParachuteSprite: piff
+	GpsDot:
+		String:Vehicle
+	-CrushableInfantry:
+
+DMDD:
+	Inherits: ^Ship
+	Buildable:
+		Queue: Ship
+		BuildPaletteOrder: 100
+		Prerequisites: techcenter
+		BuiltAt: syrd
+		Owner: uac
+	Valued:
+		Cost: 3200
+	Tooltip:
+		Name: Fortress
+		Description: Very slow assault transport ship. \n  Strong vs Buildings\n  Weak vs Ships, Submarines
+	Health:
+		HP: 1600
+	Armor:
+		Type: Heavy
+	Mobile:
+		ROT: 2
+		Speed: 2
+	RevealsShroud:
+		Range: 7
+	Turreted:
+		ROT: 3
+	AttackTurreted:
+		PrimaryWeapon: Tomahawk
+		SecondaryWeapon: 8inch
+		PrimaryOffset: 0,17,0,-2
+		SecondaryOffset: 0,-17,0,-2
+		PrimaryLocalOffset: -4,-5,0,4,-5,0
+		SecondaryLocalOffset: -4,-5,0,4,-5,0
+		Recoil: 4
+	Selectable:
+		Bounds: 50,50
+	RenderUnitTurreted:
+	AutoTarget:
+	Chronoshiftable:
+	IronCurtainable:
+	RepairableNear:
+	Cargo:
+		Types: Infantry, Vehicle
+		MaxWeight: 14
+		Passengers: 14
+		PipCount: 14
+	ShakeOnDeath:
+
+
+ATRAN:
+	Inherits: ^Helicopter
+	Buildable:
+		Queue: Plane
+		BuildPaletteOrder: 110
+		Prerequisites: hpad, techcenter
+		BuiltAt: hpad,carrb
+		Owner: uac
+	Valued:
+		Cost: 2200
+	Tooltip:
+		Name: Assault Transport
+		Icon: TRAN2ICON
+		Description: Transports vehicles.\n  Strong vs. Ground Units
+	Health:
+		HP: 600
+	Armor: 
+		Type: Light
+	RevealsShroud:
+		Range: 14
+	AttackHeli:
+		PrimaryWeapon: ChainGunReload
+		SecondaryWeapon: M1CarbineChopper
+		PrimaryOffset: -5,-2,0,2
+		SecondaryOffset: 5,-2,0,2
+		FacingTolerance: 20
+	Helicopter:
+		RearmBuildings: hpad,carrb
+		InitialFacing: 0
+		ROT: 5
+		Speed: 12
+		LandableTerrainTypes: Clear,Rough,Road,Ore,Beach
+	RenderUnit:
+		Image: TRAN
+	WithRotor@PRIMARY:
+		Offset: 0,14,0,-8
+	WithRotor@SECONDARY:
+		Id: rotor_2
+		Offset: 0,-14,0,-5
+	WithShadow:
+	Cargo:
+		Types: Infantry, Vehicle
+		MaxWeight: 8
+		Passengers: 8
+		PipCount: 8
+	IronCurtainable:
+	WithMuzzleFlash:
+	FallsToEarth:
+		Explosion: UnitExplode
+	AutoTarget:
+
+HELIX:
+	Inherits: ^Helicopter
+	Buildable:
+		Queue: Plane
+		BuildPaletteOrder: 900
+		Prerequisites: umis,!HelixExist
+		BuiltAt: hpad
+		Owner: uac
+	ProvidesCustomPrerequisite:
+		Prerequisite: HelixExist
+	Valued:
+		Cost: 12500
+	Tooltip:
+		Name: Helix
+		Description: Massive helicopter gunship.\nCan transport infantry and vehicles.\n  Strong vs Everything.\n  Weak vs Nothing
+	Health:
+		HP: 10000
+	Armor:
+		Type: Helix
+	RevealsShroud:
+		Range: 16
+	AttackHeli:
+		PrimaryWeapon: HelixBFG
+		SecondaryWeapon: HelixChaingun
+		PrimaryOffset: -5,-2,0,2
+		SecondaryOffset: 5,-2,0,2
+		FacingTolerance: 40
+	Helicopter:
+		RearmBuildings: hpad,carrb
+#		LandWhenIdle: false
+		InitialFacing: 20
+		ROT: 3
+		Speed: 10
+		LandableTerrainTypes: Clear,Rough,Road,Ore,Beach
+		IdealSeparation: 100
+	RenderUnit:
+		Scale: 0.8
+		Smokes: yes
+	WithRotor:
+	WithShadow:
+#	LimitedAmmo:
+#		Ammo: 24
+#		PipCount: 6
+	IronCurtainable:
+	Selectable:
+		Bounds: 84,84,0,0
+		Voice: HelixVoice
+	AnnounceOnBuild:
+	AnnounceOnKill:
+	WithMuzzleFlash:
+	AutoTarget:
+	FallsToEarth:
+		Explosion: Atomic
+	SmokeTrailWhenDamaged:
+		Offset: 0,-10
+	Cargo:
+		Types: Infantry, Vehicle
+		MaxWeight: 20
+		Passengers: 20
+		PipCount: 20
+		UnloadFacing: 20
+		InitialUnits: DM2,DM2,DM2,DM2,DM2,DM2,DM2,DM2
+	EjectOnDeath:
+		PilotActor: DM4
+		SuccessRate: 100

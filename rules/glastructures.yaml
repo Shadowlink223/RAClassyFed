@@ -1,0 +1,765 @@
+GFOUNDRY:
+	Inherits: ^Building
+	Buildable:
+		Queue: Special
+		BuildPaletteOrder: 2
+		Prerequisites: fact
+		Owner: gla
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Foundry
+		Icon: FACTICON
+		Description: Provides extra construction tab, \n  but produces slower.
+	Building:
+		Power: 0
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 600
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 5
+	Bib:
+	IronCurtainable:
+	Production:
+		Produces: Building,Defense
+	ProductionQueue@Building:
+		Type: Building
+		BuildSpeed: .5
+		LowPowerSlowdown: 2
+		QueuedAudio: abldgin1.aud
+		ReadyAudio: conscmp1.aud
+#	ProductionQueue@Defense:
+#		Type: Defense
+#		BuildSpeed: .5
+#		LowPowerSlowdown: 2
+#		QueuedAudio: abldgin1.aud
+#		ReadyAudio: conscmp1.aud
+	RenderBuilding:
+		Image: FCOM
+
+GPAL:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 100
+		Prerequisites: Radar,Factory
+		Owner: gla
+	Valued:
+		Cost: 2500
+	Tooltip:
+		Name: Palace
+		Description: GLA's motivator. Provides advanced tech.\n  Special Ability: GPS Satellite
+	Building:
+		Power: 0
+		Footprint: xxx xxx
+		Dimensions: 3,2
+	Health:
+		HP: 400
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 10
+	Bib:
+	IronCurtainable:
+	RenderBuilding:
+		Image: V01
+		Scale: 1.5
+	GpsPower:
+		Image: gpssicon
+		OneShot: yes
+		ChargeTime: 600
+		Description: GPS Satellite
+		LongDesc: Reveals the entire map
+		RevealDelay: 15
+		LaunchSound: satlnch1.aud
+	SupportPowerChargeBar:
+
+GTENT:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 30
+#		Prerequisites: gpal
+		Owner: gla
+		Hotkey: b
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Barracks
+		Icon: TENTICON
+		Description: Produces infantry
+	Building:
+		Power: 0
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 800
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 5
+	Bib:
+	RallyPoint:
+	Exit@1:
+		SpawnOffset: -1,19
+		ExitCell: 0,2
+	Exit@2:
+		SpawnOffset: -17,15
+		ExitCell: 0,2
+	Production:
+		Produces: Infantry
+	PrimaryBuilding:
+	IronCurtainable:
+	ProductionBar:
+	ProductionQueue:
+		Type: Infantry
+		BuildSpeed: .4
+		LowPowerSlowdown: 2
+	RenderBuilding:
+		Image: TENT
+
+GPROC:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 10
+#		Prerequisites: gpal
+		Owner: gla
+		Hotkey: e
+	Valued:
+		Cost: 1400
+	Tooltip:
+		Name: Oil Derrick
+		Description: Converts Ore and Gems into money
+	Building:
+		Power: 0
+		Footprint: _x_ xxx x==
+		Dimensions: 3,3
+	ProvidesCustomPrerequisite:
+		Prerequisite: Refinery
+	Health:
+		HP: 700
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 6
+	Bib:
+	OreRefinery:
+	StoresOre:
+		PipCount: 17
+		Capacity: 4000
+	IronCurtainable:
+	CustomSellValue:
+		Value: 600
+	FreeActor@1:
+		Actor: GHARV
+		InitialActivity: FindResources
+		SpawnOffset: 1,2
+		Facing: 64
+	FreeActor@2:
+		Actor: GHARV
+		InitialActivity: FindResources
+		SpawnOffset: 1,2
+		Facing: 64
+	InfiltrateForCash:
+		Percentage: 50
+		Minimum: 500
+		SoundToVictim: credit1.aud
+	CashTrickler:
+		Period: 500
+		Amount: 20
+	RenderBuilding:
+		Image: OILB
+		Scale: 1.5
+
+GSILO:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 40
+		Prerequisites: gproc
+		Owner: gla
+		Hotkey: o
+	Valued:
+		Cost: 150
+	Tooltip:
+		Name: Silo
+		Icon: SILOICON
+		Description: Stores excess harvested Ore
+	Building:
+		Power: 0
+	Health:
+		HP: 250
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 4
+	RenderBuildingSilo:
+		Image: silo
+	StoresOre:
+		PipCount: 5
+		Capacity: 1750
+	IronCurtainable:
+	-RenderBuilding:
+	-EmitInfantryOnSell:
+	InfiltrateForCash:
+		Percentage: 25
+		Minimum: 250
+		SoundToVictim: credit1.aud
+
+GWEAP:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 50
+		Prerequisites: gproc
+		Owner: gla
+		Hotkey: w
+	Valued:
+		Cost: 2000
+	ProvidesCustomPrerequisite:
+		Prerequisite: Factory
+	Tooltip:
+		Name: Arms Dealer
+		Icon: WEAPICON
+		Description: Produces tanks & light vehicles.
+	Building:
+		Power: 0
+		Footprint: xxx xxx
+		Dimensions: 3,2
+	Health:
+		HP: 2000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 4
+	Bib:
+	-RenderBuilding:
+	RenderBuildingWarFactory:
+		Image: WEAP
+	RallyPoint:
+	Exit@1:
+		SpawnOffset: 5,0
+		ExitCell: 1,1
+	Production:
+		Produces: Vehicle
+	PrimaryBuilding:
+	IronCurtainable:
+	ProductionBar:
+	ProductionQueue:
+		Type: Vehicle
+		BuildSpeed: .4
+		LowPowerSlowdown: 2
+		QueuedAudio: abldgin1.aud
+
+GFIX:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 30
+		Prerequisites: Factory
+		Owner: gla
+		Hotkey: d
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Service Depot
+		Icon: FIXICON
+		Description: Repairs vehicles, reloads minelayers, and \nallows the construction of additional bases.
+	Building:
+		Power: 0
+		Footprint: _x_ xxx _x_
+		Dimensions: 3,3
+	Health:
+		HP: 700
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 5
+	BelowUnits:
+	Reservable:
+	RallyPoint:
+	IronCurtainable:
+	RepairsUnits:
+		Interval: 5
+	RenderBuilding:
+		Image: FIX
+
+GAGUN:
+	RequiresPower:
+	CanPowerDown:
+	Inherits: ^Building
+#	Buildable:
+#		Queue: Defense
+#		BuildPaletteOrder: 175
+#		Prerequisites: Radar
+#		Owner: gla
+#		Hotkey: g
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: AA Gun
+		Icon: AGUNICON
+		Description: Anti-Air base defense.\n  Strong vs Aircraft\n  Weak vs Infantry, Tanks
+	Building:
+		Power: 0
+		Footprint: _ x
+		Dimensions: 1,2
+	Health:
+		HP: 320
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 6
+	Turreted:
+		ROT: 15
+		InitialFacing: 224
+	RenderBuildingTurreted:
+		Image: AGUN
+	AttackTurreted:
+		PrimaryWeapon: ZSU-23
+		SecondaryWeapon: ZSU-23
+		ScanTimeAverage: 0.1
+		ScanTimeSpread: 0.1
+	AutoTarget:
+	IronCurtainable:
+	-RenderBuilding:
+	RenderRangeCircle:
+		RangeCircleType: aa
+	-AcceptsSupplies:
+
+GPBOX.E1:
+	Inherits: PBOX
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 20
+		Prerequisites: gtent
+		Owner: gla
+		Hotkey: p
+	Tooltip:
+		Name: Pillbox (Guns)
+		Description: Basic defensive structure.\n  Strong vs Infantry, Light Vehicles\n  Weak vs Tanks, Aircraft
+		Icon: PBOXICON
+	RenderBuilding:
+		Image: PBOX
+	RenderRangeCircle:
+	AutoTarget:
+	AttackTurreted:
+		PrimaryWeapon: Vulcan
+		PrimaryLocalOffset: 0,-11,0,0,0
+	WithMuzzleFlash:
+	Cargo:
+		InitialUnits: ge1
+
+GUN3:
+	Inherits: ^Building
+#	Buildable:
+#		Queue: Defense
+#		BuildPaletteOrder: 170
+#		Prerequisites: gtent
+#		Owner: gla
+#		Hotkey: t
+	Valued:
+		Cost: 750
+	Tooltip:
+		Name: Turret
+		Icon: GUNICON
+		Description: Anti-Armor base defense.\n  Strong vs Tanks\n  Weak vs Infantry, Aircraft
+	Building:
+		Power: 0
+	Health:
+		HP: 330
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 8
+	Turreted:
+		ROT: 12
+		InitialFacing: 50
+	-RenderBuilding:
+	RenderBuildingTurreted:
+		Image: GUN
+	AttackTurreted:
+		PrimaryWeapon: TurretGun
+		ScanTimeAverage: 0.1
+		ScanTimeSpread: 0.1
+	AutoTarget:
+	IronCurtainable:
+	RenderRangeCircle:
+	-AcceptsSupplies:
+
+GBLK:
+	Inherits: ^Building
+	Buildable:
+		Queue: Special
+		BuildPaletteOrder: 100
+		Prerequisites: gpal
+		Owner: gla
+	Valued:
+		Cost: 2500
+	Tooltip:
+		Name: Black Market
+		Description: Provides income.\n  Special Ability: Paratroopers
+	Building:
+		Power: 0
+		Footprint: xxxx xxxx
+		Dimensions: 4,2
+	Health:
+		HP: 800
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 10
+	Bib:
+	IronCurtainable:
+	RenderBuilding:
+	SupportPowerChargeBar:
+	CashTrickler:
+		Period: 400
+		Amount: 30
+	ParatroopersPower:
+		Image: pinficon
+		ChargeTime: 300
+		Description: Paratroopers
+		LongDesc: A Badger drops a bunch of Rebels \nanywhere on the map
+		DropItems: GE1,GE1,GE1,GE1,GE2,GE2,GE2,GE3,GE3
+		SelectTargetSound: slcttgt1.aud
+		UnitType: badr.paradrop
+		AllowMultiple: Yes	
+
+#place holder
+GMSLO:
+	Inherits: ^Building
+	Valued:
+		Cost: 5000
+	Tooltip:
+		Name: Missile Silo
+		Description: Launches a devastating nuclear strike.\n  Strong vs Infantry, Buildings\n  Weak vs Tanks\n  Special Ability: Nuclear Missile\n  Can have multiple nukes.
+		Icon: msloicon2
+	Buildable:
+		Queue: Special
+		BuildPaletteOrder: 200
+		Prerequisites: gpal,gblk
+		Owner: gla
+	Building:
+		Power: 0
+		Footprint: xx
+		Dimensions: 2,1
+	Health:
+		HP: 350
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 5
+	IronCurtainable:
+	NukePower:
+		Image: atomicon
+		ChargeTime: 480
+		Description: Atom Bomb
+		LongDesc: Launches a nuclear missile at a target location.
+		BeginChargeSound: aprep1.aud
+		EndChargeSound: aready1.aud
+		SelectTargetSound: slcttgt1.aud
+		LaunchSound: alaunch1.aud
+		MissileWeapon: GLAAtomic
+		SpawnOffset: 10,0
+		AllowMultiple: yes
+#	CanPowerDown:
+#	RequiresPower:
+	SupportPowerChargeBar:
+	Explodes:
+		Weapon: Atomic
+		Chance: 100		
+	InfiltrateForSupportPower:
+		Proxy: powerproxy.onenuke
+	RenderBuilding:
+		Image: MSLO
+
+GEYE:
+	Inherits: ^Building
+	RequiresPower:
+	CanPowerDown:
+	Buildable:
+		Queue: Special
+		BuildPaletteOrder: 190
+		Prerequisites: gpal,gblk
+		Owner: gla
+		Hotkey: t
+	Valued:
+		Cost: 4000
+	Tooltip:
+		Name: Scrambling Control
+		Icon: EYEICNH
+		Description: Provides cloak crate drop.\n  Special Ability: Stealth Kits
+	Building:
+		Power: 0
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 400
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 10
+#	Bib:
+	IronCurtainable:
+	SupportPowerChargeBar:
+	ProvidesRadar:
+	RenderBuilding:
+		Image: EYE
+	ParatroopersPower:
+		Image: crtdicon
+		ChargeTime: 240
+		Description: Stealth Kit
+		LongDesc: A Badger drops a stealth crate \nanywhere on the map
+		OneShot: no
+		AllowMultiple: yes
+		DropItems: scrate
+		UnitType: badr.crate
+		SelectTargetSound: slcttgt1.aud
+#		FlareType: flare3
+	InfiltrateForExploration:
+
+
+GSYRD:
+	InfiltrateForSupportPower:
+		Proxy: powerproxy.sonarpulse
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 40
+		Prerequisites: gtent
+		Owner: gla
+		Hotkey: y
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Shipyard
+		Icon: SYRDICON
+		Description: Produces and repairs ships
+	TargetableBuilding:
+		TargetTypes: Ground, Water
+	Building:
+		Power: 0
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+		Adjacent: 8
+		TerrainTypes: Water
+	Health:
+		HP: 500
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 4
+	Exit@1:
+		SpawnOffset: -24,24
+		Facing: 160
+		ExitCell: 0,2
+	Exit@2:
+		SpawnOffset: 24,24
+		Facing: 224
+		ExitCell: 2,2
+	Exit@3:
+		SpawnOffset: -24,-24
+		Facing: 96
+		ExitCell: 0,0
+	Exit@4:
+		SpawnOffset: 24,-24
+		Facing: 32
+		ExitCell: 2,0
+	Production:
+		Produces: Ship
+	PrimaryBuilding:
+	IronCurtainable:
+	-EmitInfantryOnSell:
+	RepairsUnits:
+	RallyPoint:
+	ProductionBar:
+	ProductionQueue:
+		Type: Ship
+		BuildSpeed: .4
+		LowPowerSlowdown: 2
+	RenderBuilding:
+		Image: SYRD
+
+GXBAR:
+	Inherits: ^Building
+	Selectable:
+		Priority: 0
+	-RepairableBuilding:
+	Valued:
+		Cost: 1400
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 9000
+		Prerequisites: gpal
+		Owner: gla
+		Hotkey: x
+	Building:
+		BaseNormal: no
+		Adjacent: 5
+		TerrainTypes: Clear,Road,Water,Rough,Beach,Ore
+	Health:
+		HP: 150
+	Tooltip:
+		Name: Demo Trap
+		Icon: XBARICON
+		Description: Proxy-detonated explosive trap.\n  Strong vs Everything
+	Cloak:
+		InitialDelay: 0
+		CloakDelay: 50
+		CloakSound: 
+		UncloakSound: 
+		Palette: shadow
+	AttackTesla:
+		PrimaryWeapon: DemoTrapKill
+		ReloadTime: 100
+		ScanTimeAverage: 0.1
+		ScanTimeSpread: 0.1
+	-GivesBuildableArea:
+	-RenderBuilding:
+	RenderBuildingCharge:
+		Image: BRL3
+		ChargeAudio: gdembeep.aud
+	Explodes:
+		Weapon: DemoTrapBomb
+		EmptyWeapon: DemoTrapBomb
+	RenderRangeCircle:
+	AutoTarget:
+	-MustBeDestroyed:
+	-TargetableBuilding:
+	TargetableUnit:
+		TargetTypes: Ground
+
+GPRXM:
+	Inherits: ^Building
+	Selectable:
+		Priority: 0
+	-RepairableBuilding:
+	Valued:
+		Cost: 400
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 8800
+		Prerequisites: gweap
+		Owner: gla
+		Hotkey: x
+	Building:
+		BaseNormal: no
+		Adjacent: 5
+		TerrainTypes: Clear,Road,Water,Rough,Beach,Ore
+	Health:
+		HP: 150
+	Tooltip:
+		Name: Proxy Mine
+		Icon: PRXMICON
+		Description: Proxy-detonated explosive.\n  Strong vs Infantry, Vehicles
+	Armor:
+		Type: Alamantium
+	Cloak:
+		InitialDelay: 0
+		CloakDelay: 50
+		CloakSound: 
+		UncloakSound: 
+		Palette: shadow
+	AttackTesla:
+		PrimaryWeapon: ProxyMineKill
+		ReloadTime: 100
+		ScanTimeAverage: 0.1
+		ScanTimeSpread: 0.1
+	-GivesBuildableArea:
+	-RenderBuilding:
+	RenderBuildingCharge:
+		Image: minv
+		ChargeAudio: 
+	Explodes:
+		Weapon: ProxyMineBlow
+		EmptyWeapon: ProxyMineBlow
+	RenderRangeCircle:
+	AutoTarget:
+	-MustBeDestroyed:
+	-TargetableBuilding:
+	TargetableUnit:
+		TargetTypes: Ground
+
+GSTG:
+	Inherits: ^Building
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 170
+		Prerequisites: gtent
+		Owner: gla
+		Hotkey: t
+	Valued:
+		Cost: 900
+	Tooltip:
+		Name: Stinger Site
+		Description: Anti-Armor/Anti-Air base defense.\n Detects cloaked units.\n  Strong vs Tanks, Aircraft\n  Weak vs Infantry
+	Building:
+		Power: 0
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 350
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 8
+	Turreted:
+		ROT: 255
+		InitialFacing: 220
+	-RenderBuilding:
+	RenderBuildingTurreted:
+	AttackTurreted:
+		PrimaryWeapon: StingerOne
+		SecondaryWeapon: StingerTwo
+		ScanTimeAverage: 0.1
+		ScanTimeSpread: 0.1
+	AutoTarget:
+	IronCurtainable:
+	RenderRangeCircle:
+	-AcceptsSupplies:
+	DetectCloaked:
+		Range: 7
+	RenderDetectionCircle:
+	Cargo:
+		Types: Techy
+		MaxWeight: 1
+	EmitInfantryOnSell:
+		ActorTypes: ge2,ge2		
+#	EmitCargoOnSell:
+	TransformOnPassenger@tech:
+		PassengerTypes: gtech
+		OnEnter: gstg.cloak
+		OnExit: gstg
+		SkipMakeAnims: true
+
+GSTG.cloak:
+	Inherits: GSTG
+	-Buildable:
+	Valued:
+		Cost: 1800
+	Tooltip:
+		Name: Upgraded Stinger Site
+	Building:
+		Power: 0
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 500
+	RevealsShroud:
+		Range: 9
+	RenderBuildingTurreted:
+		Image: GSTG
+	DetectCloaked:
+		Range: 8
+	-Cargo:
+	Cloak:
+		InitialDelay: 0
+		CloakDelay: 100
+		CloakSound: ironcur9.aud
+		UncloakSound: ironcur9.aud
+		Palette: shadow

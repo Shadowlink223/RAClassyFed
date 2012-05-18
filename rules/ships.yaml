@@ -1,0 +1,424 @@
+SS:
+	Inherits: ^Ship
+	Buildable:
+		Queue: Ship
+		BuildPaletteOrder: 50
+		BuiltAt: spen
+		Owner: soviet,nod,uac
+	Valued:
+		Cost: 950
+	Tooltip:
+		Name: Submarine
+		Description: Submerged anti-ship unit armed with \ntorpedoes.\n  Strong vs Ships\n  Weak vs Everything\n  Special Ability: Submerge
+	Health:
+		HP: 250
+	Armor:
+		Type: Light
+	Mobile:
+		ROT: 4
+		Speed: 5
+	RevealsShroud:
+		Range: 7
+	-TargetableUnit:
+	TargetableSubmarine:
+		TargetTypes: Ground, Water
+		CloakedTargetTypes: Underwater
+	RenderUnit:
+	Cloak:
+		InitialDelay: 0
+		CloakDelay: 100
+		CloakSound: subshow1.aud
+		UncloakSound: subshow1.aud
+		Palette: shadow
+	AttackFrontal:
+		PrimaryWeapon: TorpTube
+		PrimaryLocalOffset: -4,0,0,4,0,0
+		FireDelay: 2
+	Selectable:
+		Bounds: 38,38
+	Chronoshiftable:
+	IronCurtainable:
+	RepairableNear:
+	DetectCloaked:
+		Range: 4
+	AutoTarget:
+	RenderDetectionCircle:
+	AttackMove:
+		JustMove: yes
+
+MSUB:
+	Inherits: ^Ship
+	Buildable:
+		Queue: Ship
+		BuildPaletteOrder: 60
+		Prerequisites: techcenter
+		BuiltAt: spen
+		Owner: soviet,nod
+	Valued:
+		Cost: 2400
+	Tooltip:
+		Name: Missile Submarine
+		Description: Submerged anti-ground unit armed with \nlong-range ballistic missiles.\n  Strong vs Buildings\n  Weak vs Everything\n  Special Ability: Submerge
+	Health:
+		HP: 300
+	Armor:
+		Type: Light
+	Mobile:
+		ROT: 3
+		Speed: 3
+	RevealsShroud:
+		Range: 6
+	RenderUnit:
+	-TargetableUnit:
+	TargetableSubmarine:
+		TargetTypes: Ground, Water
+		CloakedTargetTypes: Underwater
+	Cloak:
+		InitialDelay: 0
+		CloakDelay: 100
+		CloakSound: subshow1.aud
+		UncloakSound: subshow1.aud
+		Palette: shadow
+	AttackFrontal:
+		PrimaryWeapon: SubMissile
+		FireDelay: 2
+	Selectable:
+		Bounds: 44,44
+	Chronoshiftable:
+	IronCurtainable:
+	RepairableNear:
+	-DetectCloaked:
+	AttackMove:
+		JustMove: yes
+
+DD:
+	Inherits: ^Ship
+	Buildable:
+		Queue: Ship
+		BuildPaletteOrder: 70
+		BuiltAt: syrd
+		Owner: allies
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Destroyer
+		Description: Fast multi-role ship. \n  Strong vs Submarines, Aircraft\n  Weak vs Infantry, Tanks
+	Health:
+		HP: 400
+	Armor:
+		Type: Heavy
+	Mobile:
+		ROT: 7
+		Speed: 6
+	RevealsShroud:
+		Range: 6
+	Turreted:
+		ROT: 7
+	AttackTurreted:
+		PrimaryWeapon: Stinger
+		SecondaryWeapon: DepthCharge
+		PrimaryOffset: 0,-8,0,-3
+		PrimaryLocalOffset: -4,0,-20,4,0,20
+	Selectable:
+		Bounds: 38,38
+	RenderUnitTurreted:
+	AutoTarget:
+	Chronoshiftable:
+	IronCurtainable:
+	RepairableNear:
+	DetectCloaked:
+		Range: 4
+	RenderDetectionCircle:
+
+CA:
+	Inherits: ^Ship
+	Buildable:
+		Queue: Ship
+		BuildPaletteOrder: 100
+		Prerequisites: techcenter
+		BuiltAt: syrd
+		Owner: allies
+	Valued:
+		Cost: 2400
+	Tooltip:
+		Name: Cruiser
+		Description: Very slow long-range ship. \n  Strong vs Buildings\n  Weak vs Ships, Submarines
+	Health:
+		HP: 1500
+	Armor:
+		Type: Heavy
+	Mobile:
+		ROT: 2
+		Speed: 2
+	RevealsShroud:
+		Range: 7
+	Turreted:
+		ROT: 3
+	AttackTurreted:
+		PrimaryWeapon: 8Inch
+		SecondaryWeapon: 8Inch
+		PrimaryOffset: 0,17,0,-2
+		SecondaryOffset: 0,-17,0,-2
+		PrimaryLocalOffset: -4,-5,0,4,-5,0
+		SecondaryLocalOffset: -4,-5,0,4,-5,0
+		Recoil: 4
+	Selectable:
+		Bounds: 44,44
+	RenderUnitTurreted:
+	AutoTarget:
+	Chronoshiftable:
+	IronCurtainable:
+	RepairableNear:
+	ShakeOnDeath:
+
+LST:
+	Inherits: ^Ship
+	Buildable:
+		Queue: Ship
+		BuildPaletteOrder: 30
+		Owner: allies,soviet,gdi,nod,fed,uac,gla
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Transport
+		Description: General-purpose naval transport.\nCan carry infantry and tanks.\n  Unarmed
+	Health:
+		HP: 350
+	Armor:
+		Type: Heavy
+	Mobile:
+		ROT: 10
+		Speed: 12
+	RevealsShroud:
+		Range: 6
+	RenderUnit:
+	Cargo:
+		Types: Infantry, Vehicle, Epic
+		MaxWeight: 10
+		Passengers: 10
+		PipCount: 10
+	IronCurtainable:
+	RepairableNear:
+	AttackMove:
+		JustMove: true
+
+LST2:
+	Inherits: ^Ship
+	Buildable:
+		Queue: Ship
+		BuildPaletteOrder: 30
+		Owner: allies,soviet,gdi,nod,fed,uac
+	Valued:
+		Cost: 1100
+	Tooltip:
+		Name: V.I.P Transport
+		Description: Looks different and has more armour.\Also moves slower.\n  Unarmed
+		Icon: LSTICON
+	Health:
+		HP: 425
+	Armor:
+		Type: Heavy
+	Mobile:
+		ROT: 10
+		Speed: 11
+	RevealsShroud:
+		Range: 6
+	RenderUnit:
+	Cargo:
+		Types: Infantry, Vehicle, Epic
+		MaxWeight: 10
+		Passengers: 10
+		PipCount: 10
+	IronCurtainable:
+	RepairableNear:
+	AttackMove:
+		JustMove: true
+
+PT:
+	Inherits: ^Ship
+	Buildable:
+		Queue: Ship
+		BuildPaletteOrder: 50
+		Prerequisites: syrd
+		BuiltAt: syrd
+		Owner: allies,gdi,fed
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Gunboat
+		Description: Light scout & support ship. \n  Strong vs Ships, Submarines\n  Weak vs Aircraft
+	Health:
+		HP: 200
+	Armor:
+		Type: Heavy
+	Mobile:
+		ROT: 7
+		Speed: 9
+	RevealsShroud:
+		Range: 7
+	Turreted:
+		ROT: 7
+	AttackTurreted:
+		PrimaryWeapon: 2Inch
+		SecondaryWeapon: DepthCharge
+		PrimaryOffset: 0,-6,0,-1
+	Selectable:
+		Bounds: 32,32
+	RenderUnitTurreted:
+	AutoTarget:
+	Chronoshiftable:
+	IronCurtainable:
+	RepairableNear:
+
+CARR:
+	Inherits: ^Ship
+#	Buildable:
+#		Queue: Ship
+#		BuildPaletteOrder: 300
+#		Prerequisites: techcenter,hpad
+#		Owner: soviet,gdi
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Helicarrier
+		Description: Deploys into stationary water-bound helipad.\nAlso serves as a production pad.\n  Unarmed
+	Health:
+		HP: 400
+	Armor:
+		Type: Heavy
+	Mobile:
+		ROT: 10
+		Speed: 8
+	RevealsShroud:
+		Range: 6
+	RenderUnit:
+	IronCurtainable:
+	RepairableNear:
+	Transforms:
+		IntoActor: carrb
+		Offset:0,0
+		Facing: 96
+		TransformSounds: placbldg.aud, build5.aud
+		NoTransformSounds: nodeply1.aud
+	AttackMove:
+		JustMove: true
+
+DD2:
+	Inherits: ^Ship
+	Buildable:
+		Queue: Ship
+		BuildPaletteOrder: 70
+		Prerequisites: syrd
+		BuiltAt: syrd
+		Owner: allies,gdi,fed
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Air-Destroyer
+		Icon: DDICON
+		Description: Fast Anti-Air and Infantry ship. \n  Strong vs Infantry, Aircraft\n  Weak vs Tanks, Base Defences
+	Health:
+		HP: 500
+	Armor:
+		Type: Heavy
+	Mobile:
+		ROT: 6
+		Speed: 5
+	RevealsShroud:
+		Range: 6
+	Turreted:
+		ROT: 7
+	AttackTurreted:
+		PrimaryWeapon: FLAK-DD
+		SecondaryWeapon: DepthCharge
+		PrimaryOffset: 0,-8,0,-3
+		PrimaryLocalOffset: -4,0,-20,4,0,20
+		Recoil: 2
+	Selectable:
+		Bounds: 38,38
+	RenderUnitTurreted:
+	AutoTarget:
+	Chronoshiftable:
+	IronCurtainable:
+	RepairableNear:
+
+DD3:
+	Inherits: ^Ship
+	Buildable:
+		Queue: Ship
+		BuildPaletteOrder: 70
+		Prerequisites: techcenter
+		BuiltAt: syrd
+		Owner: gdi,fed
+	Valued:
+		Cost: 1400
+	Tooltip:
+		Name: Destroyer
+		Icon: DDICON
+		Description: Anti-Ground ship. \n  Strong vs Infantry, Vehicles, Subs\n  Weak vs Aircraft
+	Health:
+		HP: 600
+	Armor:
+		Type: Heavy
+	Mobile:
+		ROT: 6
+		Speed: 4
+	RevealsShroud:
+		Range: 6
+	Turreted:
+		ROT: 7
+	AttackTurreted:
+		PrimaryWeapon: Tomahawk
+		SecondaryWeapon: DepthCharge
+		PrimaryOffset: 0,-8,0,-3
+		PrimaryLocalOffset: -4,0,-20,4,0,20
+		Recoil: 2
+	Selectable:
+		Bounds: 38,38
+	RenderUnitTurreted:
+		Image: DD
+	AutoTarget:
+	Chronoshiftable:
+	IronCurtainable:
+	RepairableNear:
+
+CRUISEMIS:
+	Inherits: ^Ship
+	Buildable:
+		Queue: Ship
+		BuildPaletteOrder: 100
+		Prerequisites: techcenter
+		BuiltAt: syrd
+		Owner: fed
+	Valued:
+		Cost: 2300
+	Tooltip:
+		Name: Cruise Missile Frigate
+		Description: Very slow long-range ship. \n  Strong vs Buildings\n  Weak vs Ships, Submarines
+	Health:
+		HP: 500
+	Armor:
+		Type: Heavy
+	Mobile:
+		ROT: 2
+		Speed: 3
+	RevealsShroud:
+		Range: 7
+	Turreted:
+		ROT: 3
+	AttackTurreted:
+		PrimaryWeapon: SubMissile
+		SecondaryWeapon: SubMissile
+		PrimaryOffset: 0,17,0,-2
+		SecondaryOffset: 0,-17,0,-2
+		PrimaryLocalOffset: -4,-5,0,4,-5,0
+		SecondaryLocalOffset: -4,-5,0,4,-5,0
+		Recoil: 4
+	Selectable:
+		Bounds: 44,44
+	RenderUnitTurreted:
+	AutoTarget:
+	Chronoshiftable:
+	IronCurtainable:
+	RepairableNear:
+	ShakeOnDeath:

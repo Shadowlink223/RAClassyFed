@@ -1,0 +1,1581 @@
+V2RL:
+	Inherits: ^Vehicle
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 40
+		Prerequisites: dome
+		Owner: soviet
+	Valued:
+		Cost: 700
+	Tooltip:
+		Name: V2 Rocket
+		Description: Long-range rocket artillery.\n  Strong vs Infantry, Buildings\n  Weak vs Tanks, Aircraft
+	Health:
+		HP: 150
+	Armor:
+		Type: Light
+	Mobile:
+		Speed: 7
+	RevealsShroud:
+		Range: 10
+	AttackFrontal:
+		PrimaryWeapon: SCUD
+	RenderUnitReload:
+	AutoTarget:
+	Explodes:
+		Weapon: SCUD
+		EmptyWeapon: UnitExplodeSmall
+
+1TNK:
+	Inherits: ^Tank
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 40
+		Owner: allies, uac
+	Valued:
+		Cost: 550
+	Tooltip:
+		Name: Light Tank
+		Description: Light Tank, good for scouting.\n  Strong vs Light Vehicles\n  Weak vs Tanks, Aircraft
+	Health:
+		HP: 250
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 9
+	RevealsShroud:
+		Range: 4
+	Turreted:
+		ROT: 5
+	AttackTurreted:
+		PrimaryWeapon: 25mm
+		PrimaryRecoil: 2
+		PrimaryRecoilRecovery: 0.5
+		AlignIdleTurrets: true
+	RenderUnitTurreted:
+	AutoTarget:
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+#	LeavesHusk:
+#		HuskActor: 1TNK.Husk
+
+2TNK:
+	Inherits: ^Tank
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 60
+		Prerequisites: fix
+		Owner: allies
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Medium Tank
+		Description: Main Battle Tank.\n  Strong vs Tanks, Light Vehicles\n  Weak vs Infantry, Aircraft
+	Health:
+		HP: 400
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 7
+	RevealsShroud:
+		Range: 5
+	Turreted:
+		ROT: 5
+	AttackTurreted:
+		PrimaryWeapon: 90mm
+		PrimaryRecoil: 3
+		PrimaryRecoilRecovery: 0.9
+		AlignIdleTurrets: true
+	RenderUnitTurreted:
+	AutoTarget:
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+#	LeavesHusk:
+#		HuskActor: 2TNK.Husk
+	Selectable:
+		Bounds: 30,30
+
+3TNK:
+	Inherits: ^Tank
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 40
+		Prerequisites: fix
+		Owner: soviet
+	Valued:
+		Cost: 950
+	Tooltip:
+		Name: Heavy Tank
+		Description: Main Battle Tank, with dual cannons\n  Strong vs Tanks, Light Vehicles\n  Weak vs Infantry, Aircraft
+	Health:
+		HP: 450
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 5
+	RevealsShroud:
+		Range: 5
+	Turreted:
+		ROT: 5
+	AttackTurreted:
+		PrimaryWeapon: 105mm
+		PrimaryRecoil: 3
+		PrimaryRecoilRecovery: 0.9
+		PrimaryLocalOffset: 2,0,0,0,0, -2,0,0,0,0
+		AlignIdleTurrets: true
+	RenderUnitTurreted:
+	AutoTarget:
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+#	LeavesHusk:
+#		HuskActor: 3TNK.Husk
+	Selectable:
+		Bounds: 30,30
+
+4TNK:
+	Inherits: ^Tank
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 100
+		Prerequisites: fix,stek,bio
+		Owner: soviet
+	Valued:
+		Cost: 1700
+	Tooltip:
+		Name: Mammoth Tank
+		Description: Big and slow tank, with anti-air capability.\n  Strong vs Tanks, Aircraft\n  Weak vs Infantry
+	Health:
+		HP: 850
+	Armor:
+		Type: Heavy
+	Mobile:
+		Crushes: wall, atmine, crate, infantry, lightvehicle
+		Speed: 3
+	RevealsShroud:
+		Range: 6
+	Turreted:
+		ROT: 3
+	AttackTurreted:
+		PrimaryWeapon: 120mm
+		SecondaryWeapon: MammothTusk
+		PrimaryLocalOffset: -4,-5,0,0,0, 4,-5,0,0,0
+		SecondaryLocalOffset: -7,2,0,0,25, 7,2,0,0,-25
+		PrimaryRecoil: 4
+		PrimaryRecoilRecovery: 0.7
+		SecondaryRecoil: 1
+		AlignIdleTurrets: true
+	RenderUnitTurreted:
+	Passenger: 
+		CargoType: Vehicle
+		PipType: Yellow
+		Weight: 3
+	AutoTarget:
+#	LeavesHusk:
+#		HuskActor: 4TNK.Husk
+	ShakeOnDeath:
+	Explodes:
+		Weapon: UnitExplodeHeavy
+		EmptyWeapon: UnitExplodeHeavy
+	SelfHealing:
+		Step: 1
+		Ticks: 1
+		HealIfBelow: 50%
+		DamageCooldown: 200
+	Selectable:
+		Bounds: 44,38,0,-4
+
+ARTY:
+	Inherits: ^Tank
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 80
+		Prerequisites: Radar
+		Owner: allies,nod
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: Artillery
+		Description: Long-range artillery.\n  Strong vs Infantry, Buildings\n  Weak vs Tanks, Aircraft
+	Health:
+		HP: 75
+	Armor:
+		Type: Light
+	Mobile:
+		ROT: 2
+		Speed: 6
+	RevealsShroud:
+		Range: 5
+	AttackFrontal:
+		PrimaryWeapon: 155mm
+	RenderUnit:
+	Explodes:
+	AutoTarget:
+
+HARV:
+	Inherits: ^Tank
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 10
+		Prerequisites: Refinery
+		Owner: allies,soviet,gdi,fed,uac
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Ore Truck
+		Description: Collects Ore and Gems for processing.\n  Unarmed
+	Selectable:
+		Priority: 7
+		Bounds: 42,42
+	Harvester:
+		Capacity: 20
+		Resources: Ore,Gems
+		UnloadTicksPerBale: 1
+	Health:
+		HP: 1200
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 7
+		TerrainSpeeds:
+			Clear: 80
+			Rough: 80
+			Road: 100
+			Ore: 80
+			Beach: 80
+	RevealsShroud:
+		Range: 6
+	SelfHealing:
+		Step: 1
+		Ticks: 5
+		HealIfBelow: 50%
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+	ShakeOnDeath:
+	RenderUnit:
+	-AttackMove:
+	GpsDot:
+		String:Harvester
+	AutoTargetIgnore:
+
+MCV:
+	Inherits: ^Vehicle
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 110
+		Prerequisites: fix
+		Owner: allies,soviet,fed,uac,gdi,nod
+	Valued:
+		Cost: 3000
+	Tooltip:
+		Name: Mobile Construction Vehicle
+		Description: Deploys into another Construction Yard.\n  Unarmed
+	Selectable:
+		Priority: 7
+		Bounds: 42,42
+	Health:
+		HP: 900
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 6
+		Crushes: wall, atmine, crate, infantry, lightvehicle
+	RevealsShroud:
+		Range: 4
+	Transforms:
+		IntoActor: fact
+		Offset:-1,-1
+		Facing: 96
+		TransformSounds: placbldg.aud, build5.aud
+		NoTransformSounds: nodeply1.aud
+	RenderUnit:
+	MustBeDestroyed:
+	BaseBuilding:
+	Passenger:
+		Weight: 8
+	-AttackMove:
+
+
+JEEP:
+	Inherits: ^Vehicle
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 30
+		Owner: allies,uac
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Ranger
+		Description: Fast scout & anti-infantry vehicle.\n  Strong vs Infantry\n  Weak vs Tanks, Aircraft
+	Health:
+		HP: 150
+	Armor:
+		Type: Light
+	Mobile:
+		ROT: 10
+		Speed: 12
+	RevealsShroud:
+		Range: 8
+	Turreted:
+		ROT: 10
+	AttackTurreted:
+		PrimaryWeapon: M60mg
+		PrimaryOffset: 0,0,0,-2
+	RenderUnitTurreted:
+	WithMuzzleFlash:
+	AutoTarget:
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+	Cargo:
+		Types: Infantry,Techy
+		Passengers: 1
+		MaxWeight: 1
+		PipCount: 1
+		UnloadFacing: 220
+	TransformOnPassenger@ge4:
+		PassengerTypes: ge4
+		OnEnter: JEEP.ge4
+		OnExit: JEEP
+		SkipMakeAnims: true
+
+JEEP.ge4:
+	Inherits: JEEP
+	-Buildable:
+	Valued:
+		Cost: 700
+	Tooltip:
+		Name: Bomb Ranger
+		Icon: JEEPICON
+		Description: Wired up with bombs from a terrorist
+	Health:
+		HP: 150
+	Armor:
+		Type: Light
+	Mobile:
+		ROT: 10
+		Speed: 12
+	-WithMuzzleFlash:
+	-AttackTurreted:
+	AttackFrontal:
+		PrimaryWeapon: TerroristBomb
+	Explodes:
+		Weapon: TerroristBomb
+		EmptyWeapon: 
+		Chance: 50
+	RenderUnitTurreted:
+		Image: JEEP
+	-Cargo:
+	Selectable:
+		Voice: TerroristVoice
+
+APC:
+	Inherits: ^Tank
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 50
+		Owner: soviet,allies,gdi,nod
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Armored Personnel Carrier
+		Description: Tough infantry transport.\n  Strong vs Infantry, Light Vehicles\n  Weak vs Tanks, Aircraft
+	Health:
+		HP: 300
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 10
+	RevealsShroud:
+		Range: 5
+	AttackFrontal:
+		PrimaryWeapon: M60mg
+		PrimaryOffset: 0,0,0,-4
+		MuzzleFlash: yes
+	RenderUnit:
+	WithMuzzleFlash:
+	AutoTarget:
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+	Cargo:
+		Types: Infantry,Techy
+		MaxWeight: 5
+		PipCount: 5
+		UnloadFacing: 220
+	Passenger: 
+		CargoType: Vehicle
+		PipType: Blue
+		Weight: 5
+
+MNLY.AP:
+	Inherits: ^Tank
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 30
+		Prerequisites: fix
+		Owner: soviet,nod
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Minelayer (Anti-Personnel)
+		Icon: MNLYICON
+		Description: Lays mines to destroy unwary enemy units.\n  Unarmed
+	Health:
+		HP: 100
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 9
+	RevealsShroud:
+		Range: 5
+	RenderUnit:
+		Image: MNLY
+	Minelayer:
+		Mine: MINP
+	MineImmune:
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+	LimitedAmmo:
+		Ammo: 5
+	AttackMove:
+		JustMove: true
+
+MNLY.AT:
+	Inherits: ^Tank
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 30
+		Prerequisites: fix
+		Owner: allies,gdi,uac
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Minelayer (Anti-Tank)
+		Icon: MNLYICON
+		Description: Lays mines to destroy unwary enemy units.\n  Unarmed
+	Health:
+		HP: 100
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 9
+	RevealsShroud:
+		Range: 5
+	RenderUnit:
+		Image: MNLY
+	Minelayer:
+		Mine: MINV
+	MineImmune:
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+	LimitedAmmo:
+		Ammo: 5
+	AttackMove:
+		JustMove: true
+
+TRUK:
+	Inherits: ^Vehicle
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 120
+		Prerequisites: Refinery
+		Owner: allies, soviet,gdi,nod,fed,uac,gla
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Supply Truck
+		Description: Transports cash to other players.\n  Unarmed
+	Health:
+		HP: 110
+	Armor:
+		Type: Light
+	Mobile:
+		Speed: 9
+	RevealsShroud:
+		Range: 3
+	RenderUnit:
+	SupplyTruck:
+		Payload: 500
+	AttackMove:
+		JustMove: yes
+
+1TNK.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Light Tank)
+	RenderUnit:
+		Image: 1tnk
+	ThrowsParticle@turret:
+		Anim: turret
+		Spread: 3,3
+		Speed: 6
+		AnimKey: turret
+
+2TNK.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Medium Tank)
+	RenderUnit:
+		Image: 2tnk
+	ThrowsParticle@turret:
+		Anim: turret
+		Spread: 3,3
+		Speed: 6
+		AnimKey: turret
+
+3TNK.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Heavy Tank)
+	RenderUnit:
+		Image: 3tnk
+	ThrowsParticle@turret:
+		Anim: turret
+		Spread: 3,3
+		Speed: 6
+		AnimKey: turret
+
+4TNK.Husk:
+	Inherits: ^Husk
+	Tooltip:
+		Name: Husk (Mammoth Tank)
+	RenderUnit:
+		Image: 4tnk
+	ThrowsParticle@turret:
+		Anim: turret
+		Spread: 3,3
+		Speed: 6
+		AnimKey: turret
+
+TTNK:
+	Inherits: ^Tank
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 800
+		Prerequisites: stek,tsla
+		Owner: soviet
+	Valued:
+		Cost: 1300
+	Tooltip:
+		Name: Tesla Tank
+		Description: Tank with mounted tesla coil.\n Strong vs Infantry.\n Weak vs Tanks
+	Health:
+		HP: 110
+	Armor:
+		Type: Light
+	Mobile:
+		Speed: 8
+	RevealsShroud:
+		Range: 7
+	AttackFrontal:
+		PrimaryWeapon: TTankZap
+	RenderUnitSpinner:
+	Selectable:
+		Bounds: 28,28,0,0
+	AutoTarget:
+
+FTRK:
+	Inherits: ^Vehicle
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 30
+		Owner: allies,soviet,gdi,nod,gla
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: Flak Truck
+		Description: Flak Truck, good for scouting.\n  Strong vs Light Vehicles\nand Aircraft, Weak vs Tanks 
+	Health:
+		HP: 120
+	Armor: 
+		Type: Light
+	Mobile:
+		ROT: 10
+		Speed: 9
+	RevealsShroud:
+		Range: 4
+	Turreted:
+		ROT: 5
+	AttackTurreted:
+		PrimaryWeapon: FLAK-23
+		PrimaryOffset: 0,5,0,-4
+		PrimaryRecoil: 2
+		PrimaryRecoilRecovery: 0.5
+	RenderUnitTurreted:
+	AutoTarget:
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+	Selectable:
+		Bounds: 28,28,0,0
+
+DTRK:
+	Inherits: ^Vehicle
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 850
+		Prerequisites: mslo, techcenter
+		Owner: allies, soviet,gdi,nod,uac,fed
+	Valued:
+		Cost: 2600
+	Tooltip:
+		Name: Demo Truck
+		Description: Suicide bomber truck.\n  Strong vs Everything
+	Health:
+		HP: 150
+	Armor:
+		Type: Light
+	Mobile:
+		Speed: 9
+	RevealsShroud:
+		Range: 5
+	RenderUnit:
+	Passenger: 
+		CargoType: Vehicle
+		PipType: Yellow
+		Weight: 5
+	AttackMove:
+		JustMove: yes
+	-Chronoshiftable: 
+	DemoTruck: 
+	-IronCurtainable: 
+	Explodes:
+		Weapon: AtomicTruck
+		EmptyWeapon: AtomicTruck
+	ShakeOnDeath:
+	AttackFrontal:
+		PrimaryWeapon: AtomicTruckKill
+
+MSAM:
+	Inherits: ^Tank
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Rocket Launcher
+		Icon: msamicnh
+		Description: Long range artillery.\n  Strong vs Infantry, Buildings\n  Weak vs Tanks, Aircraft
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 50
+		Prerequisites: Radar
+		Owner: gdi,uac
+	Mobile:
+		Speed: 6
+	Health:
+		HP: 120
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 6
+	Turreted:
+		ROT: 5
+	AttackTurreted:
+		PrimaryWeapon: 227mm
+		PrimaryOffset: 0,5,0,-2
+		PrimaryLocalOffset: -4,0,0
+		PrimaryRecoil: 2
+		SecondaryWeapon: 227mmAir
+		SecondaryOffset: 0,5,0,-2
+		SecondaryLocalOffset: -4,0,0
+		SecondaryRecoil: 2
+		AlignIdleTurrets: true
+	RenderUnitTurretedAim:
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+	AutoTarget:
+
+FTNK:
+	Inherits: ^Tank
+	Valued:
+		Cost: 950
+	Tooltip:
+		Name: Flame Tank
+		Icon: ftnkicnh
+		Description: Heavily armored flame-throwing vehicle.\n  Strong vs Infantry, Buildings\n  Weak vs Aircraft
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 200
+		Prerequisites: techcenter
+		Owner: soviet,nod
+	Mobile:
+		ROT: 5
+		Speed: 9
+	Health:
+		HP: 350
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 5
+	AttackFrontal:
+		PrimaryWeapon: FireballLauncher2
+		PrimaryOffset: 0,-8,0,-2
+	RenderUnit:
+	AutoTarget:
+	Explodes:
+		Weapon: NapalmBomb
+		EmptyWeapon: NapalmBomb
+
+STNK:
+	Inherits: ^Tank
+	Buildable:
+		Queue: Vehicle
+		Prerequisites: techcenter, barr, bio
+		BuildPaletteOrder: 150
+		Owner: soviet
+	Valued:
+		Cost: 1400
+	Tooltip:
+		Name: Phase Transport
+		Description: Tough infantry transport. Stealth.\n  Strong vs Infantry, Light Vehicles\n  Weak vs Tanks, Aircraft
+	Health:
+		HP: 400
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 10
+	Turreted:
+		ROT: 8
+	RevealsShroud:
+		Range: 5
+	AttackTurreted:
+		PrimaryWeapon: 227mm2
+		PrimaryOffset: 0,5,0,-2
+		PrimaryLocalOffset: -4,0,0
+		PrimaryRecoil: 2
+		AlignIdleTurrets: true
+	RenderUnitTurretedAim:
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+	Cloak:
+		InitialDelay: 0
+		CloakDelay: 100
+		CloakSound: ironcur9.aud
+		UncloakSound: ironcur9.aud
+	Cargo:
+		Types: Infantry
+		Passengers: 1
+		MaxWeight: 1
+		UnloadFacing: 220
+		PipCount: 1
+	AutoTarget:
+		InitialStance: HoldFire
+
+BIKE:
+	Inherits: ^Vehicle
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Recon Bike
+		Icon: bikeicnh
+		Description: Fast scout vehicle, armed with \nrockets.\n  Strong vs Vehicles, Aircraft\n  Weak vs Infantry
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 30
+		Owner: soviet,allies,nod
+	Mobile:
+		ROT: 10
+		Speed: 13
+	Health:
+		HP: 120
+	Armor: 
+		Type: Light
+	RevealsShroud:
+		Range: 6
+	AttackFrontal:
+		PrimaryWeapon: Rockets.Bike
+		PrimaryOffset: 0,0,0,-2
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+	RenderUnit:
+	AutoTarget:
+
+HTNK:
+	Inherits: ^Tank
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 10000
+		Prerequisites: miss,!HTNKExist
+		Owner: soviet,allies,gdi,nod,fed,uac,gla
+	ProvidesCustomPrerequisite:
+		Prerequisite: HTNKExist
+	Valued:
+		Cost: 25000
+	Tooltip:
+		Name: Prototype Super Tank
+		Icon: HTNKICON
+		Description: Tech Center found in select maps.\nThe Ultimate killing machine.\n  Strong vs Everything\n  Weak vs Tank Spam
+	Health:
+		HP: 10000
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 3
+		Crushes: wall, atmine, crate, infantry, lightvehicle
+	RevealsShroud:
+		Range: 8
+	Turreted:
+		ROT: 5
+	Passenger: 
+		CargoType: Vehicle
+		PipType: Red
+		Weight: 8
+	AttackTurreted:
+		PrimaryWeapon: SuperTank
+		SecondaryWeapon: SuperTankNuke
+		PrimaryLocalOffset: -4,-5,0,0,0, 4,-5,0,0,0
+		SecondaryLocalOffset: -7,2,0,0,25, 7,2,0,0,-25
+		PrimaryRecoil: 4
+		PrimaryRecoilRecovery: 0.7
+		SecondaryRecoil: 1
+		AlignIdleTurrets: true
+	RenderUnitTurreted:
+		Image: openrahtnk
+	AutoTarget:
+	Explodes:
+		Weapon: Atomic
+		EmptyWeapon: Atomic
+#	LeavesHusk:
+#		HuskActor: 4TNK.Husk
+	ShakeOnDeath:
+	SelfHealing:
+		Step: 2
+		Ticks: 5
+		HealIfBelow: 100%
+	AnnounceOnBuild:
+	AnnounceOnKill:
+	Selectable:
+		Bounds: 44,38,0,-4
+		Voice: SuperTankVoice
+	Capturable:
+		Type: vehicle
+		CaptureCompleteTime: 15
+
+STNK2:
+	Inherits: ^Tank
+	Buildable:
+		Queue: Vehicle
+		Prerequisites: techcenter, tent, bio2
+		BuildPaletteOrder: 150
+		Owner: allies
+	Valued:
+		Cost: 1200
+	Tooltip:
+		Name: Prototype Phase Transport
+		Icon: STNKICON
+		Description: Tough infantry transport. Stealth.\n  Strong vs Infantry, Light Vehicles\n  Weak vs Tanks, Aircraft
+	Health:
+		HP: 300
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 8
+
+	RevealsShroud:
+		Range: 5
+	AttackFrontal:
+		PrimaryWeapon: M60mg
+		PrimaryOffset: 0,0,0,-4
+		MuzzleFlash: yes
+	RenderUnit:
+		Image: APC
+	WithMuzzleFlash:
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+	Cloak:
+		InitialDelay: 0
+		CloakDelay: 100
+		CloakSound: ironcur9.aud
+		UncloakSound: ironcur9.aud
+	Cargo:
+		Types: Infantry
+		Passengers: 1
+		MaxWeight: 1
+		UnloadFacing: 220
+		PipCount: 1
+	AutoTarget:
+		InitialStance: HoldFire
+
+MRJ:
+	Inherits: ^Vehicle
+	Valued:
+		Cost: 1400
+	Tooltip:
+		Name: Surveyor
+		Icon: MRJ2ICON
+		Description: Deploys into an outpost for base expansion.\n  Unarmed
+	Selectable:
+		Priority: 3
+	Health:
+		HP: 300
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 6
+	RevealsShroud:
+		Range: 4
+	Transforms:
+		IntoActor: outpost
+		Offset:0,0
+		Facing: 96
+		TransformSounds: placbldg.aud, build5.aud
+		NoTransformSounds: nodeply1.aud
+	Explodes:
+		Weapon: UnitExplodeHeavy
+		EmptyWeapon: UnitExplodeHeavy
+	RenderUnit:
+	MustBeDestroyed:
+	BaseBuilding:
+	-AttackMove:
+
+JEEPD:
+	Inherits: ^Vehicle
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 30
+		Owner: gdi
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Hum-vee
+		Description: Fast scout & anti-infantry vehicle.\n  Strong vs Infantry\n  Weak vs Tanks, Aircraft
+	Health:
+		HP: 150
+	Armor:
+		Type: Light
+	Mobile:
+		ROT: 10
+		Speed: 12
+	RevealsShroud:
+		Range: 8
+	Turreted:
+		ROT: 10
+	AttackTurreted:
+		PrimaryWeapon: M60mg
+		PrimaryOffset: 0,0,0,-2
+	RenderUnitTurreted:
+	WithMuzzleFlash:
+	AutoTarget:
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+	Cargo:
+		Types: Infantry
+		Passengers: 1
+		MaxWeight: 1
+		UnloadFacing: 220
+
+BGGYD:
+	Inherits: ^Vehicle
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 30
+		Owner: nod
+	Valued:
+		Cost: 300
+	Tooltip:
+		Name: Nod Buggy
+		Description: Fast scout & anti-infantry vehicle.\n  Strong vs Infantry\n  Weak vs Tanks, Aircraft
+	Health:
+		HP: 120
+	Armor:
+		Type: Light
+	Mobile:
+		ROT: 10
+		Speed: 12
+	RevealsShroud:
+		Range: 6
+	Turreted:
+		ROT: 10
+	AttackTurreted:
+		PrimaryWeapon: M60mg
+		PrimaryOffset: 0,0,0,-2
+	RenderUnitTurreted:
+	WithMuzzleFlash:
+	AutoTarget:
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+
+LTNKD:
+	Inherits: ^Tank
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 40
+		Owner: nod
+	Valued:
+		Cost: 650
+	Tooltip:
+		Name: Light Tank
+		Icon: 1TNKICON
+		Description: Light Tank, good for scouting.\n  Strong vs Light Vehicles\n  Weak vs Tanks, Aircraft
+	Health:
+		HP: 350
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 7
+	RevealsShroud:
+		Range: 4
+	Turreted:
+		ROT: 5
+	AttackTurreted:
+		PrimaryWeapon: 90mmD
+		Recoil: 2
+		AlignIdleTurrets: true
+	RenderUnitTurreted:
+	AutoTarget:
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+#	LeavesHusk:
+#		HuskActor: 1TNK.Husk
+
+MTNKD:
+	Inherits: ^Tank
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 60
+		Prerequisites: fix
+		Owner: gdi
+	Valued:
+		Cost: 850
+	Tooltip:
+		Name: Medium Tank II
+		Icon: 2TNKICON
+		Description: General-Purpose GDI Tank.\n  Strong vs Tanks, Light Vehicles\n  Weak vs Infantry, Aircraft
+	Health:
+		HP: 400
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 6
+	RevealsShroud:
+		Range: 5
+	Turreted:
+		ROT: 5
+	AttackTurreted:
+		PrimaryWeapon: 120mmD
+		PrimaryRecoil: 3
+		PrimaryRecoilRecovery: 0.9
+		AlignIdleTurrets: true
+	RenderUnitTurreted:
+	AutoTarget:
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+#	LeavesHusk:
+#		HuskActor: 2TNK.Husk
+	Selectable:
+		Bounds: 34,34
+
+HTNKD:
+	Inherits: ^Tank
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 100
+		Prerequisites: fix,eyed,bio5
+		Owner: gdi
+	Valued:
+		Cost: 1900
+	Tooltip:
+		Name: Mammoth Tank II
+		Icon: 4TNKICON
+		Description: Big and slow tank, with anti-air capability.\n  Strong vs Tanks, Aircraft\n  Weak vs Infantry
+	Health:
+		HP: 900
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 3
+		Crushes: wall, atmine, crate, infantry, lightvehicle
+	RevealsShroud:
+		Range: 6
+	Turreted:
+		ROT: 3
+	AttackTurreted:
+		PrimaryWeapon: 120mmDual
+		SecondaryWeapon: MammothTusk
+		PrimaryLocalOffset: -4,-5,0,0,0, 4,-5,0,0,0
+		SecondaryLocalOffset: -7,2,0,0,25, 7,2,0,0,-25
+		PrimaryRecoil: 4
+		PrimaryRecoilRecovery: 0.7
+		SecondaryRecoil: 1
+		AlignIdleTurrets: true
+	Passenger: 
+		CargoType: Vehicle
+		PipType: Yellow
+		Weight: 3
+	RenderUnitTurreted:
+	AutoTarget:
+	Explodes:
+		Weapon: UnitExplodeHeavy
+		EmptyWeapon: UnitExplodeHeavy
+#	LeavesHusk:
+#		HuskActor: 4TNK.Husk
+	ShakeOnDeath:
+	SelfHealing:
+		Step: 1
+		Ticks: 5
+		HealIfBelow: 50%
+	Selectable:
+		Bounds: 44,38,0,-4
+
+MLRSD:
+	Inherits: ^Tank
+	Valued:
+		Cost: 750
+	Tooltip:
+		Name: SSM Launcher
+		Description: Long range artillery.\n  Strong vs Infantry, Aircraft\n  Weak vs Tanks, Aircraft
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 60
+		Prerequisites: hqd
+		Owner: nod
+	Mobile:
+		Speed: 6
+	Health:
+		HP: 120
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 10
+	Turreted:
+		ROT: 5
+	AttackTurreted:
+		PrimaryWeapon: HonestJohn
+		SecondaryWeapon: HonestJohn
+		PrimaryOffset: 0,3,0,-3
+		PrimaryLocalOffset: -4,0,0
+		SecondaryLocalOffset: 4,0,0
+		Recoil: 0
+		AlignIdleTurrets: true
+	RenderUnitTurretedAim:
+	AutoTarget:
+
+STNKD:
+	Inherits: ^Tank
+	Buildable:
+		Queue: Vehicle
+		Prerequisites: techcenter, bio7
+		BuildPaletteOrder: 150
+		Owner: nod
+	Valued:
+		Cost: 900
+	Tooltip:
+		Name: Stealth Tank
+		Description: Missile tank that can bend light around \nitself to become invisible\n  Strong vs Structures, Aircraft\n  Weak vs Tanks
+	Health:
+		HP: 180
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 10
+	Turreted:
+		ROT: 8
+	RevealsShroud:
+		Range: 5
+	AttackFrontal:
+		PrimaryWeapon: 227mm2
+		PrimaryOffset: 0,5,0,-2
+		PrimaryLocalOffset: -4,0,0
+		Recoil: 2
+		AlignIdleTurrets: true
+	RenderUnit:
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+	Cloak:
+		InitialDelay: 0
+		CloakDelay: 100
+		CloakSound: ironcur9.aud
+		UncloakSound: ironcur9.aud
+	AutoTarget:
+		InitialStance: HoldFire
+
+SEIG:
+	Inherits: ^Tank
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 100
+		Prerequisites: fix,eyed,bio5
+		Owner: gdi
+	Valued:
+		Cost: 1800
+	Tooltip:
+		Name: Seige Tank
+		Icon: SEIGICON
+		Description: Slow, lightly armoured deployable \n tank, powerful long range defense.\n  Strong vs Tanks, Infantry\n  Weak vs Aircraft
+	Health:
+		HP: 500
+	Armor:
+		Type: Heavy
+	Turreted:
+		ROT: 3
+	Mobile:
+		Speed: 3
+	RevealsShroud:
+		Range: 6
+	AttackTurreted:
+		PrimaryWeapon: 120mm
+		PrimaryRecoil: 4
+		AlignIdleTurrets: true
+	RenderUnitTurretedAim:
+		Image: SEIGE
+		Scale: 0.9
+	AutoTarget:
+	WithShadow:
+	Explodes:
+		Weapon: UnitExplodeHeavy
+		EmptyWeapon: UnitExplodeHeavy
+#	LeavesHusk:
+#		HuskActor: 4TNK.Husk
+	ShakeOnDeath:
+	Selectable:
+		Bounds: 44,38,0,-4
+		Voice: SeigeVoice
+	Transforms:
+		IntoActor: seigd2
+		Offset:0,0
+		Facing: 160
+		TransformSounds: seigedeploy.aud, build5.aud
+		NoTransformSounds: nodeply1.aud
+
+SEIGD2:
+	Inherits: ^Building
+	Valued:
+		Cost: 1800
+	Tooltip:
+		Name: Deployed Seige Tank
+		Description: Anti-Armor base defense.\n  Strong vs Tanks\n  Weak vs Infantry, Aircraft
+	Building:
+		Power: 0
+		TerrainTypes: Clear,Road,Water,Rough,Beach,Ore
+	Health:
+		HP: 500
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 9
+	Turreted:
+		ROT: 2
+		InitialFacing: 224
+	RenderBuildingTurreted:
+		Image: SEIGED
+		Scale: 0.9
+	AttackTurreted:
+		PrimaryWeapon: SeigeCannon
+		PrimaryLocalOffset: -4,-5,0,4,-5,0
+		Recoil: 5
+	AutoTarget:
+	IronCurtainable:
+	-RenderBuilding:
+	RenderRangeCircle:
+	-AcceptsSupplies:
+	Transforms:
+		IntoActor: seig
+		Offset:0,0
+		Facing: 160
+		TransformSounds: seigedeploy.aud, build5.aud
+		NoTransformSounds: nodeply1.aud
+	-Capturable:
+	-CapturableBar:
+	-Sellable:
+	-GivesBuildableArea:
+	-RepairableBuilding:
+	-MustBeDestroyed:
+	Selectable:
+		Bounds: 44,38,0,-4
+		Voice: SeigeVoice
+
+SEIGA:
+	Inherits: ^Tank
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 100
+		Prerequisites: fix,atek,bio2
+		Owner: allies
+	Valued:
+		Cost: 1800
+	Tooltip:
+		Name: Seige Tank
+		Icon: SEIGICON
+		Description: Slow, lightly armoured deployable \n tank, powerful long range defense.\n  Strong vs Tanks, Infantry\n  Weak vs Aircraft
+	Health:
+		HP: 500
+	Armor:
+		Type: Heavy
+	Turreted:
+		ROT: 3
+	Mobile:
+		Speed: 3
+	RevealsShroud:
+		Range: 6
+	AttackTurreted:
+		PrimaryWeapon: 120mm
+		PrimaryRecoil: 4
+		AlignIdleTurrets: true
+	RenderUnitTurretedAim:
+		Image: SEIGE
+		Scale: 0.9
+	AutoTarget:
+	WithShadow:
+	Explodes:
+		Weapon: UnitExplodeHeavy
+		EmptyWeapon: UnitExplodeHeavy
+#	LeavesHusk:
+#		HuskActor: 4TNK.Husk
+	ShakeOnDeath:
+	Selectable:
+		Bounds: 44,38,0,-4
+		Voice: SeigeVoice
+	Transforms:
+		IntoActor: seigd2
+		Offset:0,0
+		Facing: 160
+		TransformSounds: placbldg.aud, seigedeploy.aud
+		NoTransformSounds: nodeply1.aud
+
+ZTNK:
+	Inherits: ^Tank
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 9000
+		Prerequisites: smis,!GoliathExist
+		Owner: soviet
+	ProvidesCustomPrerequisite:
+		Prerequisite: GoliathExist
+	Valued:
+		Cost: 10000
+	Tooltip:
+		Name: Tesla Goliath
+		Description: Portable Tesla Coil platform.\nRape vs Infantry\n  Strong vs Ground Units\n  Weak vs Air
+	Health:
+		HP: 6000
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 3
+		Crushes: wall, atmine, crate, infantry, lightvehicle
+	RevealsShroud:
+		Range: 10
+	AttackOmni:
+		PrimaryWeapon: GoliathTesla
+		SecondaryWeapon: GoliathTeslaMini
+	RenderUnitSpinner:
+	Passenger: 
+		CargoType: Vehicle
+		PipType: Yellow
+		Weight: 6
+	AutoTarget:
+	Explodes:
+		Weapon: UnitExplodeHeavy
+		EmptyWeapon: UnitExplodeHeavy
+#	LeavesHusk:
+#		HuskActor: 4TNK.Husk
+	ShakeOnDeath:
+	SelfHealing:
+		Step: 1
+		Ticks: 1
+		HealIfBelow: 50%
+		DamageCooldown: 200
+	AnnounceOnBuild:
+	AnnounceOnKill:
+	Selectable:
+		Bounds: 44,38,0,-4
+		Voice: ShokVoice2
+	-GainsExperience:
+	Capturable:
+		Type: vehicle
+		CaptureCompleteTime: 15
+
+NSTNK:
+	Inherits: ^Tank
+	Buildable:
+		Queue: Vehicle
+		Prerequisites: nmis
+		BuildPaletteOrder: 9910
+		Owner: nod
+	Valued:
+		Cost: 1400
+	Tooltip:
+		Name: Phase Transport
+		Icon: STNKICON
+		Description: Tough infantry transport. Stealth.\n  Strong vs Infantry, Light Vehicles\n  Weak vs Tanks, Aircraft
+	Health:
+		HP: 400
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 10
+	Turreted:
+		ROT: 8
+	RevealsShroud:
+		Range: 5
+	AttackTurreted:
+		PrimaryWeapon: 227mm2
+		PrimaryOffset: 0,5,0,-2
+		PrimaryLocalOffset: -4,0,0
+		PrimaryRecoil: 2
+		AlignIdleTurrets: true
+	RenderUnitTurretedAim:
+		Image: STNK
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+	Cloak:
+		InitialDelay: 0
+		CloakDelay: 100
+		CloakSound: ironcur9.aud
+		UncloakSound: ironcur9.aud
+	Cargo:
+		Types: Infantry
+		Passengers: 1
+		MaxWeight: 1
+		UnloadFacing: 220
+	AutoTarget:
+		InitialStance: HoldFire
+
+HARV.s:
+	Inherits: ^Vehicle
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 10
+		Prerequisites: Refinery
+		Owner: nod
+	Valued:
+		Cost: 1100
+	Tooltip:
+		Name: Stealth Ore Truck
+		Icon: harvicon
+		Description: Collects Ore and Gems for processing.\n  Unarmed
+	Selectable:
+		Priority: 7
+		Bounds: 42,42
+	Harvester:
+		Capacity: 20
+		Resources: Ore,Gems
+		UnloadTicksPerBale: 1
+	Health:
+		HP: 900
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 7
+		TerrainSpeeds:
+			Clear: 80
+			Rough: 80
+			Road: 100
+			Ore: 80
+			Beach: 80
+	RevealsShroud:
+		Range: 6
+	SelfHealing:
+		Step: 1
+		Ticks: 5
+		HealIfBelow: 50%
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+	ShakeOnDeath:
+	RenderUnit:
+		Image: Harv
+	-AttackMove:
+	GpsDot:
+		String:Harvester
+	Cloak:
+		InitialDelay: 0
+		CloakDelay: 100
+		CloakSound: ironcur9.aud
+		UncloakSound: ironcur9.aud
+	AutoTargetIgnore:
+
+AEIOU:
+	Inherits: ^Tank
+	Mobile:
+		Crushes: wall, atmine, crate, infantry, lightvehicle
+		TerrainSpeeds:
+			Clear: 80
+			Rough: 70
+			Road: 100
+			Ore: 70
+			Beach: 70
+			Water: 140
+		ROT: 5
+		Speed: 4
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 9100
+		Prerequisites: smiss,!AEIOUExist
+		Owner: allies
+	ProvidesCustomPrerequisite:
+		Prerequisite: AEIOUExist
+	Valued:
+		Cost: 10000
+	Tooltip:
+		Name: Unknown
+		Description: AEIOU - Allied Enhanced Importance Omni Unit.\nPowerful, sturdy support unit.  \nSpecial Abilitys: \n  - Gap Generator \n  - Infantry Heal \n  - Vehicle Repair \n  - Cloak Detection \n  - Reinforcements
+	Health:
+		HP: 7500
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 15
+	CreatesShroud:
+		Range: 15
+	RenderShroudCircle:
+	DetectCloaked:
+		Range: 15
+	Turreted:
+		ROT: 5
+	AutoHeal:
+	AttackMedic:
+		PrimaryWeapon: AeiouHeal
+		SecondaryWeapon: AeiouWrench
+	TakeCover:
+	RenderUnitTurreted:
+	AnnounceOnBuild:
+	AnnounceOnKill:
+	-AttackMove:
+#	LeavesHusk:
+#		HuskActor: 2TNK.Husk
+	Selectable:
+		Bounds: 40,40
+		Voice: SpyVoice
+	SelfHealing:
+		Step: 1
+		Ticks: 1
+		HealIfBelow: 50%
+		DamageCooldown: 200
+	Cargo:
+		Types: Infantry
+		MaxWeight: 8
+		PipCount: 8
+		UnloadFacing: 220
+	Explodes:
+		Weapon: Atomic
+		EmptyWeapon: Atomic
+	ParatroopersPower:
+		Image: rmboicnh
+		ChargeTime: 240
+		Description: AEIOU Reinforcements
+		LongDesc: A Badger paradrops a Commando, Medic \n and some troops anywhere on the map
+		OneShot: no
+		AllowMultiple: no
+		DropItems: RMBO,E1,E1,E1,MEDI
+		UnitType: badr.paradrop
+		SelectTargetSound: slcttgt1.aud
+		FlareType: flare
+	Capturable:
+		Type: vehicle
+		CaptureCompleteTime: 15

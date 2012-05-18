@@ -1,0 +1,779 @@
+
+
+BADR:
+	ParaDrop:
+		LZRange: 4
+	Inherits: ^Plane
+	Health:
+		HP: 300
+	Armor:
+		Type: Light
+	Plane:
+		ROT: 5
+		Speed: 240
+	RenderUnit:
+		Image: piff
+		Smokes: no
+#	WithShadow:
+	IronCurtainable:
+	Cargo:
+		Passengers: 10
+#		Types: Infantry, Vehicle
+	-Selectable:
+	-GainsExperience:
+	Tooltip:
+		Name: Badger
+#	Contrail@1:
+#		ContrailOffset: 11, -11
+#	Contrail@2:
+#		ContrailOffset: -11, -11
+	FallsToEarth:
+		Spins: no
+		Moves: yes
+		Explosion: UnitExplode
+	SmokeTrailWhenDamaged@0:
+		Offset: 11, -11
+		Interval: 2
+	SmokeTrailWhenDamaged@1:
+		Offset: -11, -11
+		Interval: 2
+	Cloak:
+		InitialDelay: 0
+		CloakDelay: 0
+		Palette: shadow
+	-EjectOnDeath:
+#	-GpsDot:
+	-TargetableAircraft:
+
+BADR.paradrop:
+	ParaDrop:
+		LZRange: 5
+	Inherits: ^Plane
+	Health:
+		HP: 500
+	Armor:
+		Type: Light
+	Plane:
+		ROT: 5
+		Speed: 16
+	RenderUnit:
+		Image: BADR
+		Smokes: no
+	WithShadow:
+	IronCurtainable:
+	Cargo:
+		Passengers: 10
+#		Types: Infantry, Vehicle
+	-Selectable:
+	-GainsExperience:
+	Tooltip:
+		Name: Badger
+	Contrail@1:
+		ContrailOffset: 11, -11
+	Contrail@2:
+		ContrailOffset: -11, -11
+#	FallsToEarth:
+#		Spins: no
+#		Moves: yes
+#		Explosion: UnitExplode
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+	SmokeTrailWhenDamaged@0:
+		Offset: 11, -11
+		Interval: 2
+	SmokeTrailWhenDamaged@1:
+		Offset: -11, -11
+		Interval: 2
+	-EjectOnDeath:
+#	-GpsDot:
+
+BADR.crate:
+	ParaDrop:
+		LZRange: 5
+	Inherits: ^Plane
+	Health:
+		HP: 9000
+	Armor:
+		Type: Light
+	Plane:
+		ROT: 5
+		Speed: 16
+	RenderUnit:
+		Image: BADR
+		Smokes: no
+	WithShadow:
+	IronCurtainable:
+	Cargo:
+		Passengers: 10
+#		Types: Infantry, Vehicle
+	-Selectable:
+	-GainsExperience:
+	Tooltip:
+		Name: Badger
+	Contrail@1:
+		ContrailOffset: 11, -11
+	Contrail@2:
+		ContrailOffset: -11, -11
+#	FallsToEarth:
+#		Spins: no
+#		Moves: yes
+#		Explosion: UnitExplode
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+	SmokeTrailWhenDamaged@0:
+		Offset: 11, -11
+		Interval: 2
+	SmokeTrailWhenDamaged@1:
+		Offset: -11, -11
+		Interval: 2
+	-EjectOnDeath:
+#	-GpsDot:	
+	-TargetableAircraft:
+
+BADR.bomber:
+	CarpetBomb:
+		Range: 3
+		Weapon: ParaBomb
+	Inherits: ^Plane
+	Health:
+		HP: 400
+	Armor:
+		Type: Light
+	Plane:
+		ROT: 5
+		Speed: 16
+	LimitedAmmo:
+		Ammo: 7
+	RenderUnit:
+		Image: badr
+		Smokes: no
+	WithShadow:
+	IronCurtainable:	
+	-Selectable:
+	-GainsExperience:
+	Tooltip:
+		Name: Badger
+	Contrail@1:
+		ContrailOffset: 11, -11
+	Contrail@2:
+		ContrailOffset: -11, -11
+	FallsToEarth:
+		Spins: no
+		Moves: yes
+		Explosion: UnitExplode
+	SmokeTrailWhenDamaged@0:
+		Offset: 11, -11
+		Interval: 2
+	SmokeTrailWhenDamaged@1:
+		Offset: -11, -11
+		Interval: 2
+	-EjectOnDeath:
+#	-GpsDot:
+
+BADR.nuke:
+	CarpetBomb:
+		Range: 1
+		Weapon: ParaBombNuke
+	Inherits: ^Plane
+	Health:
+		HP: 300
+	Armor:
+		Type: Light
+	Plane:
+		ROT: 5
+		Speed: 20
+	LimitedAmmo:
+		Ammo: 1
+	RenderUnit:
+		Image: U2
+		Smokes: no
+	WithShadow:
+	IronCurtainable:	
+	-Selectable:
+	-GainsExperience:
+	Tooltip:
+		Name: Badger
+	Contrail@1:
+		ContrailOffset: 11, -11
+	Contrail@2:
+		ContrailOffset: -11, -11
+	FallsToEarth:
+		Spins: no
+		Moves: yes
+		Explosion: TinyAtomic
+	SmokeTrailWhenDamaged@0:
+		Offset: 11, -11
+		Interval: 2
+	SmokeTrailWhenDamaged@1:
+		Offset: -11, -11
+		Interval: 2
+	-EjectOnDeath:
+#	-GpsDot:
+
+MIG:
+	Inherits: ^Plane
+	Buildable:
+		Queue: Plane
+		BuildPaletteOrder: 100
+		Prerequisites: afld, stek
+		BuiltAt: afld,carrb
+		Owner: soviet
+	Valued:
+		Cost: 1600
+	Tooltip:
+		Name: Mig Attack Plane
+		Description: Fast Ground-Attack Plane.\n  Strong vs Buildings\n  Weak vs Infantry, Light Vehicles
+	Health:
+		HP: 210
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 12
+	AttackPlane:
+		PrimaryWeapon: Maverick
+		SecondaryWeapon: Maverick
+		PrimaryLocalOffset: -15,0,-10,-12,0,6
+		SecondaryLocalOffset: 15,0,10,12,0,6
+		FacingTolerance: 20
+	Plane:
+		InitialFacing: 192
+		ROT: 5
+		Speed: 20
+		RearmBuildings: afld,carrb
+	RenderUnit:
+		Smokes: no
+	WithShadow:
+	LimitedAmmo:
+		Ammo: 8
+	IronCurtainable:
+	ReturnOnIdle:
+	Selectable:
+		Bounds: 44,40,0,0
+	Contrail@1:
+		ContrailOffset: 16,-14
+	Contrail@2:
+		ContrailOffset: -16,-14
+	FallsToEarth:
+		Spins: no
+		Moves: yes
+		Explosion: UnitExplode
+	SmokeTrailWhenDamaged:
+		Offset: 0,-20,0,-4
+		Interval: 2
+
+NUKEMIG:
+	Inherits: ^Plane
+	Buildable:
+		Queue: Plane
+		BuildPaletteOrder: 100
+		Prerequisites: afld,stek, mslo
+		BuiltAt: afld,carrb
+		Owner: soviet
+	Valued:
+		Cost: 3600
+	Tooltip:
+		Name: Nuke Mig
+		Icon: NMIGICON
+		Description: Fast Ground-Attack Plane.\n  Strong vs Everything
+	Health:
+		HP: 250
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 12
+	AttackPlane:
+		PrimaryWeapon: MaverickNuke
+		PrimaryLocalOffset: -15,0,-10,-12,0,6
+		FacingTolerance: 20
+	Plane:
+		InitialFacing: 192
+		ROT: 5
+		Speed: 18
+		RearmBuildings: afld,carrb
+	RenderUnit:
+		Smokes: no
+		Image: MIG
+	WithShadow:
+	LimitedAmmo:
+		Ammo: 2
+		ReloadTicks: 100
+	IronCurtainable:
+	ReturnOnIdle:
+	Selectable:
+		Bounds: 44,40,0,0
+	Contrail@1:
+		ContrailOffset: 16,-14
+	Contrail@2:
+		ContrailOffset: -16,-14
+	FallsToEarth:
+		Spins: no
+		Moves: yes
+		Explosion: TinyAtomic
+	SmokeTrailWhenDamaged:
+		Offset: 0,-20,0,-4
+		Interval: 2
+
+YAK:
+	Inherits: ^Plane
+	Buildable:
+		Queue: Plane
+		BuildPaletteOrder: 50
+		Prerequisites: afld
+		BuiltAt: afld,carrb
+		Owner: soviet
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Yak Attack Plane
+		Description: Anti-Tanks & Anti-Infantry Plane.\n  Strong vs Infantry, Tanks\n  Weak vs Buildings
+	Health:
+		HP: 180
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 10
+	AttackPlane:
+		PrimaryWeapon: ChainGun.Yak
+		SecondaryWeapon: ChainGun.Yak
+		PrimaryOffset: -5,-6,0,0
+		SecondaryOffset: 5,-6,0,0
+		FacingTolerance: 20
+	Plane:
+		RearmBuildings: afld,carrb
+		InitialFacing: 192
+		ROT: 5
+		Speed: 16
+	RenderUnit:
+		Smokes: no
+	WithShadow:
+	LimitedAmmo:
+		Ammo: 18
+		PipCount: 6
+	IronCurtainable:
+	ReturnOnIdle:
+	WithMuzzleFlash:
+	AutoTarget:
+	Contrail:
+		ContrailOffset: 0, -20
+	FallsToEarth:
+		Spins: no
+		Moves: yes
+		Explosion: UnitExplode
+	SmokeTrailWhenDamaged:
+		Offset: 0, -20
+		Interval: 2
+		
+
+TRAN:
+	Inherits: ^Helicopter
+	Buildable:
+		Queue: Plane
+		BuildPaletteOrder: 110
+		Prerequisites: hpad
+		BuiltAt: hpad,carrb
+		Owner: allies,soviet,gdi,nod,fed
+	Valued:
+		Cost: 1200
+	Tooltip:
+		Name: Chinook
+		Description: Fast Infantry Transport Helicopter.\n  Unarmed
+	Health:
+		HP: 270
+	Armor: 
+		Type: Light
+	RevealsShroud:
+		Range: 12
+	Helicopter:
+		RearmBuildings: hpad,carrb
+		InitialFacing: 0
+		ROT: 5
+		Speed: 16
+		LandableTerrainTypes: Clear,Rough,Road,Ore,Beach
+	RenderUnit:
+	WithRotor@PRIMARY:
+		Offset: 0,14,0,-8
+	WithRotor@SECONDARY:
+		Id: rotor_2
+		Offset: 0,-14,0,-5
+	WithShadow:
+	Cargo:
+		Types: Infantry
+		MaxWeight: 10
+		Passengers: 10
+		PipCount: 10
+	IronCurtainable:
+	FallsToEarth:
+		Explosion: UnitExplode
+
+TRAN2:
+	Inherits: ^Helicopter
+	Buildable:
+		Queue: Plane
+		BuildPaletteOrder: 110
+		Prerequisites: hpad, techcenter
+		BuiltAt: hpad,carrb
+		Owner: allies,soviet,gdi,nod,fed
+	Valued:
+		Cost: 2000
+	Tooltip:
+		Name: Vehicle Transport
+		Icon: TRAN2ICON
+		Description: Transports vehicles.\n  Unarmed
+	Health:
+		HP: 500
+	Armor: 
+		Type: Light
+	RevealsShroud:
+		Range: 14
+	Helicopter:
+		RearmBuildings: hpad,carrb
+		InitialFacing: 0
+		ROT: 5
+		Speed: 12
+		LandableTerrainTypes: Clear,Rough,Road,Ore,Beach
+	RenderUnit:
+		Image: TRAN
+	WithRotor@PRIMARY:
+		Offset: 0,14,0,-8
+	WithRotor@SECONDARY:
+		Id: rotor_2
+		Offset: 0,-14,0,-5
+	WithShadow:
+	Cargo:
+		Types: Infantry, Vehicle
+		MaxWeight: 10
+		Passengers: 10
+		PipCount: 10
+	IronCurtainable:
+	FallsToEarth:
+		Explosion: UnitExplode
+
+HELI:
+	Inherits: ^Helicopter
+	Buildable:
+		Queue: Plane
+		BuildPaletteOrder: 90
+		Prerequisites: hpad
+		BuiltAt: hpad,carrb
+		Owner: allies,nod
+	Valued:
+		Cost: 1600
+	Tooltip:
+		Name: Longbow
+		Description: Helicopter Gunship with AG Missiles.\n  Strong vs Tanks\n  Weak vs Infantry
+	Health:
+		HP: 360
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 12
+	AttackHeli:
+		PrimaryWeapon: HellfireReload
+		SecondaryWeapon: M1CarbineChopper
+		PrimaryOffset: -5,0,0,2
+		SecondaryOffset: 5,-2,0,2
+		FacingTolerance: 20
+	Helicopter:
+		RearmBuildings: hpad,carrb
+		LandWhenIdle: false
+		InitialFacing: 20
+		ROT: 4
+		Speed: 16
+	RenderUnit:
+		Smokes: no
+	WithRotor:
+		Offset: 0,0,0,-2
+	WithShadow:
+	WithMuzzleFlash:
+#	LimitedAmmo:
+#		Ammo: 16
+#		PipCount: 8
+	IronCurtainable:
+	AutoTarget:
+#	FallsToEarth:
+#		Explosion: UnitExplode
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+	SmokeTrailWhenDamaged:
+		Offset: 0,-10
+
+HIND:
+	Inherits: ^Helicopter
+	Buildable:
+		Queue: Plane
+		BuildPaletteOrder: 90
+		Prerequisites: hpad
+		BuiltAt: hpad,carrb
+		Owner: soviet
+	Valued:
+		Cost: 1800
+	Tooltip:
+		Name: Hind
+		Description: Helicopter Gunship with Chainguns.\n  Strong vs Infantry, Light Vehicles.\n  Weak vs Tanks
+	Health:
+		HP: 450
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 10
+	AttackHeli:
+		PrimaryWeapon: ChainGunReload
+		SecondaryWeapon: M1CarbineChopper
+		PrimaryOffset: -5,-2,0,2
+		SecondaryOffset: 5,-2,0,2
+		FacingTolerance: 20
+	Helicopter:
+		RearmBuildings: hpad,carrb
+		LandWhenIdle: false
+		InitialFacing: 20
+		ROT: 4
+		Speed: 12
+	RenderUnit:
+		Smokes: no
+	WithRotor:
+	WithShadow:
+#	LimitedAmmo:
+#		Ammo: 24
+#		PipCount: 6
+	IronCurtainable:
+	Selectable:
+		Bounds: 38,32,0,0
+	WithMuzzleFlash:
+	AutoTarget:
+#	FallsToEarth:
+#		Explosion: UnitExplode
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+	SmokeTrailWhenDamaged:
+		Offset: 0,-10
+
+U2:
+	Inherits: ^Plane
+	Health:
+		HP: 2000
+	Armor:
+		Type: Heavy
+	Plane:
+		ROT: 7
+		Speed: 40
+	RenderUnit:
+		Smokes: no
+	WithShadow:
+	IronCurtainable:
+	-Selectable:
+	-GainsExperience:
+	Contrail@1:
+		ContrailOffset: 16, -17
+	Contrail@2:
+		ContrailOffset: -16, -17
+	FallsToEarth:
+		Spins: no
+		Moves: yes
+		Explosion: UnitExplode
+	SmokeTrailWhenDamaged:
+		Offset: 0,-25
+		Interval: 2
+	-TargetableAircraft:
+
+
+A10:
+	Inherits: ^Plane
+	Buildable:
+		Queue: Plane
+		BuildPaletteOrder: 50
+		Prerequisites: afld2
+		BuiltAt: afld2
+		Owner: allies
+	Valued:
+		Cost: 1800
+	Tooltip:
+		Name: A-10 Warthog
+		Description: Anti-Tanks & Anti-Infantry Plane.\n  Strong vs Everything
+	Health:
+		HP: 300
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 12
+	AttackPlane:
+		PrimaryWeapon: ChainGun.A10
+		SecondaryWeapon: ChainGun.A10
+		PrimaryOffset: -5,-6,0,0
+		SecondaryOffset: 5,-6,0,0
+		FacingTolerance: 20
+	Plane:
+		RearmBuildings: afld,afld2,carrb
+		InitialFacing: 192
+		ROT: 5
+		Speed: 20
+	RenderUnit:
+		Smokes: no
+	WithShadow:
+	LimitedAmmo:
+		Ammo: 16
+		PipCount: 8
+	IronCurtainable:
+	ReturnOnIdle:
+	WithMuzzleFlash:
+	Contrail:
+		ContrailOffset: 0, -20
+	FallsToEarth:
+		Spins: no
+		Moves: yes
+		Explosion: UnitExplode
+	SmokeTrailWhenDamaged:
+		Offset: 0, -20
+		Interval: 2
+
+A10bomber:
+	CarpetBomb:
+		Range: 3
+		Weapon: NapalmBomb
+	Inherits: ^Plane
+	Health:
+		HP: 500
+	Armor:
+		Type: Light
+	Plane:
+		ROT: 5
+		Speed: 17
+	LimitedAmmo:
+		Ammo: 5
+	RenderUnit:
+		Image: A10
+		Smokes: no
+	WithShadow:
+	IronCurtainable:	
+	-Selectable:
+	-GainsExperience:
+	Tooltip:
+		Name: A-10 Bomber
+	Contrail@1:
+		ContrailOffset: 11, -11
+	Contrail@2:
+		ContrailOffset: -11, -11
+	FallsToEarth:
+		Spins: no
+		Moves: yes
+		Explosion: UnitExplode
+	SmokeTrailWhenDamaged@0:
+		Offset: 11, -11
+		Interval: 2
+	SmokeTrailWhenDamaged@1:
+		Offset: -11, -11
+		Interval: 2
+	-EjectOnDeath:
+#	-GpsDot:
+
+HIND2:
+	Inherits: ^Helicopter
+	Buildable:
+		Queue: Plane
+		BuildPaletteOrder: 90
+		Prerequisites: hpad, bio4
+		BuiltAt: hpad,carrb
+		Owner: soviet
+	Valued:
+		Cost: 2200
+	Tooltip:
+		Name: Stealth Hind
+		Icon: HINDICON
+		Description: Stealth Gunship with Chainguns.\n  Strong vs Infantry, Light Vehicles.\n  Weak vs Tanks
+	Health:
+		HP: 350
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 10
+	AttackHeli:
+		PrimaryWeapon: ChainGunReload2
+		SecondaryWeapon: M1CarbineChopper
+		PrimaryOffset: -5,-2,0,2
+		SecondaryOffset: 5,-2,0,2
+		FacingTolerance: 20
+	Helicopter:
+		RearmBuildings: hpad,carrb
+		LandWhenIdle: false
+		InitialFacing: 20
+		ROT: 4
+		Speed: 10
+	RenderUnit:
+		Smokes: no
+		Image: HIND
+	WithRotor:
+	WithShadow:
+#	LimitedAmmo:
+#		Ammo: 20
+#		PipCount: 6
+	IronCurtainable:
+	Selectable:
+		Bounds: 38,32,0,0
+	WithMuzzleFlash:
+#	AutoTarget:
+#	FallsToEarth:
+#		Explosion: UnitExplode
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+	SmokeTrailWhenDamaged:
+		Offset: 0,-10
+	Cloak:
+		InitialDelay: 0
+		CloakDelay: 100
+		CloakSound: ironcur9.aud
+		UncloakSound: ironcur9.aud
+		Palette: shadow
+
+ORCA:	
+	Inherits: ^Helicopter
+	Buildable:
+		Queue: Plane
+		BuildPaletteOrder: 90
+		Prerequisites: hpad
+		BuiltAt: hpad,carrb
+		Owner: gdi
+	Valued:
+		Cost: 1600
+	Tooltip:
+		Name: Orca
+		Description: VTOL Gunship with AG Missiles.\n  Strong vs Tanks\n  Weak vs Infantry
+	Health:
+		HP: 360
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 12
+	AttackHeli:
+		PrimaryWeapon: HellfireReload
+		SecondaryWeapon: M1CarbineChopper
+		PrimaryOffset: -5,0,0,2
+		SecondaryOffset: 5,-2,0,2
+		FacingTolerance: 20
+	Helicopter:
+		RearmBuildings: hpad,carrb
+		LandWhenIdle: false
+		InitialFacing: 20
+		ROT: 4
+		Speed: 16
+	RenderUnit:
+		Smokes: no
+	WithShadow:
+#	LimitedAmmo:
+#		Ammo: 16
+#		PipCount: 8
+	IronCurtainable:
+	WithMuzzleFlash:
+	AutoTarget:
+#	FallsToEarth:
+#		Explosion: UnitExplode
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+	SmokeTrailWhenDamaged:
+		Offset: 0,-10
+
+

@@ -1,0 +1,953 @@
+NHWK:
+	Inherits: ^Plane
+	Buildable:
+		Queue: Plane
+		BuildPaletteOrder: 100
+		Prerequisites: afld, stek
+		BuiltAt: afld,carrb
+		Owner: fed
+	Valued:
+		Cost: 1050
+	Tooltip:
+		Name: F-117 NightHawk
+		Description: Fast plasma stealth Plane.\n  Strong vs Ground and Air\n  Weak vs Anti-Air
+	Health:
+		HP: 210
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 12
+	AttackPlane:
+		PrimaryWeapon: FAirPlasma
+		FacingTolerance: 20
+	Plane:
+		InitialFacing: 192
+		ROT: 5
+		Speed: 18
+		RearmBuildings: afld,carrb
+	RenderUnit:
+		Smokes: no
+		Icon: NHWKICON
+	-AppearsOnRadar:
+	WithShadow:
+	LimitedAmmo:
+		Ammo: 5
+	IronCurtainable:
+	ReturnOnIdle:
+	Selectable:
+		Bounds: 44,40,0,0
+	Contrail@1:
+		ContrailOffset: 16,-14
+	Contrail@2:
+		ContrailOffset: -16,-14
+	FallsToEarth:
+		Spins: no
+		Moves: yes
+		Explosion: UnitExplode
+	EjectOnDeath:
+		PilotActor: FE1
+		SuccessRate: 50
+	SmokeTrailWhenDamaged:
+		Offset: 0,-20,0,-4
+		Interval: 2
+	-GpsDot:
+
+B2GUN:
+	Inherits: ^Plane
+	Buildable:
+		Queue: Plane
+		BuildPaletteOrder: 100
+		Prerequisites: stek, mslo
+		BuiltAt: afld,carrb
+		Owner: fed
+	Valued:
+		Cost: 4000
+	Tooltip:
+		Name: C17 Bomber
+		Icon: C17ICON
+		Description: Nuclear Ground-Attack Plane.\n  Strong vs Buildings, Light Vehicles\n  Weak vs Anti-Air
+	Health:
+		HP: 500
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 12
+	AttackPlane:
+		PrimaryWeapon: B3Nuke
+		FacingTolerance: 20
+	Plane:
+		InitialFacing: 192
+		ROT: 5
+		Speed: 16
+		RearmBuildings: afld,carrb
+	RenderUnit:
+		Image: C17
+		Smokes: no
+	-AppearsOnRadar:
+	WithShadow:
+	LimitedAmmo:
+		Ammo: 1
+		PipCount: 5
+		ReloadTicks: 200
+	IronCurtainable:
+	ReturnOnIdle:
+	Selectable:
+		Bounds: 48,40,0,0
+	Contrail@1:
+		ContrailOffset: 16,-14
+	Contrail@2:
+		ContrailOffset: -16,-14
+	FallsToEarth:
+		Spins: no
+		Moves: yes
+		Explosion: UnitExplode
+	EjectOnDeath:
+		PilotActor: FE1
+		SuccessRate: 50
+	SmokeTrailWhenDamaged:
+		Offset: 0,-20,0,-4
+		Interval: 2
+
+AATY:
+	Inherits: ^Tank
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 60
+		Prerequisites: fix
+		Owner: fed
+	Valued:
+		Cost: 1200
+	Tooltip:
+		Name: Rook
+		Description: Long-range quad artillery.\n  Strong vs Infantry, Buildings\n  Weak vs Tanks, Aircraft
+	Health:
+		HP: 200
+	Armor:
+		Type: Light
+	Mobile:
+		Speed: 5
+	RevealsShroud:
+		Range: 6
+	Turreted:
+		ROT: 5
+	AttackTurreted:
+		PrimaryWeapon: d155mm
+		Recoil: 3
+		AlignIdleTurrets: true
+	RenderUnitTurreted:
+	AutoTarget:
+	Explodes:
+	Selectable:
+		Bounds: 30,30
+
+FCRU:
+	Inherits: ^Tank
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 80
+		Prerequisites: mslo, techcenter, bio10
+		Owner: fed
+	Valued:
+		Cost: 6000
+	Tooltip:
+		Name: Crusader
+		Description: Strong mech unit.\n  Strong vs Everything\n  Weak vs Tanks, Aircraft
+	Passenger: 
+		CargoType: Vehicle
+		PipType: Red
+		Weight: 4
+	Health:
+		HP: 3000
+	Armor:
+		Type: Heavy
+	Mobile:
+		ROT: 15
+		Speed: 6
+		Crushes: wall, atmine, crate, infantry, lightvehicle
+	RevealsShroud:
+		Range: 6
+	AttackFrontal:
+		PrimaryWeapon: FCrGun
+		SecondaryWeapon: MammothTusk
+#		SecondaryLocalOffset: -7,2,25,7,2,-25
+	RenderInfantry:
+		IdleAnimations: idle1
+	Explodes:
+	AutoTarget:
+	ShakeOnDeath:
+	SelfHealing:
+		Step: 1
+		Ticks: 10
+		HealIfBelow: 50%
+		DamageCooldown: 200
+
+BTNK:
+	Inherits: ^Tank
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 60
+		Prerequisites: fix
+		Owner: fed
+	Valued:
+		Cost: 1200
+	Tooltip:
+		Name: Plasma Tank
+		Description: Federation Main Battle Tank.\n  Strong vs Vehicles, Infantry\n  Weak vs Aircraft
+	Health:
+		HP: 400
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 7
+	RevealsShroud:
+		Range: 5
+	Turreted:
+		ROT: 5
+	AttackTurreted:
+		PrimaryWeapon: FPlasma
+		Recoil: 3
+		AlignIdleTurrets: true
+	RenderUnitTurreted:
+	AutoTarget:
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+#	LeavesHusk:
+#		HuskActor: 2TNK.Husk
+	Selectable:
+		Bounds: 30,30
+
+LMECH:
+	Inherits: ^Tank
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 60
+		Prerequisites: fix
+		Owner: fed
+	Valued:
+		Cost: 900
+	Tooltip:
+		Name: Legionary
+		Description: Federation assault mech. Uses fire.\n  Strong vs Infantry, Light Vehicles\n  Weak vs Vehicles, Aircraft
+	Health:
+		HP: 300
+	Armor:
+		Type: Light
+	Mobile:
+		Speed: 8
+	RevealsShroud:
+		Range: 5
+	Turreted:
+		ROT: 15
+	AttackTurreted:
+		PrimaryWeapon: FireballLauncher2
+		SecondaryWeapon: FSMG
+		Recoil: 1
+		AlignIdleTurrets: true
+	RenderUnitTurreted:
+	AutoTarget:
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+	Selectable:
+		Bounds: 30,30
+
+DRONE:
+	Inherits: ^Tank
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 60
+		Prerequisites: techcenter
+		Owner: fed
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: Sentinel
+		Description: Federation stealth mech.\n  Strong vs Infantry, Light Vehicles\n  Weak vs Vehicles, Aircraft
+	Health:
+		HP: 100
+	Armor:
+		Type: Light
+	Mobile:
+		Speed: 8
+		TerrainSpeeds:
+			Clear: 100
+			Rough: 100
+			Road: 100
+			Ore: 100
+			Beach: 90
+			Water: 80
+			Wall: 50
+			Rock: 50
+			River: 80
+	RevealsShroud:
+		Range: 4
+	AttackOmni:
+		PrimaryWeapon: FPlasma
+	RenderUnit:
+	AutoTarget:
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+#	Selectable:
+#		Bounds: 30,30
+	Cloak:
+		InitialDelay: 0
+		CloakDelay: 40
+		CloakSound: ironcur9.aud
+		UncloakSound: ironcur9.aud
+		Palette: shadow
+
+MONGOOSE:
+	Inherits: ^Tank
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 60
+		Owner: fed
+	Valued:
+		Cost: 900
+	Tooltip:
+		Name: Mongoose
+		Description: Light, missile weilding vehicle.\n  Strong vs Vehicles, Aircraft\n  Weak vs Vehicles, Aircraft
+	Health:
+		HP: 200
+	Armor:
+		Type: Light
+	Mobile:
+		Speed: 8
+		TerrainSpeeds:
+			Clear: 100
+			Rough: 100
+			Road: 100
+			Ore: 100
+			Beach: 90
+			Water: 80
+			River: 80
+	RevealsShroud:
+		Range: 7
+	Turreted:
+		ROT: 5
+	AttackTurreted:
+		PrimaryWeapon: MonMis
+		SecondaryWeapon: MonMis
+		PrimaryLocalOffset: -4,-5,0,0,0, 4,-5,0,0,0
+		SecondaryLocalOffset: -7,2,0,0,25, 7,2,0,0,-25
+		Recoil: 3
+		AlignIdleTurrets: true
+	RenderUnitTurreted:
+	AutoTarget:
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+	Selectable:
+		Bounds: 30,30
+
+
+
+RTNK:
+	Inherits: ^Tank
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 60
+		Owner: fed
+	Valued:
+		Cost: 1100
+	Tooltip:
+		Name: Reaper Transport
+		Description: Federation transport tank.\n  Strong vs Infantry, Light Vehicles\n  Weak vs Vehicles, Aircraft
+	Health:
+		HP: 800
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 4
+	RevealsShroud:
+		Range: 7
+	Turreted:
+		ROT: 5
+	AttackTurreted:
+		PrimaryWeapon: 90mm
+		SecondaryWeapon: FSMG
+		Recoil: 3
+		AlignIdleTurrets: true
+	RenderUnitTurreted:
+	AutoTarget:
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+	Selectable:
+		Bounds: 30,30
+	Cargo:
+		Types: Infantry
+		MaxWeight: 5
+		PipCount: 5
+		UnloadFacing: 220
+
+SPEEDER:
+	Inherits: ^Vehicle
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: Speeder
+		Icon: speedericon
+		Description: Fast scout vehicle, armed with \nrockets.\n  Strong vs Vehicles, Aircraft\n  Weak vs Infantry
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 30
+		Owner: fed
+	Mobile:
+		ROT: 10
+		Speed: 15
+		TerrainSpeeds:
+			Clear: 100
+			Rough: 100
+			Road: 100
+			Ore: 100
+			Beach: 90
+			Water: 80
+			River: 80
+	Health:
+		HP: 120
+	Armor: 
+		Type: Light
+	RevealsShroud:
+		Range: 5
+	AttackFrontal:
+		PrimaryWeapon: Rockets.Bike
+#		SecondaryWeapon: FSMG
+#		PrimaryOffset: 0,0,0,-2
+#		PrimaryLocalOffset: -4,0,25,4,0,-25
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+	RenderUnit:
+	AutoTarget:
+
+SOLC:
+	Inherits: ^Tank
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 9000	
+		Prerequisites: fmis,!SolcExist
+		Owner: fed
+	ProvidesCustomPrerequisite:
+		Prerequisite: SolcExist
+	Valued:
+		Cost: 10000
+	Tooltip:
+		Name: Sol Cannon
+		Icon: SOLCICON
+		Description: Very slow, armoured deployable \n tank, powerful long range nuke.\n  Strong vs Vehicles, Infantry\n  Weak vs Aircraft
+	Health:
+		HP: 7000
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 3
+		ROT: 3
+		Crushes: wall, atmine, crate, infantry, lightvehicle
+	RevealsShroud:
+		Range: 25
+	Turreted:
+		ROT: 2
+	AttackTurreted:
+		PrimaryWeapon: SeigeCannon
+		PrimaryRecoil: 5
+		AlignIdleTurrets: true
+	RenderUnitTurreted:
+		Image: SOLC
+	Passenger: 
+		CargoType: Epic
+		PipType: Red
+		Weight: 10
+	AutoTarget:
+	Explodes:
+		Weapon: Atomic
+		EmptyWeapon: Atomic
+#	LeavesHusk:
+#		HuskActor: 4TNK.Husk
+	ShakeOnDeath:
+	SelfHealing:
+		Step: 1
+		Ticks: 1
+		HealIfBelow: 50%
+		DamageCooldown: 200
+	AnnounceOnBuild:
+	Selectable:
+		Bounds: 80,80,0,-4
+		Voice: SolCannonVoice
+	-GainsExperience:
+	Transforms:
+		IntoActor: solcdepl
+		Offset:-1,-1
+		Facing: 192
+		TransformSounds: placbldg.aud, build5.aud
+		NoTransformSounds: nodeply1.aud
+
+SOLCDEPL:
+	Inherits: ^Building
+	Valued:
+		Cost: 10000
+	Tooltip:
+		Name: Deployed Sol Cannon
+		Description: Anti-Everything base defense.\n  Strong vs Tanks, Infantry\n  Weak vs Aircraft
+	Building:
+		Power: 0
+		Footprint: _x_ xxx _x_
+		Dimensions: 3,3
+		TerrainTypes: Clear,Road,Water,Rough,Beach,Ore
+	ProvidesCustomPrerequisite:
+		Prerequisite: SolcExist
+	Health:
+		HP: 7000
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 20
+	Turreted:
+		ROT: 1
+		InitialFacing: 50
+	RenderBuildingTurreted:
+		Image: SOLCDEPL
+	AttackTurreted:
+		PrimaryWeapon: SolCannon
+#		PrimaryLocalOffset: -4,-5,0,4,-5,0
+		Recoil: 5
+		AlignIdleTurrets: false
+#	-AutoTarget:
+	IronCurtainable:
+	-RenderBuilding:
+	RenderRangeCircle:
+	-AcceptsSupplies:
+	Transforms:
+		IntoActor: solc
+		Offset:1,1
+		Facing: 192
+		TransformSounds: placbldg.aud, build5.aud
+		NoTransformSounds: nodeply1.aud
+	-Capturable:
+	-CapturableBar:
+	-Sellable:
+#	-GivesBuildableArea:
+	-RepairableBuilding:
+	-MustBeDestroyed:
+	Explodes:
+		Weapon: Atomic
+		EmptyWeapon: Atomic
+	AnnounceOnBuild:
+	Selectable:
+		Voice: SolCannonDeployedVoice
+
+FE1:
+	Inherits: ^Infantry
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 10
+		Owner: fed
+	Valued:
+		Cost: 80
+	Tooltip:
+		Name: Initiate
+		Description: Infantry in training.\n  Strong vs Nothing\n  Weak vs Everything
+	Selectable:
+		Bounds: 12,17,0,-9
+	Health:
+		HP: 40
+	Mobile:
+		Speed: 4
+	AutoTarget:
+		ScanRadius: 4
+	AttackFrontal:
+		PrimaryWeapon: M1Carbine
+	TakeCover:
+	-RenderInfantry:
+	RenderInfantryProne:
+		Image: TSE4
+		IdleAnimations: idle1,idle2
+
+FE2:
+	Inherits: ^Infantry
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 10
+		Owner: fed
+	Valued:
+		Cost: 400
+	Tooltip:
+		Name: Strike Knight
+		Description: Assault infantry.\n  Strong vs Infantry\n  Weak vs Vehicles
+	Selectable:
+		Bounds: 12,17,0,-9
+	Health:
+		HP: 150
+	RevealsShroud:
+		Range: 5
+	AutoTarget:
+		ScanRadius: 5
+	Mobile:
+		Speed: 6
+	AttackFrontal:
+		PrimaryWeapon: FSMG
+	TakeCover:
+	-RenderInfantry:
+	RenderInfantryProne:
+		Image: TSE1
+		IdleAnimations: idle1,idle2
+	SelfHealing:
+		Step: 1
+		Ticks: 30
+		HealIfBelow: 50%
+#	CrushableInfantry:
+#		CrushClasses: lightvehicle
+
+FE3:
+	Inherits: ^Infantry
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 10
+		Owner: fed
+	Valued:
+		Cost: 550
+	Tooltip:
+		Name: Grenade Knight
+		Description: Infantry armed with grenades. \n  Strong vs Buildings, Infantry\n  Weak vs Vehicles
+	Selectable:
+		Bounds: 12,17,0,-9
+	Health:
+		HP: 150
+	RevealsShroud:
+		Range: 5
+	AutoTarget:
+		ScanRadius: 5
+	Mobile:
+		Speed: 4
+	AttackFrontal:
+		PrimaryWeapon: FGrenade
+		PrimaryOffset: 0,0,0,-13
+		FireDelay: 15
+	TakeCover:
+	-RenderInfantry:
+	RenderInfantryProne:
+		Image: TSE2
+		IdleAnimations: idle1,idle2
+	Explodes:
+		Weapon: UnitExplodeSmall
+		Chance: 50		
+	SelfHealing:
+		Step: 1
+		Ticks: 30
+		HealIfBelow: 50%
+	CrushableInfantry:
+		CrushClasses: lightvehicle
+
+FE4:
+	Inherits: ^Infantry
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 20
+		Owner: fed
+	Valued:
+		Cost: 750
+	Tooltip:
+		Name: Heavy Knight
+		Description: Anti-tank infantry.\n  Strong vs Tanks\n  Weak vs Infantry
+	Selectable:
+		Bounds: 12,17,0,-9
+	Health:
+		HP: 400
+	RevealsShroud:
+		Range: 5
+	AutoTarget:
+		ScanRadius: 5
+	Mobile:
+		Speed: 4
+	AttackFrontal:
+		PrimaryWeapon: FRkt
+		SecondaryWeapon: Grenade
+		PrimaryOffset: 0,0,0,-13
+		SecondaryOffset: 0,0,0,-13
+	TakeCover:
+	-RenderInfantry:
+	RenderInfantryProne:
+		Image: TSE3
+		IdleAnimations: idle1,idle2
+	SelfHealing:
+		Step: 1
+		Ticks: 30
+		HealIfBelow: 50%
+	CrushableInfantry:
+		CrushClasses: lightvehicle
+
+#FE5:
+#	Inherits: ^Infantry
+#	Buildable:
+#		Queue: Infantry
+#		BuildPaletteOrder: 60
+#		Owner: fed
+#		Prerequisites: Radar
+#	Valued:
+#		Cost: 800
+#	Tooltip:
+#		Name: Fire Knight
+#		Description: Anti-infantry unit.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles
+#	Selectable:
+#		Bounds: 12,17,0,-9
+#	Health:
+#		HP: 120
+#	Mobile:
+#		Speed: 5
+#	AutoTarget:
+#		ScanRadius: 4
+#	AttackFrontal:
+#		PrimaryWeapon: Flamer
+#		PrimaryOffset: 0,0,0,-7
+#		FireDelay: 8
+#	TakeCover:
+#	-RenderInfantry:
+#	RenderInfantryProne:
+#		IdleAnimations: idle1,idle2
+#	SelfHealing:
+#		Step: 1
+#		Ticks: 30
+#		HealIfBelow: 50%
+
+FE6:
+	Inherits: ^Infantry
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 50
+		Owner: fed
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: Tech Knight
+		Description: Infiltrates and captures enemy structures.\n  Strong vs Nothing\n  Weak vs Everything
+	Selectable:
+		Voice: EngineerVoice
+		Bounds: 12,17,0,-9
+	Health:
+		HP: 40
+	Mobile:
+		Speed: 4
+	Passenger:
+		PipType: Yellow
+	EngineerRepair:
+	Captures:
+	TakeCover:
+	-AutoTarget:
+	AttackMove:
+		JustMove: true
+	-RenderInfantry:
+	RenderInfantryProne:
+		Image: TSENGI
+		IdleAnimations: idle1,idle2
+	SelfHealing:
+		Step: 1
+		Ticks: 30
+		HealIfBelow: 50%
+#	CrushableInfantry:
+#		CrushClasses: lightvehicle
+
+FE7:
+	Inherits: ^Infantry
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 110
+		Prerequisites: techcenter
+		Owner: fed
+	Valued:
+		Cost: 1600
+	Tooltip:
+		Name: Bishop Knight
+		Description: Elite stealth infantry, armed with \na sniper rifle.\n  Strong vs Infantry\n  Weak vs Vehicles
+	Selectable:
+		Voice: BishopVoice
+		Bounds: 12,17,0,-9
+	Health:
+		HP: 180
+	Mobile:
+		Speed: 3
+	RevealsShroud:
+		Range: 11
+	Passenger:
+		PipType: Red
+	AttackFrontal:
+		PrimaryWeapon: FSniper
+#	-RenderInfantry:
+	AnnounceOnBuild:
+	AnnounceOnKill:
+	RenderInfantry:
+		Image: SLAVP
+		IdleAnimations: idle1,idle2
+	SelfHealing:
+		Step: 1
+		Ticks: 30
+		HealIfBelow: 50%
+	Cloak:
+		InitialDelay: 0
+		CloakDelay: 100
+		CloakSound: ironcur9.aud
+		UncloakSound: ironcur9.aud
+		Palette: shadow
+	-AutoTarget:
+
+FMEDI:
+	Inherits: ^Infantry
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 20
+		Owner: fed
+	Valued:
+		Cost: 850
+	Tooltip:
+		Name: Medic Knight
+		Description: Heals nearby infantry.
+	Selectable:
+		Voice: MedicVoice
+		Bounds: 12,17,0,-9
+	Health:
+		HP: 120
+	Mobile:
+		Speed: 5
+	RevealsShroud:
+		Range: 3
+	Passenger:
+		PipType: Yellow
+	AutoHeal:
+	AttackMedic:
+		PrimaryWeapon: Heal
+	TakeCover:
+	-AutoTarget:
+	AttackMove:
+		JustMove: true
+	-RenderInfantry:
+	RenderInfantryProne:
+		Image: TSMEDI
+		IdleAnimations: idle1,idle2
+	SelfHealing:
+		Step: 1
+		Ticks: 30
+		HealIfBelow: 50%
+	CrushableInfantry:
+		CrushClasses: lightvehicle
+
+FSHOK:
+	Inherits: ^Infantry
+	Buildable:
+		Queue: Infantry
+		Prerequisites: stek
+		Owner: fed
+	Valued:
+		Cost: 550
+	Tooltip:
+		Name: Shock Knight
+		Description: Infantry with tesla coils\n Strong vs Infantry, Vehicles\n Weak vs Air, long-range
+	Selectable:
+		Voice: ShokVoice
+		Bounds: 12,17,0,-9
+	Health:
+		HP: 120
+	Mobile:
+		Speed: 5
+	RevealsShroud:
+		Range: 4
+	AutoTarget:
+		ScanRadius: 4
+	AttackFrontal:
+		PrimaryWeapon: PortaTesla
+	TakeCover:
+	-RenderInfantry:
+	RenderInfantryProne:
+		Image: TSTANYA
+		IdleAnimations: idle1,idle2
+	SelfHealing:
+		Step: 1
+		Ticks: 30
+		HealIfBelow: 50%
+	CrushableInfantry:
+		CrushClasses: lightvehicle
+
+FRMBO:
+	Inherits: ^Infantry
+	Valued:
+		Cost: 2500
+	Tooltip:
+		Name: Justicar
+		Description: Elite sniper infantry unit.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 120
+		Prerequisites: techcenter,!JusticarExist
+		Owner: fed
+	ProvidesCustomPrerequisite:
+		Prerequisite: JusticarExist
+	Selectable:
+		Bounds: 12,17,0,-6
+		Voice: CommandoVoice
+	Mobile:
+		Speed: 7
+	Health:
+		HP: 600
+	RevealsShroud:
+		Range: 10
+	AutoTarget:
+		ScanRadius: 10
+	Passenger:
+		PipType: Red
+	AttackFrontal:
+		PrimaryWeapon: GaussRifle
+		PrimaryOffset: 0,8,0,-9
+		SecondaryWeapon: FSMG
+	TakeCover:
+	-RenderInfantry:
+	RenderInfantryProne:
+		Image: TSRMBO
+		IdleAnimations: idle1,idle2,idle3
+	AnnounceOnBuild:
+	AnnounceOnKill:
+	SelfHealing:
+		Step: 2
+		Ticks: 30
+		HealIfBelow: 75%
+	-CrushableInfantry:
+
+FMECH:
+	Inherits: ^Infantry
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 25
+		Owner: fed
+		Prerequisites: fix
+	Valued:
+		Cost: 850
+	Tooltip:
+		Name: Repair Knight
+		Description: Fixes nearby vehicles and \ndoesn't afraid of anything.\n  Unarmed
+	Selectable:
+		Voice: MechanicVoice
+		Bounds: 12,17,0,-9
+	Health:
+		HP: 120
+	Mobile:
+		Speed: 5
+	RevealsShroud:
+		Range: 3
+	Passenger:
+		PipType: Yellow
+	AutoHeal:
+	AttackMedic:
+		PrimaryWeapon: Wrench
+	TakeCover:
+	-AutoTarget:
+	AttackMove:
+		JustMove: true
+	-RenderInfantry:
+	RenderInfantryProne:
+		Image: TSMEDI
+		IdleAnimations: idle1,idle2
+	SelfHealing:
+		Step: 1
+		Ticks: 30
+		HealIfBelow: 50%
+	CrushableInfantry:
+		CrushClasses: lightvehicle

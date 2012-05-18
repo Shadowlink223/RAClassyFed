@@ -1,0 +1,1563 @@
+
+FACT:
+	Inherits: ^Building
+	Building:
+		Power: 0
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+	Health:
+		HP: 2000
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 7
+	Bib:
+	Production:
+		Produces: Building,Defense,Special
+	IronCurtainable: 
+	Valued:
+		Cost: 5000
+	Tooltip:
+		Name: Construction Yard
+	CustomSellValue:
+		Value: 2000
+	BaseBuilding:
+	Transforms:
+		IntoActor: mcv
+		Offset:1,1
+		Facing: 96
+	Exit@1:
+		SpawnOffset: 5,0
+		ExitCell: 4,3
+	ProductionBar:
+	ProductionQueue@Building:
+		Type: Building
+		BuildSpeed: .3
+		LowPowerSlowdown: 2
+		QueuedAudio: abldgin1.aud
+		ReadyAudio: conscmp1.aud
+	ProductionQueue@Defense:
+		Type: Defense
+		BuildSpeed: .3
+		LowPowerSlowdown: 2
+		QueuedAudio: abldgin1.aud
+		ReadyAudio: conscmp1.aud
+
+PROC:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 10
+		Prerequisites: anypower
+		Owner: allies,soviet
+		Hotkey: e
+	Valued:
+		Cost: 1400
+	Tooltip:
+		Name: Ore Refinery
+		Description: Converts Ore and Gems into money
+	Building:
+		Power: -30
+		Footprint: _x_ xxx x==
+		Dimensions: 3,3
+	ProvidesCustomPrerequisite:
+		Prerequisite: Refinery
+	Health:
+		HP: 900
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 6
+	Bib:
+	OreRefinery:
+	StoresOre:
+		PipCount: 17
+		Capacity: 5000
+	IronCurtainable:
+	CustomSellValue:
+		Value: 600
+	FreeActor:
+		Actor: HARV
+		InitialActivity: FindResources
+		SpawnOffset: 1,2
+		Facing: 64
+	InfiltrateForCash:
+		Percentage: 50
+		Minimum: 500
+		SoundToVictim: credit1.aud
+PROCDM:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 10
+		Prerequisites: anypower
+		Owner: uac
+		Hotkey: e
+	Valued:
+		Cost: 1400
+	Tooltip:
+		Name: Ore Refinery
+		Icon: PROCICON
+		Description: Converts Ore and Gems into money
+	Building:
+		Power: -30
+		Footprint: _x_ xxx x==
+		Dimensions: 3,3
+	ProvidesCustomPrerequisite:
+		Prerequisite: Refinery
+	Health:
+		HP: 900
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 6
+	Bib:
+	OreRefinery:
+	RenderBuilding:
+		Image: DMB4
+	StoresOre:
+		PipCount: 17
+		Capacity: 5000
+	IronCurtainable:
+	CustomSellValue:
+		Value: 600
+	FreeActor:
+		Actor: HARV
+		InitialActivity: FindResources
+		SpawnOffset: 1,2
+		Facing: 64
+	InfiltrateForCash:
+		Percentage: 50
+		Minimum: 500
+		SoundToVictim: credit1.aud
+
+SILO:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 40
+		Prerequisites: Refinery
+		Owner: allies,soviet,uac
+		Hotkey: o
+	Valued:
+		Cost: 150
+	Tooltip:
+		Name: Silo
+		Description: Stores excess harvested Ore
+	Building:
+		Power: -10
+	Health:
+		HP: 300
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 4
+	RenderBuildingSilo:
+	StoresOre:
+		PipCount: 5
+		Capacity: 2000
+	IronCurtainable:
+	-RenderBuilding:
+	-EmitInfantryOnSell:
+	InfiltrateForCash:
+		Percentage: 25
+		Minimum: 250
+		SoundToVictim: credit1.aud
+
+
+SPEN:
+	InfiltrateForSupportPower:
+		Proxy: powerproxy.sonarpulse
+	Inherits: ^Building
+	Valued:
+		Cost: 650
+	Tooltip:
+		Name: Sub Pen
+		Description: Produces and repairs submarines and \ntransports
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 30
+		Prerequisites: anypower
+		Owner: soviet,nod
+		Hotkey: y
+	TargetableBuilding:
+		TargetTypes: Ground, Water
+	Building:
+		Power: -30
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+		Adjacent: 8
+		TerrainTypes: Water
+	Health:
+		HP: 1000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 4
+	Exit@1:
+		SpawnOffset: 0,-5
+		Facing: 96
+		ExitCell: -1,2
+	Exit@2:
+		SpawnOffset: 0,-5
+		Facing: 160
+		ExitCell: 3,2
+	Exit@3:
+		SpawnOffset: 0,0
+		Facing: 32
+		ExitCell: 0,0
+	Exit@4:
+		SpawnOffset: 0,0
+		Facing: 224
+		ExitCell: 2,0
+	Production:
+		Produces: Ship
+	PrimaryBuilding:
+	IronCurtainable:
+	-EmitInfantryOnSell:
+	RepairsUnits:
+	RallyPoint:
+	ProductionBar:
+	ProductionQueue:
+		Type: Ship
+		BuildSpeed: .3
+		LowPowerSlowdown: 2
+
+SYRD:
+	InfiltrateForSupportPower:
+		Proxy: powerproxy.sonarpulse
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 40
+		Prerequisites: anypower
+		Owner: allies,gdi,fed,uac
+		Hotkey: y
+	Valued:
+		Cost: 650
+	Tooltip:
+		Name: Shipyard
+		Description: Produces and repairs ships
+	TargetableBuilding:
+		TargetTypes: Ground, Water
+	Building:
+		Power: -30
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+		Adjacent: 8
+		TerrainTypes: Water
+	Health:
+		HP: 1000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 4
+	Exit@1:
+		SpawnOffset: -24,24
+		Facing: 160
+		ExitCell: 0,2
+	Exit@2:
+		SpawnOffset: 24,24
+		Facing: 224
+		ExitCell: 2,2
+	Exit@3:
+		SpawnOffset: -24,-24
+		Facing: 96
+		ExitCell: 0,0
+	Exit@4:
+		SpawnOffset: 24,-24
+		Facing: 32
+		ExitCell: 2,0
+	Production:
+		Produces: Ship
+	PrimaryBuilding:
+	IronCurtainable:
+	-EmitInfantryOnSell:
+	RepairsUnits:
+	RallyPoint:
+	ProductionBar:
+	ProductionQueue:
+		Type: Ship
+		BuildSpeed: .3
+		LowPowerSlowdown: 2
+
+DOME:
+	RequiresPower:
+	CanPowerDown:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 60
+		Prerequisites: Refinery
+		Owner: allies,soviet,uac
+		Hotkey: r
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Radar Dome
+		Description: Provides an overview of the battlefield.\n  Requires power to operate.
+	Building:
+		Power: -40
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 1000
+	Armor:
+		Type: Wood
+	ProvidesCustomPrerequisite:
+		Prerequisite: Radar
+	RevealsShroud:
+		Range: 10
+	Bib:
+	ProvidesRadar:
+	IronCurtainable:
+	InfiltrateForExploration:
+
+WEAP:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 50
+		Prerequisites: Refinery
+		Owner: soviet,allies
+		Hotkey: w
+	Valued:
+		Cost: 2000
+	ProvidesCustomPrerequisite:
+		Prerequisite: Factory
+	Tooltip:
+		Name: War Factory
+		Description: Produces tanks & light vehicles.
+	Building:
+		Power: -30
+		Footprint: xxx xxx
+		Dimensions: 3,2
+	Health:
+		HP: 1500
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 4
+	Bib:
+	-RenderBuilding:
+	RenderBuildingWarFactory:
+	RallyPoint:
+	Exit@1:
+		SpawnOffset: 5,0
+		ExitCell: 1,1
+	Production:
+		Produces: Vehicle
+	PrimaryBuilding:
+	IronCurtainable:
+	ProductionBar:
+	ProductionQueue:
+		Type: Vehicle
+		BuildSpeed: .3
+		LowPowerSlowdown: 2
+		QueuedAudio: abldgin1.aud
+
+HPAD:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 70
+		Prerequisites: Radar
+		Owner: allies, soviet,gdi,nod,fed,uac
+		Hotkey: i
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: Helipad
+		Description: Produces and reloads helicopters
+	Building:
+		Power: -10
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 800
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 5
+	Bib:
+	Exit@1:
+		SpawnOffset: 0,-6
+		ExitCell: 0,0
+	Production:
+		Produces: Plane
+	PrimaryBuilding:
+	BelowUnits:
+#	Reservable:
+	IronCurtainable:
+	ProductionBar:
+
+AFLD:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 75
+		Prerequisites: Radar
+		Owner: soviet,fed
+		Hotkey: g
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Airstrip
+		Description: Provides radar and off-map support\n  Special Ability: Spy Plane
+	Building:
+		Power: -20
+		Footprint: xxx xxx
+		Dimensions: 3,2
+	Health:
+		HP: 1000
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 7
+	Exit@1:
+		SpawnOffset: 0,4
+		ExitCell: 1,1
+		Facing:192
+	Production:
+		Produces: Plane
+	PrimaryBuilding:
+	BelowUnits:
+	Reservable:
+	IronCurtainable:
+	SpyPlanePower:
+		Image: smigicon
+		ChargeTime: 120
+		Description: Spy Plane
+		LongDesc: Reveals an area of the map.
+		SelectTargetSound: slcttgt1.aud
+		EndChargeSound: spypln1.aud
+	ProductionBar:
+	SupportPowerChargeBar:
+
+AFLD2:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 75
+		Prerequisites: Radar, techcenter
+		Owner: allies
+		Hotkey: g
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Airstrip
+		Icon: AFLDICON
+		Description: Builds planes
+	Building:
+		Power: -20
+		Footprint: xxx xxx
+		Dimensions: 3,2
+	Health:
+		HP: 1000
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 7
+	Exit@1:
+		SpawnOffset: 0,4
+		ExitCell: 1,1
+		Facing:192
+	Production:
+		Produces: Plane
+	PrimaryBuilding:
+	BelowUnits:
+	Reservable:
+	IronCurtainable:
+	ProductionBar:
+	RenderBuilding:
+		Image: AFLD
+	
+POWR:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 0
+		Owner: allies,soviet,gdi,nod,fed
+		Hotkey: p
+	Valued:
+		Cost: 300
+	Tooltip:
+		Name: Power Plant
+		Description: Provides power for other structures
+	ProvidesCustomPrerequisite:
+		Prerequisite: anypower
+	Building:
+		Power: 100
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 400
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 4
+	Bib:
+	IronCurtainable:
+
+APWR:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 80
+		Prerequisites: Radar
+		Owner: allies,soviet,gdi,nod,fed
+		Hotkey: l
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Advanced Power Plant
+		Description: Provides more power, cheaper than the \nstandard Power Plant
+	ProvidesCustomPrerequisite:
+		Prerequisite: anypower
+	Building:
+		Power: 200
+		Footprint: ___ xxx xxx
+		Dimensions: 3,3
+	Health:
+		HP: 700
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 4
+	Bib:
+	IronCurtainable:
+
+POWRC:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 85
+		Prerequisites: techcenter
+		Owner: allies,soviet,gdi,nod,fed
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: Compact Power Plant
+		Icon: DPWRICON
+		Description: Provides same power as advanced power \nbut smaller and less stable
+	ProvidesCustomPrerequisite:
+		Prerequisite: anypower
+	Building:
+		Power: 200
+		Footprint: x_ xx
+		Dimensions: 2,2
+	Health:
+		HP: 700
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 4
+	Bib:
+	IronCurtainable:
+	Explodes:
+		Weapon: TinyAtomic
+		Chance: 100		
+	RenderBuilding:
+		Image: DPWR
+#	LeavesHusk: 
+#		HuskActor: POWRC.Husk 
+
+POWRC.Husk: 
+	Inherits: ^BuildingHusk
+	-Health: 
+	RenderBuilding: 
+		Image: DPWRdead
+	Building:
+		Power: 0
+		Footprint: x_ xx
+		Dimensions: 2,2
+	Tooltip: 
+		Name: Destroyed Power Plant 
+		Icon: DPWRICON
+
+POWRU:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 90
+		Prerequisites: techcenter, mslo
+		Owner: allies,soviet,gdi,nod,fed,uac
+	Valued:
+		Cost: 1400
+	Tooltip:
+		Name: Ultimate Power Plant
+		Icon: NUK2ICNH
+		Description: Provides huge amount of power \nbut incredibly unstable
+	ProvidesCustomPrerequisite:
+		Prerequisite: anypower
+	Building:
+		Power: 600
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 500
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 5
+	Bib:
+	IronCurtainable:
+	Explodes:
+		Weapon: AtomicTruck
+		Chance: 100		
+	RenderBuilding:
+		Image: NUK2
+POWRDM:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 0
+		Owner: uac
+		Hotkey: p
+	Valued:
+		Cost: 300
+	Tooltip:
+		Name: Power Plant
+		Icon: POWRICON
+		Description: Provides power for other structures
+	ProvidesCustomPrerequisite:
+		Prerequisite: anypower
+	Building:
+		Power: 100
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 400
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 4
+	Bib:
+	IronCurtainable:
+	RenderBuilding:
+		Image: DMB1
+
+APWRDM:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 80
+		Prerequisites: Radar
+		Owner: uac
+		Hotkey: l
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Advanced Power Plant
+		Icon: APWRICON
+		Description: Provides more power, cheaper than the \nstandard Power Plant
+	ProvidesCustomPrerequisite:
+		Prerequisite: anypower
+	Building:
+		Power: 200
+		Footprint: ___ xxx xxx
+		Dimensions: 3,3
+	Health:
+		HP: 700
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 4
+	Bib:
+	IronCurtainable:
+	RenderBuilding:
+		Image: DMB2
+
+STEK:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 60
+		Prerequisites: Factory,Radar
+		Owner: soviet,fed
+		Hotkey: t
+	Valued:
+		Cost: 2000
+	Tooltip:
+		Name: Tech Center
+		Description: Provides Soviet advanced technologies
+	ProvidesCustomPrerequisite:
+		Prerequisite: techcenter
+	Building:
+		Power: -150
+		Footprint: xxx xxx
+		Dimensions: 3,2
+	Health:
+		HP: 600
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 4
+	Bib:
+#	GpsPower:
+#		Image: gpssicon
+#		OneShot: yes
+#		ChargeTime: 600
+#		Description: GPS Satellite
+#		LongDesc: Reveals the entire map
+#		RevealDelay: 15
+#		LaunchSound: satlnch1.aud
+	IronCurtainable:
+
+ATEK:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 100
+		Prerequisites: Factory,Radar
+		Owner: allies
+		Hotkey: t
+	Valued:
+		Cost: 2000
+	Tooltip:
+		Name: Tech Center
+		Description: Provides Allied advanced technologies.\n  Special Ability: GPS Satellite
+	ProvidesCustomPrerequisite:
+		Prerequisite: techcenter
+	Building:
+		Power: -150
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 400
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 10
+	Bib:
+	IronCurtainable:
+	GpsPower:
+		Image: gpssicon
+		OneShot: yes
+		ChargeTime: 600
+		Description: GPS Satellite
+		LongDesc: Reveals the entire map
+		RevealDelay: 15
+		LaunchSound: satlnch1.aud
+	SupportPowerChargeBar:
+
+ATEKDM:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 100
+		Prerequisites: Factory,Radar
+		Owner: uac
+		Hotkey: t
+	Valued:
+		Cost: 2000
+	Tooltip:
+		Name: Tech Center
+		Icon: ATEKICON
+		Description: Provides UAC advanced technologies.\n  Special Ability: Spy Plane
+	ProvidesCustomPrerequisite:
+		Prerequisite: techcenter
+	Building:
+		Power: -150
+		Footprint: xx xx
+		Dimensions: 2,2
+	RenderBuilding:
+		Image: DMB3
+	Health:
+		HP: 400
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 10
+	Bib:
+	IronCurtainable:
+	SupportPowerChargeBar:
+	SpyPlanePower:
+		Image: smigicon
+		ChargeTime: 120
+		Description: Spy Plane
+		LongDesc: Reveals an area of the map.
+		SelectTargetSound: slcttgt1.aud
+		EndChargeSound: spypln1.aud
+
+BARR:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 30
+		Prerequisites: anypower
+		Owner: soviet,uac
+		Hotkey: b
+	Valued:
+		Cost: 400
+	Tooltip:
+		Name: Barracks
+		Description: Produces infantry
+	Building:
+		Power: -20
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 800
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 5
+	Bib:
+	RallyPoint:
+	Exit@1:
+		SpawnOffset: -4,19
+		ExitCell: 0,2
+	Exit@2:
+		SpawnOffset: -17,15
+		ExitCell: 0,2
+	Production:
+		Produces: Infantry
+	PrimaryBuilding:
+	IronCurtainable:
+	ProductionBar:
+	ProductionQueue:
+		Type: Infantry
+		BuildSpeed: .3
+		LowPowerSlowdown: 2
+
+TENT:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 30
+		Prerequisites: anypower
+		Owner: allies
+		Hotkey: b
+	Valued:
+		Cost: 400
+	Tooltip:
+		Name: Barracks
+		Description: Produces infantry
+	Building:
+		Power: -20
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 800
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 5
+	Bib:
+	RallyPoint:
+	Exit@1:
+		SpawnOffset: -1,19
+		ExitCell: 0,2
+	Exit@2:
+		SpawnOffset: -17,15
+		ExitCell: 0,2
+	Production:
+		Produces: Infantry
+	PrimaryBuilding:
+	IronCurtainable:
+	ProductionBar:
+	ProductionQueue:
+		Type: Infantry
+		BuildSpeed: .3
+		LowPowerSlowdown: 2
+
+PYLED:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 30
+		Prerequisites: anypower
+		Owner: gdi,fed
+		Hotkey: b
+	Valued:
+		Cost: 400
+	Tooltip:
+		Name: Barracks
+		Description: Produces infantry
+	Building:
+		Power: -20
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 800
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 5
+	Bib:
+	RallyPoint:
+	Exit@1:
+		SpawnOffset: -4,19
+		ExitCell: 0,2
+	Exit@2:
+		SpawnOffset: -17,15
+		ExitCell: 0,2
+	Production:
+		Produces: Infantry
+	PrimaryBuilding:
+	IronCurtainable:
+	ProductionBar:
+	ProductionQueue:
+		Type: Infantry
+		BuildSpeed: .3
+		LowPowerSlowdown: 2
+
+HANDD:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 30
+		Prerequisites: anypower
+		Owner: nod
+		Hotkey: b
+	Valued:
+		Cost: 400
+	Tooltip:
+		Name: Hand of Nod
+		Description: Produces infantry
+	Building:
+		Power: -20
+		Footprint: __ xx xx
+		Dimensions: 2,3
+	Health:
+		HP: 800
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 5
+	Bib:
+	RallyPoint:
+	Exit@1:
+		SpawnOffset: 12,24
+		ExitCell: 1,2
+	Production:
+		Produces: Infantry
+	PrimaryBuilding:
+	IronCurtainable:
+	ProductionBar:
+	ProductionQueue:
+		Type: Infantry
+		BuildSpeed: .3
+		LowPowerSlowdown: 2
+
+FIX:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 30
+		Prerequisites: Factory
+		Owner: allies,soviet,gdi,nod,fed,uac
+		Hotkey: d
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Service Depot
+		Description: Repairs vehicles, reloads minelayers, and \nallows the construction of additional bases.
+	Building:
+		Power: -30
+		Footprint: _x_ xxx _x_
+		Dimensions: 3,3
+	Health:
+		HP: 800
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 5
+	BelowUnits:
+	Reservable:
+	RallyPoint:
+	IronCurtainable:
+	RepairsUnits:
+		Interval: 5
+
+FACF:
+	Inherits: ^Building
+#	Buildable:
+#		BuildPaletteOrder: 900
+#		Owner: allies
+#		Cost: 50
+#		Description: Fake Construction Yard
+#		LongDesc: Looks like a Construction Yard.
+#		Hotkey: c
+	Building:
+		Power: -2
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+	Health:
+		HP: 30
+	RevealsShroud:
+		Range: 4
+	Bib:
+	RenderBuilding:
+		Image: FACT
+	Fake:
+	IronCurtainable:
+	-EmitInfantryOnSell:
+
+WEAF:
+	Inherits: ^Building
+#	Buildable:
+#		BuildPaletteOrder: 900
+#		Prerequisites: proc
+#		Owner: allies
+#		Cost: 50
+#		Description: Fake War Factory
+#		LongDesc: Looks like a War Factory.
+#		Hotkey: x
+	Building:
+		Power: -2
+		Footprint: xxx xxx
+		Dimensions: 3,2
+	Health:
+		HP: 30
+	RevealsShroud:
+		Range: 4
+	Bib:
+	-RenderBuilding:
+	RenderBuildingWarFactory:
+		Image: WEAP
+	Fake:
+	IronCurtainable:
+	-EmitInfantryOnSell:
+
+SYRF:
+	Inherits: ^Building
+	Valued:
+		Cost: 50
+	Tooltip:
+		Name: Fake Shipyard
+#	Buildable:
+#		BuildPaletteOrder: 900
+#		Prerequisites: anypower
+#		Owner: allies
+#		Cost: 50
+#		Description: Fake Shipyard
+#		LongDesc: Looks like a Shipyard
+#		Hotkey: z
+	TargetableBuilding:
+		TargetTypes: Ground, Water
+	Building:
+		Power: -2
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+		Adjacent: 8
+		WaterBound: yes
+	Health:
+		HP: 30
+	RevealsShroud:
+		Range: 4
+	RenderBuilding:
+		Image: SYRD
+	Fake:
+	-EmitInfantryOnSell:
+
+SPEF:
+	Inherits: ^Building
+	TargetableBuilding:
+		TargetTypes: Ground, Water
+	Building:
+		Power: -2
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+		Adjacent: 8
+		WaterBound: yes
+	Health:
+		HP: 30
+	RevealsShroud:
+		Range: 4
+	RenderBuilding:
+		Image: SPEN
+	Fake:
+	-EmitInfantryOnSell:
+
+DOMF:
+	Inherits: ^Building
+	Valued:
+		Cost: 50
+	Tooltip:
+		Name: Fake Radar Dome
+#	Buildable:
+#		BuildPaletteOrder: 900
+#		Prerequisites: proc
+#		Owner: allies
+#		Cost: 50
+#		Description: Fake Radar Dome
+#		LongDesc: Looks like a Radar Dome
+#		Hotkey: v
+	Building:
+		Power: -2
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 30
+	RevealsShroud:
+		Range: 4
+	Bib:
+	RenderBuilding:
+		Image: DOME
+	Fake:
+	-EmitInfantryOnSell:
+KENN:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 30
+		Prerequisites: barr
+		Owner: soviet,uac
+		Hotkey: k
+	Valued:
+		Cost: 200
+	Tooltip:
+		Name: Kennel
+		Description: Woof!
+	Building:
+		Power: -1
+		Footprint: x
+		Dimensions: 1,1
+	Health:
+		HP: 400
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 5
+	IronCurtainable:
+
+CARRB:
+	Inherits: ^Building
+#	Buildable:
+#		Queue: Building
+#		BuildPaletteOrder: 90
+#		Prerequisites: techcenter
+#		Owner: soviet
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Helicarrier
+		Icon: CARRICON
+		Description: Produces and reloads helicopters
+	TargetableBuilding:
+		TargetTypes: Ground, Water
+	Building:
+		Power: 0
+		Footprint: x
+		Dimensions: 1,1
+		WaterBound: yes
+		BaseNormal: no
+	Health:
+		HP: 600
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 5
+	Exit@1:
+		SpawnOffset: 0,-6
+		ExitCell: 0,0
+	Production:
+		Produces: Plane
+	BelowUnits:
+	PrimaryBuilding:
+	Reservable:
+	IronCurtainable:
+	ProductionBar:
+	-RepairableBuilding:
+	-Sellable:
+	Transforms:
+		IntoActor: carr
+		Offset:0,0
+		Facing: 96
+	RenderBuilding:
+		Image: CARRB
+
+PROCD:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 10
+		Prerequisites: anypower
+		Owner: gdi,fed
+		Hotkey: e
+	Valued:
+		Cost: 1400
+	Tooltip:
+		Name: Ore Refinery
+		Description: Converts Ore and Gems into money
+	Building:
+		Power: -30
+		Footprint: _x_ xxx x==
+		Dimensions: 3,3
+	ProvidesCustomPrerequisite:
+		Prerequisite: Refinery
+	Health:
+		HP: 900
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 6
+	Bib:
+	OreRefinery:
+	StoresOre:
+		PipCount: 17
+		Capacity: 5000
+	IronCurtainable:
+	CustomSellValue:
+		Value: 600
+	FreeActor:
+		Actor: HARV
+		InitialActivity: FindResources
+		SpawnOffset: 1,2
+		Facing: 64
+	InfiltrateForCash:
+		Percentage: 50
+		Minimum: 500
+		SoundToVictim: credit1.aud
+
+HQD:
+	RequiresPower:
+	CanPowerDown:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 60
+		Prerequisites: Refinery
+		Owner: gdi,nod,fed
+		Hotkey: r
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Radar Center
+		Description: Provides an overview of the battlefield.\n  Requires power to operate.
+	Building:
+		Power: -40
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 1000
+	Armor:
+		Type: Wood
+	ProvidesCustomPrerequisite:
+		Prerequisite: Radar
+	RevealsShroud:
+		Range: 10
+	Bib:
+	ProvidesRadar:
+	IronCurtainable:
+	InfiltrateForExploration:
+
+
+WEAPD:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 50
+		Prerequisites: Refinery
+		Owner: gdi,fed
+		Hotkey: w
+	Valued:
+		Cost: 2000
+	ProvidesCustomPrerequisite:
+		Prerequisite: Factory
+	Tooltip:
+		Name: Weapons Factory
+		Description: Produces tanks & light vehicles.
+	Building:
+		Power: -30
+		Footprint: ___ xxx ===
+		Dimensions: 3,3
+	Health:
+		HP: 1500
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 4
+	Bib:
+	-RenderBuilding:
+	RenderBuildingWarFactory:
+	RallyPoint:
+	Exit@1:
+		SpawnOffset: -8,-8
+		ExitCell: 0,2
+	Production:
+		Produces: Vehicle
+	PrimaryBuilding:
+	IronCurtainable:
+	ProductionBar:
+	ProductionQueue:
+		Type: Vehicle
+		BuildSpeed: .3
+		LowPowerSlowdown: 2
+		QueuedAudio: abldgin1.aud
+
+SILOD:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 40
+		Prerequisites: Refinery
+		Owner: gdi,nod,fed
+		Hotkey: o
+	Valued:
+		Cost: 150
+	Tooltip:
+		Name: Silo
+		Description: Stores excess harvested Ore
+	Building:
+		Power: -10
+		Footprint: xx
+		Dimensions: 2,1
+	Bib:
+	Health:
+		HP: 300
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 4
+	RenderBuildingSilo:
+	StoresOre:
+		PipCount: 10
+		Capacity: 3000
+	IronCurtainable:
+	-RenderBuilding:
+	-EmitInfantryOnSell:
+	InfiltrateForCash:
+		Percentage: 25
+		Minimum: 500
+		SoundToVictim: credit1.aud
+
+EYED:
+	Inherits: ^Building
+	RequiresPower:
+	CanPowerDown:
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 100
+		Prerequisites: Factory,Radar
+		Owner: gdi
+		Hotkey: t
+	Valued:
+		Cost: 2000
+	Tooltip:
+		Name: Tech Center
+		Icon: EYEICNH
+		Description: Provides GDI advanced technologies.\nProvides Radar\n  Special Ability: GPS Satellite
+	ProvidesCustomPrerequisite:
+		Prerequisite: techcenter
+	Building:
+		Power: -150
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 400
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 15
+	Bib:
+	IronCurtainable:
+	SupportPowerChargeBar:
+	ProvidesRadar:
+	RenderBuilding:
+		Image: EYE
+	AirstrikePower:
+		Image: NSTRIKEICON
+		ChargeTime: 540
+		Description: Air Strike
+		LongDesc: An A-10 carpet bombs \ntarget area with napalm.
+		AllowMultiple: yes
+		UnitType: a10bomber
+		SelectTargetSound: slcttgt1.aud
+		FlareType: flare
+	InfiltrateForExploration:
+
+
+AFLDD:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 50
+		Prerequisites: Refinery
+		Owner: nod,uac
+		Hotkey: w
+	Valued:
+		Cost: 2000
+	ProvidesCustomPrerequisite:
+		Prerequisite: Factory
+	Tooltip:
+		Name: Airstrip
+		Description: Produces tanks & light vehicles.
+	Building:
+		Power: -30
+		Footprint: xxxx xxxx
+		Dimensions: 4,2
+	Health:
+		HP: 1500
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 4
+	Bib:
+	RallyPoint:
+		RallyPoint: 4,2
+	BelowUnits:
+	Exit@1:
+		SpawnOffset: -24,0
+		ExitCell: 3,1
+	Production:
+		Produces: Vehicle
+	PrimaryBuilding:
+	IronCurtainable:
+	ProductionBar:
+	ProductionQueue:
+		Type: Vehicle
+		BuildSpeed: .3
+		LowPowerSlowdown: 2
+		QueuedAudio: abldgin1.aud
+TMPLD:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 60
+		Prerequisites: Factory,Radar
+		Owner: nod
+		Hotkey: t
+	Valued:
+		Cost: 2000
+	Tooltip:
+		Name: Temple of Nod
+		Description: Provides Nod advanced technologies
+	ProvidesCustomPrerequisite:
+		Prerequisite: techcenter
+	Building:
+		Power: -150
+		Footprint: xxx xxx
+		Dimensions: 3,2
+	Health:
+		HP: 1000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 4
+	Bib:
+	GpsPower:
+		Image: gpssicon
+		OneShot: yes
+		ChargeTime: 600
+		Description: GPS Satellite
+		LongDesc: Reveals the entire map
+		RevealDelay: 15
+		LaunchSound: satlnch1.aud
+	IronCurtainable:
+
+BRIK:
+	Inherits: ^Wall
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 1100
+		Prerequisites: fact
+		Owner: allies,soviet,gdi,nod,fed,uac,gla
+		Hotkey: w
+	Valued:
+		Cost: 300
+	CustomSellValue:
+		Value: 0
+	Tooltip:
+		Name: Concrete Wall
+		Description: Stop units and blocks enemy fire.
+	SoundOnDamageTransition:
+		DamagedSound: crmble2.aud
+		DestroyedSound: kaboom30.aud
+	Health:
+		HP: 550
+	Armor:
+		Type: Concrete
+	Wall:
+		CrushClasses: heavywall
+
+		
+BARB:
+	Inherits: ^Wall
+	Health:
+		HP: 100
+	Armor:
+		Type: Wood
+
+WOOD:
+	Inherits: ^Wall
+	Health:
+		HP: 100
+	Armor: 
+		Type: Wood
+
+CYCL:
+	Inherits: ^Wall
+	Valued:
+		Cost: 50
+	CustomSellValue:
+		Value: 0
+	Tooltip:
+		Name: Chain Link Fence
+		Icon:cyclicnh
+		Description: Stops infantry and blocks enemy fire.
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 1050
+		Prerequisites: fact
+		Owner: soviet,allies,gdi,nod,fed,uac,gla
+	Health:
+		HP: 300
+	Armor: 
+		Type: Light
+	Wall:
+		CrushClasses: heavywall
+
+PROCD.s:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 10
+		Prerequisites: anypower
+		Owner: nod
+		Hotkey: e
+	Valued:
+		Cost: 1400
+	Tooltip:
+		Name: Stealthed Ore Refinery
+		Icon: procdicon
+		Description: Converts Ore and Gems into money
+	Building:
+		Power: -40
+		Footprint: _x_ xxx x==
+		Dimensions: 3,3
+	ProvidesCustomPrerequisite:
+		Prerequisite: Refinery
+	Health:
+		HP: 900
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 6
+	Bib:
+	OreRefinery:
+	StoresOre:
+		PipCount: 17
+		Capacity: 5000
+	IronCurtainable:
+	CustomSellValue:
+		Value: 600
+	FreeActor:
+		Actor: HARV.s
+		InitialActivity: FindResources
+		SpawnOffset: 1,2
+		Facing: 64
+	InfiltrateForCash:
+		Percentage: 50
+		Minimum: 500
+		SoundToVictim: credit1.aud
+	RenderBuilding:
+		Image: PROCD
+	Cloak:
+		InitialDelay: 0
+		CloakDelay: 100
+		CloakSound: ironcur9.aud
+		UncloakSound: ironcur9.aud
+

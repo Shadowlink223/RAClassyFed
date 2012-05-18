@@ -1,0 +1,2186 @@
+MSLO:
+	Inherits: ^Building
+	Valued:
+		Cost: 4200
+	Tooltip:
+		Name: Missile Silo
+		Description: Launches a devastating nuclear strike.\n  Strong vs Infantry, Buildings\n  Weak vs Tanks\n  Special Ability: Nuclear Missile
+		Icon: msloicon2
+	Buildable:
+		Queue: Special
+		BuildPaletteOrder: 200
+		Prerequisites: techcenter
+		Owner: soviet,allies,gdi,nod,fed,uac
+	Building:
+		Power: -300
+		Footprint: xx
+		Dimensions: 2,1
+	Health:
+		HP: 350
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 5
+	IronCurtainable:
+	NukePower:
+		Image: atomicon
+		ChargeTime: 480
+		Description: Atom Bomb
+		LongDesc: Launches a nuclear missile at a target location.
+		BeginChargeSound: aprep1.aud
+		EndChargeSound: aready1.aud
+		SelectTargetSound: slcttgt1.aud
+		LaunchSound: alaunch1.aud
+		MissileWeapon: atomic
+		SpawnOffset: 10,0
+		AllowMultiple: no
+	CanPowerDown:
+	RequiresPower:
+	SupportPowerChargeBar:
+	Explodes:
+		Weapon: Atomic
+		Chance: 100		
+	InfiltrateForSupportPower:
+		Proxy: powerproxy.onenuke
+
+IRON:
+	RequiresPower:
+	CanPowerDown:
+	Inherits: ^Building
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 190
+		Prerequisites: techcenter
+		Owner: soviet,gdi
+		Hotkey: c
+	Valued:
+		Cost: 3200
+	Tooltip:
+		Name: Iron Curtain
+		Description: Makes a group of units invulnerable for a \nshort time.\n  Special Ability: Invulnerability
+	Building:
+		Power: -300
+		Footprint: xx
+		Dimensions: 2,1
+	Health:
+		HP: 400
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 10
+#	Bib:
+	IronCurtainable:
+	IronCurtainPower:
+		Image: infxicon
+		ChargeTime: 240
+		Description: Invulnerability
+		LongDesc: Makes a group of units invulnerable\nfor 30 seconds.
+		Duration: 30
+		SelectTargetSound: slcttgt1.aud
+		BeginChargeSound: ironchg1.aud
+		EndChargeSound: ironrdy1.aud
+		AllowMultiple: Yes
+	SupportPowerChargeBar:
+
+PDOX:
+	RequiresPower:
+	CanPowerDown:
+	Inherits: ^Building
+	Buildable:
+		Queue: Special
+		BuildPaletteOrder: 190
+		Prerequisites: techcenter
+		Owner: allies,nod
+		Hotkey: o
+	Valued:
+		Cost: 3200
+	Tooltip:
+		Name: Chronosphere
+		Description: Teleports a unit from one place \nto another, for a limited time.\n  Special Ability: Chronoshift
+	Building:
+		Power: -300
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 400
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 10
+#	Bib:
+	IronCurtainable:
+	ChronoshiftPower:
+		Image: warpicon
+		ChargeTime: 240
+		Description: Chronoshift
+		LongDesc: Teleport a vehicle across\nthe map for 45 seconds.
+		SelectTargetSound: slcttgt1.aud
+		BeginChargeSound: chrochr1.aud
+		EndChargeSound: chrordy1.aud
+		Duration: 45
+		KillCargo: yes
+		AllowMultiple: Yes
+		Range: 0
+	SupportPowerChargeBar:
+	-AcceptsSupplies:
+
+GAP:
+	Inherits: ^Building
+	RequiresPower:
+	CanPowerDown:
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Gap Generator
+		Description: Regenerates the shroud nearby, \nobscuring the area.\n  Unarmed
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 100
+		Prerequisites: techcenter
+		Owner: allies,nod,uac
+	Building:
+		Power: -60
+		Footprint: x x
+		Dimensions: 1,2
+	Health:
+		HP: 1000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 8
+	CreatesShroud:
+		Range: 8
+	IronCurtainable:
+	RenderShroudCircle:
+
+FTUR:
+	Inherits: ^Building
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 150
+		Prerequisites: barr
+		Owner: soviet
+		Hotkey: t
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: Flame Turret
+		Description: Anti-Infantry base defense.\n  Strong vs Infantry\n  Weak vs Aircraft
+	Building:
+		Power: -20
+	Health:
+		HP: 400
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 6
+	AttackOmni:
+		PrimaryWeapon: FireballLauncher
+		PrimaryOffset: 0,0,12,8
+		ScanTimeAverage: 0.1
+		ScanTimeSpread: 0.1
+	AutoTarget:
+	IronCurtainable:
+	RenderRangeCircle:
+	-AcceptsSupplies:
+
+SAM:
+	Inherits: ^Building
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 160
+		Prerequisites: Radar
+		Owner: soviet,nod,fed,uac
+		Hotkey: y
+	Valued:
+		Cost: 750
+	Tooltip:
+		Name: SAM Site
+		Description: Anti-Air base defense.\n  Strong vs Aircraft\n  Weak vs Infantry, Tanks
+	Building:
+		Power: -20
+		Footprint: xx
+		Dimensions: 2,1
+	Health:
+		HP: 400
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 5
+	Turreted:
+		ROT: 30
+		InitialFacing: 0
+	RenderBuildingTurreted:
+	AttackTurreted:
+		PrimaryWeapon: Nike
+		ScanTimeAverage: 0.1
+		ScanTimeSpread: 0.1
+	AutoTarget:
+	IronCurtainable:
+	-RenderBuilding:
+	RenderRangeCircle:
+		RangeCircleType: aa
+	RequiresPower:
+	CanPowerDown:
+	-AcceptsSupplies:
+
+TSLA:
+	RequiresPower:
+	CanPowerDown:
+	Inherits: ^Building
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 170
+		Prerequisites: weap
+		Owner: soviet
+		Hotkey: u
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Tesla Coil
+		Description: Advanced base defense. Requires power\nto operate.\n  Strong vs Tanks, Infantry\n  Weak vs Aircraft
+	Building:
+		Power: -150
+		Footprint: _ x
+		Dimensions: 1,2
+	Health:
+		HP: 450
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 8
+	RenderBuildingCharge:
+	AttackTesla:
+		PrimaryWeapon: TeslaZap
+		ReloadTime: 100
+		ScanTimeAverage: 0.1
+		ScanTimeSpread: 0.1
+	AutoTarget:
+	IronCurtainable:
+	-RenderBuilding:
+	RenderRangeCircle:
+	-AcceptsSupplies:
+	TransformOnPassenger@shok:
+		PassengerTypes: shok,fshok
+		OnEnter: TSLA.shok
+		OnExit:	TSLA
+		SkipMakeAnims: true
+	Cargo:
+		Types: Infantry
+		MaxWeight: 1
+		PipCount: 5
+
+TSLA.shok:
+	Inherits: TSLA
+	-Buildable:
+	RenderBuildingCharge:
+		Image: TSLA
+	Tooltip:
+		Name: Powered Tesla Coil
+		Icon: TSLAICON
+	AttackTesla:
+		PrimaryWeapon: TeslaZap
+		MaxCharges: 5
+		ReloadTime: 120
+		ScanTimeAverage: 0.1
+		ScanTimeSpread: 0.1
+
+PBOX:
+	Inherits: ^Building
+	Tooltip:
+		Name: Pillbox (Unarmed)
+	Building:
+		Power: 0
+	-GivesBuildableArea:
+	Valued:
+		Cost: 500
+	Health:
+		HP: 400
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 6
+	IronCurtainable:
+	-AcceptsSupplies:
+	Turreted:
+		ROT: 255
+	Cargo:
+		Types: Infantry
+		MaxWeight: 5
+		PipCount: 1
+	-EmitInfantryOnSell:
+#	EmitCargoOnSell:
+	TransformOnPassenger@e1:
+		PassengerTypes: e1,ge1
+		OnEnter: pbox.e1
+		OnExit: pbox
+		SkipMakeAnims: true
+#	TransformOnPassenger@e2:
+#		PassengerTypes: e2
+#		OnEnter: pbox.e2
+#		OnExit: pbox
+#		SkipMakeAnims: true
+	TransformOnPassenger@e3:
+		PassengerTypes: e3,ge3
+		OnEnter: pbox.e3
+		OnExit: pbox
+		SkipMakeAnims: true
+	TransformOnPassenger@e4:
+		PassengerTypes: e4
+		OnEnter: pbox.e4
+		OnExit: pbox
+		SkipMakeAnims: true
+	TransformOnPassenger@e7:
+		PassengerTypes: e7
+		OnEnter: pbox.e7
+		OnExit:	pbox
+		SkipMakeAnims: true
+	TransformOnPassenger@SHOK:
+		PassengerTypes: shok
+		OnEnter: pbox.shok
+		OnExit:	pbox
+		SkipMakeAnims: true
+	TransformOnPassenger@FSHOK:
+		PassengerTypes: fshok
+		OnEnter: pbox.shok
+		OnExit:	pbox
+		SkipMakeAnims: true
+	TransformOnPassenger@RMBO:
+		PassengerTypes: rmbo,dme7
+		OnEnter: pbox.rmbo
+		OnExit:	pbox
+		SkipMakeAnims: true
+	TransformOnPassenger@SPY:
+		PassengerTypes: spy
+		OnEnter: pbox.spy
+		OnExit:	pbox
+		SkipMakeAnims: true
+	TransformOnPassenger@GAUSS:
+		PassengerTypes: gauss
+		OnEnter: pbox.gauss
+		OnExit:	pbox
+		SkipMakeAnims: true
+	TransformOnPassenger@dm1:
+		PassengerTypes: dm1
+		OnEnter: pbox.dm1
+		OnExit:	pbox
+		SkipMakeAnims: true
+	TransformOnPassenger@dm2:
+		PassengerTypes: dm2
+		OnEnter: pbox.e1
+		OnExit:	pbox
+		SkipMakeAnims: true
+	TransformOnPassenger@dm3:
+		PassengerTypes: dm3
+		OnEnter: pbox.dm3
+		OnExit:	pbox
+		SkipMakeAnims: true
+	TransformOnPassenger@dm4:
+		PassengerTypes: dm4
+		OnEnter: pbox.dm4
+		OnExit:	pbox
+		SkipMakeAnims: true
+	TransformOnPassenger@fe2:
+		PassengerTypes: fe2
+		OnEnter: pbox.e1
+		OnExit:	pbox
+		SkipMakeAnims: true
+	TransformOnPassenger@fe3:
+		PassengerTypes: fe3
+		OnEnter: pbox.fe3
+		OnExit:	pbox
+		SkipMakeAnims: true
+	TransformOnPassenger@fe4:
+		PassengerTypes: fe4
+		OnEnter: pbox.fe4
+		OnExit:	pbox
+		SkipMakeAnims: true
+	TransformOnPassenger@fe7:
+		PassengerTypes: fe7
+		OnEnter: pbox.fe7
+		OnExit:	pbox
+		SkipMakeAnims: true
+	TransformOnPassenger@frmbo:
+		PassengerTypes: frmbo
+		OnEnter: pbox.gauss
+		OnExit:	pbox
+		SkipMakeAnims: true
+
+PBOX.E1:
+	Inherits: PBOX
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 20
+		Prerequisites: tent
+		Owner: allies
+		Hotkey: p
+	Tooltip:
+		Name: Pillbox (Guns)
+		Description: Basic defensive structure.\n  Strong vs Infantry, Light Vehicles\n  Weak vs Tanks, Aircraft
+		Icon: PBOXICON
+	RenderBuilding:
+		Image: PBOX
+	RenderRangeCircle:
+	AutoTarget:
+	AttackTurreted:
+		PrimaryWeapon: Vulcan
+		PrimaryLocalOffset: 0,-11,0,0,0
+	WithMuzzleFlash:
+	Cargo:
+		InitialUnits: e1
+
+#PBOX.E2:
+#	Inherits: PBOX
+#	Tooltip:
+#		Name: Pillbox (Grenades)
+#	RenderBuilding:
+#		Image: PBOX
+
+PBOX.E3:
+	Inherits: PBOX
+	Tooltip:
+		Name: Pillbox (Rockets)
+	RenderBuilding:
+		Image: PBOX
+	RenderRangeCircle:
+	AutoTarget:
+	AttackTurreted:
+		PrimaryWeapon: Dragon.pbox
+		PrimaryLocalOffset: 0,-11,0,0,0
+	Cargo:
+		MaxWeight: 1
+
+PBOX.E4:
+	Inherits: PBOX
+	Tooltip:
+		Name: Pillbox (Flamethrower)
+	RenderBuilding:
+		Image: PBOX
+	RenderRangeCircle:
+	AutoTarget:
+	AttackTurreted:
+		PrimaryWeapon: FireballLauncher
+		PrimaryLocalOffset: 0,-11,0,0,0
+	Cargo:
+		MaxWeight: 1
+
+PBOX.E7:
+	Inherits: PBOX
+	Tooltip:
+		Name: Pillbox (Tanya)
+	RenderBuilding:
+		Image: PBOX
+	RenderRangeCircle:
+	AutoTarget:
+	AttackTurreted:
+		PrimaryWeapon: Colt45.pbox
+		PrimaryLocalOffset: 0,-11,0,0,0
+	Cargo:
+		MaxWeight: 1
+
+PBOX.SHOK:
+	Inherits: PBOX
+	Tooltip:
+		Name: Pillbox (Tesla)
+	RenderBuilding:
+		Image: PBOX
+	RenderRangeCircle:
+	AutoTarget:
+	AttackTurreted:
+		PrimaryWeapon: PortaTesla.pbox
+		PrimaryLocalOffset: 0,-11,0,0,0
+	Cargo:
+		MaxWeight: 1
+
+PBOX.RMBO:
+	Inherits: PBOX
+	Tooltip:
+		Name: Pillbox (Sniper)
+	RenderBuilding:
+		Image: PBOX
+	RenderRangeCircle:
+	AutoTarget:
+	AttackTurreted:
+		PrimaryWeapon: DoomSniper
+		PrimaryLocalOffset: 0,-11,0,0,0
+	Cargo:
+		MaxWeight: 1
+
+PBOX.SPY:
+	Inherits: PBOX
+	Tooltip:
+		Name: Pillbox (Spy)
+	RenderBuilding:
+		Image: PBOX
+	RenderRangeCircle:
+	AutoTarget:
+	AttackTurreted:
+		PrimaryWeapon: Vulcan
+		PrimaryLocalOffset: 0,-11,0,0,0
+	Cloak:
+		InitialDelay: 25
+		CloakDelay: 50
+		CloakSound: ironcur9.aud
+		UncloakSound: 
+		Palette: shadow
+	Cargo:
+		MaxWeight: 1
+
+PBOX.GAUSS:
+	Inherits: PBOX
+	Tooltip:
+		Name: Pillbox (Gauss)
+	RenderBuilding:
+		Image: PBOX
+	RenderRangeCircle:
+	AutoTarget:
+	AttackTurreted:
+		PrimaryWeapon: GaussRifle
+		PrimaryLocalOffset: 0,-11,0,0,0
+	Cargo:
+		MaxWeight: 1
+
+PBOX.DM1:
+	Inherits: PBOX
+	Tooltip:
+		Name: Pillbox (RPG)
+	RenderBuilding:
+		Image: PBOX
+	RenderRangeCircle:
+	AutoTarget:
+	AttackTurreted:
+		PrimaryWeapon: DoomRPG.pbox
+		PrimaryLocalOffset: 0,-11,0,0,0
+	Cargo:
+		MaxWeight: 1
+
+PBOX.DM3:
+	Inherits: PBOX
+	Tooltip:
+		Name: Pillbox (Plasma)
+	RenderBuilding:
+		Image: PBOX
+	RenderRangeCircle:
+	AutoTarget:
+	AttackTurreted:
+		PrimaryWeapon: DoomPlasma.pbox
+		PrimaryLocalOffset: 0,-11,0,0,0
+	Cargo:
+		MaxWeight: 1
+
+PBOX.DM4:
+	Inherits: PBOX
+	Tooltip:
+		Name: Pillbox (BFG)
+	RenderBuilding:
+		Image: PBOX
+	RenderRangeCircle:
+	AutoTarget:
+	AttackTurreted:
+		PrimaryWeapon: DoomBFG
+		PrimaryLocalOffset: 0,-11,0,0,0
+	Cargo:
+		MaxWeight: 1
+
+PBOX.FE3:
+	Inherits: PBOX
+	Tooltip:
+		Name: Pillbox (Grenade Knight)
+	RenderBuilding:
+		Image: PBOX
+	RenderRangeCircle:
+	AutoTarget:
+	AttackTurreted:
+		PrimaryWeapon: FGrenade
+		PrimaryLocalOffset: 0,-11,0,0,0
+	Cargo:
+		MaxWeight: 1
+
+
+PBOX.FE4:
+	Inherits: PBOX
+	Tooltip:
+		Name: Pillbox (Heavy Knight)
+	RenderBuilding:
+		Image: PBOX
+	RenderRangeCircle:
+	AutoTarget:
+	AttackTurreted:
+		PrimaryWeapon: FRkt
+		PrimaryLocalOffset: 0,-11,0,0,0
+	Cargo:
+		MaxWeight: 1
+
+PBOX.FE7:
+	Inherits: PBOX
+	Tooltip:
+		Name: Pillbox (Bishop)
+	RenderBuilding:
+		Image: PBOX
+	RenderRangeCircle:
+	AutoTarget:
+	AttackTurreted:
+		PrimaryWeapon: FSniper
+		PrimaryLocalOffset: 0,-11,0,0,0
+	Cargo:
+		MaxWeight: 1
+
+HBOX:
+	Inherits: ^Building
+#	Buildable:
+#		Queue: Defense
+#		BuildPaletteOrder: 160
+#		Prerequisites: tent,techcenter
+#		Owner: allies
+#		Hotkey: c
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: Camo Pillbox
+		Description: Cloaked defensive structure.\n  Strong vs Infantry, Light Vehicles\n  Weak vs Tanks, Aircraft
+	Building:
+		Power: -30
+	Health:
+		HP: 400
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 6
+	AttackOmni:
+		PrimaryWeapon: Vulcan
+		MuzzleFlash: yes
+		ScanTimeAverage: 0.1
+		ScanTimeSpread: 0.1
+	AutoTarget:
+	IronCurtainable:
+	RenderRangeCircle:
+	RequiresPower:
+	CanPowerDown:
+	WithMuzzleFlash:
+	-AcceptsSupplies:
+	Cloak:
+		InitialDelay: 0
+		CloakDelay: 50
+		CloakSound: ironcur9.aud
+		UncloakSound: 
+		Palette: shadow
+
+GUN:
+	Inherits: ^Building
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 170
+		Prerequisites: tent
+		Owner: allies
+		Hotkey: t
+	Valued:
+		Cost: 750
+	Tooltip:
+		Name: Turret
+		Description: Anti-Armor base defense.\n  Strong vs Tanks\n  Weak vs Infantry, Aircraft
+	Building:
+		Power: -40
+	Health:
+		HP: 400
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 7
+	Turreted:
+		ROT: 12
+		InitialFacing: 50
+	RenderBuildingTurreted:
+	AttackTurreted:
+		PrimaryWeapon: TurretGun
+		ScanTimeAverage: 0.1
+		ScanTimeSpread: 0.1
+	AutoTarget:
+	IronCurtainable:
+	-RenderBuilding:
+	RenderRangeCircle:
+	-AcceptsSupplies:
+
+GUN2:
+	Inherits: ^Building
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 170
+		Prerequisites: handd
+		Owner: nod
+		Hotkey: t
+	Valued:
+		Cost: 750
+	Tooltip:
+		Name: Turret
+		Icon: GUNICON
+		Description: Anti-Armor base defense.\n  Strong vs Tanks\n  Weak vs Infantry, Aircraft
+	Building:
+		Power: -40
+	Health:
+		HP: 400
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 7
+	Turreted:
+		ROT: 12
+		InitialFacing: 50
+	-RenderBuilding:
+	RenderBuildingTurreted:
+		Image: GUN
+	AttackTurreted:
+		PrimaryWeapon: TurretGun
+		ScanTimeAverage: 0.1
+		ScanTimeSpread: 0.1
+	AutoTarget:
+	IronCurtainable:
+	RenderRangeCircle:
+	-AcceptsSupplies:
+
+AGUN:
+	RequiresPower:
+	CanPowerDown:
+	Inherits: ^Building
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 175
+		Prerequisites: dome
+		Owner: allies
+		Hotkey: g
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: AA Gun
+		Description: Anti-Air base defense.\n  Strong vs Aircraft\n  Weak vs Infantry, Tanks
+	Building:
+		Power: -50
+		Footprint: _ x
+		Dimensions: 1,2
+	Health:
+		HP: 400
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 6
+	Turreted:
+		ROT: 15
+		InitialFacing: 224
+	RenderBuildingTurreted:
+	AttackTurreted:
+		PrimaryWeapon: ZSU-23
+		SecondaryWeapon: ZSU-23
+		ScanTimeAverage: 0.1
+		ScanTimeSpread: 0.1
+	AutoTarget:
+	IronCurtainable:
+	-RenderBuilding:
+	RenderRangeCircle:
+		RangeCircleType: aa
+	-AcceptsSupplies:
+
+
+ATWR:
+	Inherits: ^Building
+	RequiresPower:
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Advanced Guard Tower
+		Icon: atwricnh
+		Description: Multi-purpose defensive structure.\n  Strong vs Ground units
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 180
+		Prerequisites: techcenter
+		Owner: allies
+	Building:
+		Power: -75
+		Footprint: x x
+		Dimensions: 1,2
+	Health:
+		HP: 650
+	Armor: 
+		Type: Heavy
+	RevealsShroud:
+		Range: 8
+	AttackOmni:
+		PrimaryWeapon: Tomahawk
+		ScanTimeAverage: 0.1
+		ScanTimeSpread: 0.1
+	AutoTarget:
+	RenderRangeCircle:
+	CanPowerDown:
+	IronCurtainable:
+
+GAP2:
+	Inherits: ^Building
+	RequiresPower:
+	Valued:
+		Cost: 700
+	Tooltip:
+		Name: Cloak Detector
+		Description: Detects nearby cloaked units.\n  Strong vs Spies, Phase Transports\n Weak vs Uncloaked things
+	Buildable:
+		BuildPaletteOrder: 185
+		Queue: Defense
+		Prerequisites: weap
+		Owner: allies
+	Building:
+		Power: -50
+		Footprint: x x
+		Dimensions: 1,2
+	Health:
+		HP: 1000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 10
+	IronCurtainable:
+	DetectCloaked:
+		Range: 8
+	RenderDetectionCircle:
+	CanPowerDown:
+	RenderBuilding:
+		Image: GAP
+
+SBAG:
+	Inherits: ^Wall
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 1000
+		Prerequisites: fact
+		Owner: allies,gdi,fed,gla
+		Hotkey: b
+	Valued:
+		Cost: 25
+	CustomSellValue:
+		Value: 0
+	Tooltip:
+		Name: Sandbag Wall
+		Description: Stops infantry and blocks enemy fire.\nCan be crushed by tanks.
+	Health:
+		HP: 300
+	Armor:
+		Type: Wood
+
+FENC:
+	Inherits: ^Wall
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 1000
+		Prerequisites: fact
+		Owner: soviet,nod,uac
+		Hotkey: n
+	Valued:
+		Cost: 25
+	CustomSellValue:
+		Value: 0
+	Tooltip:
+		Name: Wire Fence
+		Description: Stops infantry and blocks enemy fire.\nCan be crushed by tanks.
+	Health:
+		HP: 300
+	Armor:
+		Type: Wood
+
+OUTPOST:
+	Inherits: ^Building
+	RequiresPower:
+	Valued:
+		Cost: 1400
+	Tooltip:
+		Name: Outpost
+		Icon: GTWRICON
+		Description: Base expansion.
+	Building:
+		Power: 0
+		Footprint: x
+		Dimensions: 1,1
+	Health:
+		HP: 500
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 5
+	IronCurtainable:
+	CanPowerDown:
+	RenderBuilding:
+		Image: GTWR
+
+OUTPOST2:
+	Inherits: ^Building
+	Valued:
+		Cost: 1400
+	Tooltip:
+		Name: Outpost
+		Icon: MRJ2ICON
+		Description: Undeploys into Surveyor for base expansion.
+	Buildable:
+		BuildPaletteOrder: 1
+		Queue: Special
+		Prerequisites: fact
+		Owner: allies,soviet,gdi,nod,fed,uac,gla
+	Building:
+		Power: 0
+		Footprint: x
+		Dimensions: 1,1
+	Health:
+		HP: 500
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 5
+	IronCurtainable:
+	RenderBuilding:
+		Image: GTWR
+	Transforms:
+		IntoActor: mrj
+		Offset:0,0
+		Facing: 96
+
+FOUNDRY:
+	Inherits: ^Building
+	Buildable:
+		Queue: Special
+		BuildPaletteOrder: 2
+		Prerequisites: fact
+		Owner: allies,soviet,gdi,nod,fed,uac
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Foundry
+		Icon: FACTICON
+		Description: Provides extra construction tab, \n  but produces slower.
+	Building:
+		Power: -50
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 600
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 5
+	Bib:
+	IronCurtainable:
+	Production:
+		Produces: Building,Defense
+	ProductionQueue@Building:
+		Type: Building
+		BuildSpeed: .3
+		LowPowerSlowdown: 2
+		QueuedAudio: abldgin1.aud
+		ReadyAudio: conscmp1.aud
+#	ProductionQueue@Defense:
+#		Type: Defense
+#		BuildSpeed: .5
+#		LowPowerSlowdown: 2
+#		QueuedAudio: abldgin1.aud
+#		ReadyAudio: conscmp1.aud
+	RenderBuilding:
+		Image: FCOM
+
+GTWRD:
+	Inherits: ^Building
+	Tooltip:
+		Name: Guard Tower (Unarmed)
+		Icon: GTWRICON
+	Building:
+		Power: -15
+	-GivesBuildableArea:
+	Valued:
+		Cost: 500
+	Health:
+		HP: 600
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 6
+	IronCurtainable:
+	-AcceptsSupplies:
+	Turreted:
+		ROT: 255
+	Cargo:
+		Types: Infantry
+		MaxWeight: 5
+		PipCount: 1
+	-EmitInfantryOnSell:
+#	EmitCargoOnSell:
+	RenderBuilding:
+		Image: GTWR
+	TransformOnPassenger@e1:
+		PassengerTypes: e1
+		OnEnter: gtwrd.e1
+		OnExit: gtwrd
+		SkipMakeAnims: true
+#	TransformOnPassenger@e2:
+#		PassengerTypes: e2
+#		OnEnter: gtwrd.e2
+#		OnExit: gtwrd
+#		SkipMakeAnims: true
+	TransformOnPassenger@e3:
+		PassengerTypes: e3
+		OnEnter: gtwrd.e3
+		OnExit: gtwrd
+		SkipMakeAnims: true
+	TransformOnPassenger@e4:
+		PassengerTypes: e4
+		OnEnter: gtwrd.e4
+		OnExit: gtwrd
+		SkipMakeAnims: true
+	TransformOnPassenger@e7:
+		PassengerTypes: e7
+		OnEnter: gtwrd.e7
+		OnExit:	gtwrd
+		SkipMakeAnims: true
+	TransformOnPassenger@SHOK:
+		PassengerTypes: shok
+		OnEnter: gtwrd.shok
+		OnExit:	gtwrd
+		SkipMakeAnims: true
+	TransformOnPassenger@FSHOK:
+		PassengerTypes: fshok
+		OnEnter: gtwrd.shok
+		OnExit:	gtwrd
+		SkipMakeAnims: true
+	TransformOnPassenger@RMBO:
+		PassengerTypes: rmbo,dme7
+		OnEnter: gtwrd.rmbo
+		OnExit:	gtwrd
+		SkipMakeAnims: true
+	TransformOnPassenger@SPY:
+		PassengerTypes: spy
+		OnEnter: gtwrd.spy
+		OnExit:	gtwrd
+		SkipMakeAnims: true
+	TransformOnPassenger@GAUSS:
+		PassengerTypes: gauss,frmbo
+		OnEnter: gtwrd.gauss
+		OnExit:	gtwrd
+		SkipMakeAnims: true
+	TransformOnPassenger@dm1:
+		PassengerTypes: dm1
+		OnEnter: gtwrd.dm1
+		OnExit:	gtwrd
+		SkipMakeAnims: true
+	TransformOnPassenger@dm2:
+		PassengerTypes: dm2
+		OnEnter: gtwrd.e1
+		OnExit:	gtwrd
+		SkipMakeAnims: true
+	TransformOnPassenger@dm3:
+		PassengerTypes: dm3
+		OnEnter: gtwrd.dm3
+		OnExit:	gtwrd
+		SkipMakeAnims: true
+	TransformOnPassenger@dm4:
+		PassengerTypes: dm4
+		OnEnter: gtwrd.dm4
+		OnExit:	gtwrd
+		SkipMakeAnims: true
+	TransformOnPassenger@fe2:
+		PassengerTypes: fe2
+		OnEnter: gtwrd.e1
+		OnExit:	gtwrd
+		SkipMakeAnims: true
+	TransformOnPassenger@fe3:
+		PassengerTypes: fe3
+		OnEnter: gtwrd.fe3
+		OnExit:	gtwrd
+		SkipMakeAnims: true
+	TransformOnPassenger@fe4:
+		PassengerTypes: fe4
+		OnEnter: gtwrd.fe4
+		OnExit:	gtwrd
+		SkipMakeAnims: true
+	TransformOnPassenger@fe7:
+		PassengerTypes: fe7
+		OnEnter: gtwrd.fe7
+		OnExit:	gtwrd
+		SkipMakeAnims: true
+
+GTWRD.E1:
+	Inherits: GTWRD
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 20
+		Prerequisites: pyled
+		Owner: gdi, fed
+		Hotkey: x
+	Tooltip:
+		Name: Guard Tower (Guns)
+		Description: Basic defensive structure.\n  Strong vs Infantry, Light Vehicles\n  Weak vs Tanks, Aircraft
+	RenderRangeCircle:
+	AttackTurreted:
+		PrimaryWeapon: VulcanTower
+		MuzzleFlash: yes
+		ScanTimeAverage: 0.1
+		ScanTimeSpread: 0.1
+	AutoTarget:
+	Cargo:
+		InitialUnits: e1
+		MaxWeight: 1
+
+GTWRD2:
+	Inherits: GTWRD.E1
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 150
+		Prerequisites: barr
+		Owner: uac
+		Hotkey: x
+	Cargo:
+		InitialUnits: dm2
+		MaxWeight: 1
+#GTWRD.E2:
+#	Inherits: GTWRD
+#	Tooltip:
+#		Name: Pillbox (Grenades)
+
+GTWRD.E3:
+	Inherits: GTWRD
+	Tooltip:
+		Name: Guard Tower (Rockets)
+	RenderRangeCircle:
+	AutoTarget:
+	AttackTurreted:
+		PrimaryWeapon: Dragon.pbox
+		PrimaryLocalOffset: 0,-11,0,0,0
+	Cargo:
+		MaxWeight: 1
+
+GTWRD.E4:
+	Inherits: GTWRD
+	Tooltip:
+		Name: Guard Tower (Flamethrower)
+	RenderRangeCircle:
+	AutoTarget:
+	AttackTurreted:
+		PrimaryWeapon: FireballLauncher
+		PrimaryLocalOffset: 0,-11,0,0,0
+	Cargo:
+		MaxWeight: 1
+
+GTWRD.E7:
+	Inherits: GTWRD
+	Tooltip:
+		Name: Guard Tower (Tanya)
+	RenderRangeCircle:
+	AutoTarget:
+	AttackTurreted:
+		PrimaryWeapon: Colt45.pbox
+		PrimaryLocalOffset: 0,-11,0,0,0
+	Cargo:
+		MaxWeight: 1
+
+GTWRD.SHOK:
+	Inherits: GTWRD
+	Tooltip:
+		Name: Pillbox (Tesla)
+	RenderRangeCircle:
+	AutoTarget:
+	AttackTurreted:
+		PrimaryWeapon: PortaTesla.pbox
+		PrimaryLocalOffset: 0,-11,0,0,0
+	Cargo:
+		MaxWeight: 1
+
+GTWRD.RMBO:
+	Inherits: GTWRD
+	Tooltip:
+		Name: Guard Tower (Sniper)
+	RenderRangeCircle:
+	AutoTarget:
+	AttackTurreted:
+		PrimaryWeapon: DoomSniper
+		PrimaryLocalOffset: 0,-11,0,0,0
+	Cargo:
+		MaxWeight: 1
+
+GTWRD.SPY:
+	Inherits: GTWRD
+	Tooltip:
+		Name: Guard Tower (Spy)
+	RenderRangeCircle:
+	AutoTarget:
+	AttackTurreted:
+		PrimaryWeapon: Vulcan
+		PrimaryLocalOffset: 0,-11,0,0,0
+	Cloak:
+		InitialDelay: 25
+		CloakDelay: 50
+		CloakSound: ironcur9.aud
+		UncloakSound: 
+		Palette: shadow
+	Cargo:
+		MaxWeight: 1
+
+GTWRD.GAUSS:
+	Inherits: GTWRD
+	Tooltip:
+		Name: Guard Tower (Gauss)
+	RenderRangeCircle:
+	AutoTarget:
+	AttackTurreted:
+		PrimaryWeapon: GaussRifle
+		PrimaryLocalOffset: 0,-11,0,0,0
+	Cargo:
+		MaxWeight: 1
+
+GTWRD.DM1:
+	Inherits: GTWRD
+	Tooltip:
+		Name: Guard Tower (RPG)
+	RenderRangeCircle:
+	AutoTarget:
+	AttackTurreted:
+		PrimaryWeapon: DoomRPG.pbox
+		PrimaryLocalOffset: 0,-11,0,0,0
+	Cargo:
+		MaxWeight: 1
+
+GTWRD.DM3:
+	Inherits: GTWRD
+	Tooltip:
+		Name: Guard Tower (Plasma)
+	RenderRangeCircle:
+	AutoTarget:
+	AttackTurreted:
+		PrimaryWeapon: DoomPlasma.pbox
+		PrimaryLocalOffset: 0,-11,0,0,0
+	Cargo:
+		MaxWeight: 1
+
+GTWRD.DM4:
+	Inherits: GTWRD
+	Tooltip:
+		Name: Guard Tower (BFG)
+	RenderRangeCircle:
+	AutoTarget:
+	AttackTurreted:
+		PrimaryWeapon: DoomBFG
+		PrimaryLocalOffset: 0,-11,0,0,0
+	Cargo:
+		MaxWeight: 1
+
+GTWRD.FE3:
+	Inherits: GTWRD
+	Tooltip:
+		Name: Guard Tower (Grenade Knight)
+	RenderRangeCircle:
+	AutoTarget:
+	AttackTurreted:
+		PrimaryWeapon: FGrenade
+		PrimaryLocalOffset: 0,-11,0,0,0
+	Cargo:
+		MaxWeight: 1
+
+
+GTWRD.FE4:
+	Inherits: GTWRD
+	Tooltip:
+		Name: Guard Tower (Heavy Knight)
+	RenderRangeCircle:
+	AutoTarget:
+	AttackTurreted:
+		PrimaryWeapon: FRkt
+		PrimaryLocalOffset: 0,-11,0,0,0
+	Cargo:
+		MaxWeight: 1
+
+GTWRD.FE7:
+	Inherits: GTWRD
+	Tooltip:
+		Name: Guard Tower (Bishop)
+	RenderRangeCircle:
+	AutoTarget:
+	AttackTurreted:
+		PrimaryWeapon: FSniper
+		PrimaryLocalOffset: 0,-11,0,0,0
+	Cargo:
+		MaxWeight: 1
+
+ATWRD:
+	Inherits: ^Building
+	RequiresPower:
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Advanced Guard Tower
+		Icon: atwricnh
+		Description: Multi-purpose defensive structure.\n  Strong vs Everything
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 180
+		Prerequisites: Factory
+		Owner: gdi
+	Building:
+		Power: -75
+		Footprint: _ x
+		Dimensions: 1,2
+	Health:
+		HP: 750
+	Armor: 
+		Type: Heavy
+	RevealsShroud:
+		Range: 8
+	AttackOmni:
+		PrimaryWeapon: Tomahawk
+		SecondaryWeapon: Nike
+		ScanTimeAverage: 0.1
+		ScanTimeSpread: 0.1
+	AutoTarget:
+	RenderRangeCircle:
+	CanPowerDown:
+	IronCurtainable:
+	DetectCloaked:
+		Range: 6
+	RenderDetectionCircle:
+	RenderBuilding:
+		Image: ATWR
+
+OBLID:
+	RequiresPower:
+	CanPowerDown:
+	Inherits: ^Building
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 170
+		Prerequisites: techcenter
+		Owner: nod
+		Hotkey: u
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Obelisk of Light
+		Description: Advanced base defense. Requires power\nto operate.\n  Strong vs Tanks, Infantry\n  Weak vs Aircraft, Hordes of Infantry
+	Building:
+		Power: -150
+		Footprint: _ x
+		Dimensions: 1,2
+	Health:
+		HP: 450
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 8
+	-RenderBuilding:
+	RenderBuildingCharge:
+		ChargeAudio: obelpowr.aud
+	AttackTesla:
+		PrimaryWeapon: Laser
+		ReloadTime: 100
+		ScanTimeAverage: 0.1
+		ScanTimeSpread: 0.1
+	AutoTarget:
+	IronCurtainable:
+	RenderRangeCircle:
+	-AcceptsSupplies:
+
+DGUN:
+	RequiresPower:
+	CanPowerDown:
+	Inherits: ^Building
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 170
+		Prerequisites: pyled
+		Owner: fed
+		Hotkey: t
+	Valued:
+		Cost: 1100
+	Tooltip:
+		Name: Hellfire Cannon
+		Icon: DGUNICON
+		Description: Long Range, Anti-Armor base defense.\n  Strong vs Tanks\n  Weak vs Infantry, Aircraft
+	Building:
+		Power: -40
+	Health:
+		HP: 400
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 15
+	Turreted:
+		ROT: 12
+		InitialFacing: 50
+	-RenderBuilding:
+	RenderBuildingTurreted:
+		Image: DGUN
+	AttackTurreted:
+		PrimaryWeapon: dTurretGun
+		ScanTimeAverage: 0.1
+		ScanTimeSpread: 0.1
+	AutoTarget:
+	IronCurtainable:
+	RenderRangeCircle:
+	-AcceptsSupplies:
+GAP3:
+	Inherits: ^Building
+	RequiresPower:
+	Valued:
+		Cost: 700
+	Tooltip:
+		Name: Federation Eye
+		Description: Detects nearby cloaked units.\n  Strong vs Spies, Phase Transports\n Weak vs Uncloaked things
+	Buildable:
+		BuildPaletteOrder: 185
+		Queue: Defense
+		Prerequisites: Factory
+		Owner: fed
+	Building:
+		Power: -50
+		Footprint: _ x
+		Dimensions: 1,2
+	Health:
+		HP: 750
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 20
+	IronCurtainable:
+	DetectCloaked:
+		Range: 8
+	RenderDetectionCircle:
+	CanPowerDown:
+	RenderBuilding:
+		Image: GAP
+
+OREGEN:
+	Inherits: ^Building
+	RequiresPower:
+	Valued:
+		Cost: 3000
+	Tooltip:
+		Name: Ore Generator
+		Description: Generates an ore field, \n  Unarmed
+	Buildable:
+		Queue: Special
+		BuildPaletteOrder: 190
+		Prerequisites: techcenter
+		Owner: fed
+		Hotkey: o
+	Building:
+		Power: -250
+	Health:
+		HP: 400
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 10
+	IronCurtainable:
+	SeedsResource:
+		Interval: 125
+		MaxRange: 5
+	CashTrickler:
+		Period: 100
+		Amount: 10
+	-AcceptsSupplies:
+
+GEMGEN:
+	Inherits: ^Building
+	RequiresPower:
+	Valued:
+		Cost: 6000
+	Tooltip:
+		Name: Gem Generator
+		Icon: GEMGENICON
+		Description: Generates a gem field, \n  Unarmed
+	Buildable:
+		Queue: Special
+		BuildPaletteOrder: 195
+		Prerequisites: fmis
+		Owner: fed
+		Hotkey: g
+	Building:
+		Power: -400
+	Health:
+		HP: 200
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 10
+	IronCurtainable:
+	SeedsResource:
+		Interval: 250
+		ResourceType: Gems
+		MaxRange: 5
+	CashTrickler:
+		Period: 100
+		Amount: 30
+	-AcceptsSupplies:
+	Explodes:
+		Weapon: GemAtomic
+		Chance: 100
+	RenderBuilding:
+		Image: OREGEN
+
+ATD:
+	Inherits: ^Building
+	RequiresPower:
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 180
+		Prerequisites: syrd
+		Owner: fed
+		Hotkey: t
+	Valued:
+		Cost: 1200
+	Tooltip:
+		Name: Adv Torpedo Defense
+		Description: Naval defensive structure.\n  Strong vs Ships\n  Weak vs Aircraft
+	TargetableBuilding:
+		TargetTypes: Ground, Water
+	Building:
+		Power: -70
+		TerrainTypes: Water
+	Health:
+		HP: 600
+	Armor:
+		Type: Concrete
+	RevealsShroud:
+		Range: 8
+	AttackOmni:
+		PrimaryWeapon: Stinger
+		SecondaryWeapon: TorpTube
+		MuzzleFlash: yes
+		ScanTimeAverage: 0.1
+		ScanTimeSpread: 0.1
+	AutoTarget:
+	IronCurtainable:
+	RenderRangeCircle:
+	-AcceptsSupplies:
+	DetectCloaked:
+		Range: 8
+	RenderDetectionCircle:
+	CanPowerDown:
+	RenderBuilding:
+		Image: ATD
+
+SMISS:
+	Inherits: ^Building
+	Buildable:
+		Queue: Special
+		BuildPaletteOrder: 910
+		Prerequisites: controlcenter
+		Owner: allies
+	Valued:
+		Cost: 30000
+	Tooltip:
+		Name: Allied Super Tech Center
+		Description: This tech center allows production of the \n Allied Enhanced Importance Omni Unit.
+		Icon: MISSICON
+	Building:
+		Power: -300
+		Footprint: xxx xxx
+		Dimensions: 3,2
+	Health:
+		HP: 400
+	Armor:
+		Type: Alamantium
+	RevealsShroud:
+		Range: 10
+	Bib:
+	IronCurtainable:
+	CashTrickler:
+		Period: 4000
+		Amount: 1000
+	RenderBuilding:
+		Image: MISS
+	CustomSellValue:
+		Value: 50000
+
+GMIS:
+	Inherits: ^Building
+	Buildable:
+		Queue: Special
+		BuildPaletteOrder: 910
+		Prerequisites: controlcenter
+		Owner: gdi
+	Valued:
+		Cost: 30000
+	Tooltip:
+		Name: GDI Super Tech
+		Description: Home of the powerful Super Elite commando.
+		Icon: MISSICON
+	Building:
+		Power: -300
+		Footprint: xxx xxx
+		Dimensions: 3,2
+	Health:
+		HP: 600
+	Armor:
+		Type: Alamantium
+	RevealsShroud:
+		Range: 10
+	Bib:
+	IronCurtainable:
+	CashTrickler:
+		Period: 4000
+		Amount: 1000
+	RenderBuilding:
+		Image: MISS
+	CustomSellValue:
+		Value: 50000
+
+SMIS:
+	Inherits: ^Building
+	Buildable:
+		Queue: Special
+		BuildPaletteOrder: 910
+		Prerequisites: controlcenter
+		Owner: soviet
+	Valued:
+		Cost: 30000
+	Tooltip:
+		Name: Soviet Super Factory
+		Description: This massive production facility produces\n the mighty Tesla Goliath
+		Icon: MISSICON
+	Building:
+		Power: -300
+		Footprint: xxx xxx
+		Dimensions: 3,2
+	Health:
+		HP: 600
+	Armor:
+		Type: Alamantium
+	RevealsShroud:
+		Range: 10
+	Bib:
+	IronCurtainable:
+	CashTrickler:
+		Period: 4000
+		Amount: 1000
+	RenderBuilding:
+		Image: MISS
+	CustomSellValue:
+		Value: 50000
+
+FMIS:
+	Inherits: ^Building
+	Buildable:
+		Queue: Special
+		BuildPaletteOrder: 910
+		Prerequisites: controlcenter
+		Owner: fed
+	Valued:
+		Cost: 30000
+	Tooltip:
+		Name: Federation Super Factory
+		Description: This massive production facility produces\n the mighty Sol Cannon
+		Icon: MISSICON
+	Building:
+		Power: -300
+		Footprint: xxx xxx
+		Dimensions: 3,2
+	Health:
+		HP: 600
+	Armor:
+		Type: Alamantium
+	RevealsShroud:
+		Range: 10
+	Bib:
+	IronCurtainable:
+	CashTrickler:
+		Period: 4000
+		Amount: 1000
+	RenderBuilding:
+		Image: MISS
+	CustomSellValue:
+		Value: 50000
+
+NMIS:
+	Inherits: ^Building
+	Buildable:
+		Queue: Special
+		BuildPaletteOrder: 910
+		Prerequisites: controlcenter
+		Owner: nod
+	Valued:
+		Cost: 20000
+	Tooltip:
+		Name: Nod Super Tech
+		Description: Produces advanced Nod stealth techology
+		Icon: MISSICON
+	Building:
+		Power: -250
+		Footprint: xxx xxx
+		Dimensions: 3,2
+	Health:
+		HP: 600
+	Armor:
+		Type: Alamantium
+	RevealsShroud:
+		Range: 10
+	Bib:
+	IronCurtainable:
+	CashTrickler:
+		Period: 4000
+		Amount: 1000
+	RenderBuilding:
+		Image: MISS
+#	Production:
+#		Produces: Special
+#	ProductionQueue@Special:
+#		Type: Special
+#		BuildSpeed: .3
+#		LowPowerSlowdown: 2
+#		QueuedAudio: abldgin1.aud
+#		ReadyAudio: conscmp1.aud
+#	ProductionBar:
+	ParatroopersPower:
+		Image: crtdicon
+		ChargeTime: 240
+		Description: Stealth Kits
+		LongDesc: A Badger drops stealth crates \nanywhere on the map
+		OneShot: no
+		AllowMultiple: yes
+		DropItems: scrate,scrate,scrate
+		UnitType: badr.crate
+		SelectTargetSound: slcttgt1.aud
+#		FlareType: flare3
+	CustomSellValue:
+		Value: 30000
+
+UMIS:
+	Inherits: ^Building
+	Buildable:
+		Queue: Special
+		BuildPaletteOrder: 910
+		Prerequisites: bio12
+		Owner: uac
+	Valued:
+		Cost: 30000
+	Tooltip:
+		Name: UAC Super Tech Center
+		Description: This tech center allows production of the \n Helix super unit.
+		Icon: MISSICON
+	Building:
+		Power: -300
+		Footprint: xxx xxx
+		Dimensions: 3,2
+	Health:
+		HP: 400
+	Armor:
+		Type: Alamantium
+	RevealsShroud:
+		Range: 10
+	Bib:
+	IronCurtainable:
+	CashTrickler:
+		Period: 4000
+		Amount: 1000
+	RenderBuilding:
+		Image: MISS
+	CustomSellValue:
+		Value: 50000
+
+SAM.c:
+	Inherits: ^Building
+	Buildable:
+		Queue: Special
+		BuildPaletteOrder: 160
+		Owner: nod
+		Prerequisites: nmis
+		Hotkey: y
+	Valued:
+		Cost: 900
+	Tooltip:
+		Name: Stealth SAM Site
+		Icon: SAMICON
+		Description: Anti-Air base defense.\n  Strong vs Aircraft\n  Weak vs Infantry, Tanks
+	Building:
+		Power: -35
+		Footprint: xx
+		Dimensions: 2,1
+	Health:
+		HP: 400
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 5
+	Turreted:
+		ROT: 30
+		InitialFacing: 0
+	RenderBuildingTurreted:
+		Image: SAM
+	AttackTurreted:
+		PrimaryWeapon: Nike
+		ScanTimeAverage: 0.1
+		ScanTimeSpread: 0.1
+	AutoTarget:
+	IronCurtainable:
+	-RenderBuilding:
+	RenderRangeCircle:
+		RangeCircleType: aa
+	RequiresPower:
+	CanPowerDown:
+	-AcceptsSupplies:
+	Cloak:
+		InitialDelay: 0
+		CloakDelay: 100
+		CloakSound: ironcur9.aud
+		UncloakSound: ironcur9.aud
+		Palette: shadow
+
+GUN2.c:
+	Inherits: ^Building
+	Buildable:
+		Queue: Special
+		BuildPaletteOrder: 170
+		Prerequisites: nmis
+		Owner: nod
+		Hotkey: t
+	Valued:
+		Cost: 900
+	Tooltip:
+		Name: Stealth Turret
+		Icon: GUNICON
+		Description: Anti-Armor base defense.\n  Strong vs Tanks\n  Weak vs Infantry, Aircraft
+	Building:
+		Power: -50
+	Health:
+		HP: 400
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 7
+	Turreted:
+		ROT: 12
+		InitialFacing: 50
+	-RenderBuilding:
+	RenderBuildingTurreted:
+		Image: GUN
+	AttackTurreted:
+		PrimaryWeapon: TurretGun
+		ScanTimeAverage: 0.1
+		ScanTimeSpread: 0.1
+	AutoTarget:
+	IronCurtainable:
+	RenderRangeCircle:
+	-AcceptsSupplies:
+	Cloak:
+		InitialDelay: 0
+		CloakDelay: 100
+		CloakSound: ironcur9.aud
+		UncloakSound: ironcur9.aud
+		Palette: shadow
+
+OBLID.s:
+	RequiresPower:
+	CanPowerDown:
+	Inherits: ^Building
+	Buildable:
+		Queue: Special
+		BuildPaletteOrder: 170
+		Prerequisites: nmis
+		Owner: nod
+		Hotkey: u
+	Valued:
+		Cost: 2000
+	Tooltip:
+		Name: Stealth Obelisk of Light
+		Icon: OBLIDICON
+		Description: Advanced base defense. Requires power\nto operate.\n  Strong vs Tanks, Infantry\n  Weak vs Aircraft, Hordes of Infantry
+	Building:
+		Power: -200
+		Footprint: _ x
+		Dimensions: 1,2
+	Health:
+		HP: 450
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 8
+	-RenderBuilding:
+	RenderBuildingCharge:
+		ChargeAudio: obelpowr.aud
+		Image: OBLID
+	AttackTesla:
+		PrimaryWeapon: Laser
+		ReloadTime: 100
+		ScanTimeAverage: 0.1
+		ScanTimeSpread: 0.1
+	AutoTarget:
+	IronCurtainable:
+	RenderRangeCircle:
+	-AcceptsSupplies:
+	Cloak:
+		InitialDelay: 0
+		CloakDelay: 100
+		CloakSound: ironcur9.aud
+		UncloakSound: ironcur9.aud
+		Palette: shadow
+
+DMGUN:
+	Inherits: ^Building
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 170
+		Prerequisites: barr
+		Owner: uac
+		Hotkey: t
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Twin-Turret
+		Icon: DGUNICON
+		Description: Anti-Armor base defense.\n  Strong vs Tanks\n  Weak vs Infantry, Aircraft
+	Building:
+		Power: -40
+	Health:
+		HP: 400
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 7
+	Turreted:
+		ROT: 12
+		InitialFacing: 50
+	RenderBuildingTurreted:
+		Image: DGUN
+	AttackTurreted:
+		PrimaryWeapon: Twin120mm
+		ScanTimeAverage: 0.1
+		ScanTimeSpread: 0.1
+	AutoTarget:
+	IronCurtainable:
+	-RenderBuilding:
+	RenderRangeCircle:
+	-AcceptsSupplies:
+
+PLSTUR:
+	Inherits: ^Building
+	RequiresPower:
+	CanPowerDown:
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 150
+		Prerequisites: techcenter
+		Owner: uac
+		Hotkey: p
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Gauss Tower
+		Icon: GAUSSTICON
+		Description: Advanced base defense.\n  Strong vs Infantry, Vehicles\n  Weak vs Aircraft
+	Building:
+		Power: -150
+	Health:
+		HP: 550
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 9
+	AttackOmni:
+		PrimaryWeapon: GaussRifleTower
+		PrimaryOffset: 0,0,12,8
+		ScanTimeAverage: 0.1
+		ScanTimeSpread: 0.1
+	AutoTarget:
+	IronCurtainable:
+	RenderRangeCircle:
+	-AcceptsSupplies:
+
+PDOX2:
+	RequiresPower:
+	CanPowerDown:
+	Inherits: ^Building
+	Buildable:
+		Queue: Special
+		BuildPaletteOrder: 190
+		Prerequisites: techcenter
+		Owner: uac
+		Hotkey: o
+	Valued:
+		Cost: 3200
+	Tooltip:
+		Name: Gateway
+		Icon: PDOXICON
+		Description: Allows you to recruit \nnasty demons into your army.\n  Special Ability: Hell Portal
+	Building:
+		Power: -300
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 400
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 10
+#	Bib:
+	IronCurtainable:
+#	ChronoshiftPower:
+#		Image: warpicon
+#		ChargeTime: 300
+#		Description: Chronoshift
+#		LongDesc: Teleport a group of vehicles across\nthe map for 30 seconds.\n\nCan teleport APC passengers.
+#		SelectTargetSound: slcttgt1.aud
+#		BeginChargeSound: chrochr1.aud
+#		EndChargeSound: chrordy1.aud
+#		Duration: 30
+#		KillCargo: no
+#		AllowMultiple: Yes
+	ParatroopersPower:
+		Image: hellicon
+		ChargeTime: 600
+		Description: Hell Portal
+		LongDesc: Spawns a Cyberdemon \nanywhere on the map.
+		DropItems: HELLD3
+		SelectTargetSound: slcttgt1.aud
+		UnitType: badr
+		AllowMultiple: Yes
+		FlareType: hellp
+	SupportPowerChargeBar:
+	RenderBuilding:
+		Image: PDOX
+	-AcceptsSupplies:
+
+hellp:
+	Aircraft:
+	Health:
+		HP:1000
+	RevealsShroud:
+		Range: 3
+	HiddenUnderFog:
+	RenderFlare:
+		Image: hellp
+	Tooltip:
+		Name: Flare
+	ProximityCaptor:
+		Types: Flare
+
+RECP:
+	Inherits: ^Building
+	Valued:
+		Cost: 150
+	Tooltip:
+		Name: Recon Post
+		Description: Cloaked recon structure, \nreveals shroud.\n  Unarmed
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 900
+		Prerequisites: anypower
+		Owner: uac,gdi,soviet,fed
+	Building:
+		Power: -5
+		BaseNormal: no
+		Adjacent: 8
+		TerrainTypes: Clear,Road,Rough,Water,Beach
+	Health:
+		HP: 100
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 9
+	IronCurtainable:
+	-GivesBuildableArea:
+	-MustBeDestroyed:
+	Cloak:
+		InitialDelay: 15
+		CloakDelay: 50
+		CloakSound: 
+		UncloakSound: 
+		Palette: shadow
+	-TargetableBuilding:
+	TargetableUnit:
+		TargetTypes: Ground, Water
+
+XBAR:
+	Inherits: ^Building
+	Selectable:
+		Priority: 0
+	-RepairableBuilding:
+	Valued:
+		Cost: 1600
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 9000
+		Prerequisites: techcenter,mslo
+		Owner: fed,nod,gdi,allies,soviet,uac
+		Hotkey: x
+	Building:
+		BaseNormal: no
+		Adjacent: 5
+		TerrainTypes: Clear,Road,Water,Rough,Beach,Ore
+	Health:
+		HP: 150
+	Tooltip:
+		Name: Demo Trap
+		Description: Proxy-detonated explosive trap.\n  Strong vs Everything
+	Cloak:
+		InitialDelay: 0
+		CloakDelay: 50
+		CloakSound: 
+		UncloakSound: 
+		Palette: shadow
+	AttackTesla:
+		PrimaryWeapon: DemoTrapKill
+		ReloadTime: 100
+		ScanTimeAverage: 0.1
+		ScanTimeSpread: 0.1
+	-GivesBuildableArea:
+	-RenderBuilding:
+	RenderBuildingCharge:
+		Image: BRL3
+		ChargeAudio: gdembeep.aud
+	Explodes:
+		Weapon: DemoTrapBomb
+		EmptyWeapon: DemoTrapBomb
+	RenderRangeCircle:
+	AutoTarget:
+	-MustBeDestroyed:
+	-TargetableBuilding:
+	TargetableUnit:
+		TargetTypes: Ground
+
+PRXM:
+	Inherits: ^Building
+	Selectable:
+		Priority: 0
+	-RepairableBuilding:
+	Valued:
+		Cost: 500
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 8800
+		Prerequisites: Factory
+		Owner: fed,nod,gdi,allies,soviet,uac
+		Hotkey: x
+	Building:
+		BaseNormal: no
+		Adjacent: 5
+		TerrainTypes: Clear,Road,Water,Rough,Beach,Ore
+	Health:
+		HP: 150
+	Tooltip:
+		Name: Proxy Mine
+		Description: Proxy-detonated explosive.\n  Strong vs Infantry, Vehicles
+	Armor:
+		Type: Alamantium
+	Cloak:
+		InitialDelay: 0
+		CloakDelay: 50
+		CloakSound: 
+		UncloakSound: 
+		Palette: shadow
+	AttackTesla:
+		PrimaryWeapon: ProxyMineKill
+		ReloadTime: 100
+		ScanTimeAverage: 0.1
+		ScanTimeSpread: 0.1
+	-GivesBuildableArea:
+	-RenderBuilding:
+	RenderBuildingCharge:
+		Image: minv
+		ChargeAudio: 
+	Explodes:
+		Weapon: ProxyMineBlow
+		EmptyWeapon: ProxyMineBlow
+	RenderRangeCircle:
+	AutoTarget:
+	-MustBeDestroyed:
+	-TargetableBuilding:
+	TargetableUnit:
+		TargetTypes: Ground

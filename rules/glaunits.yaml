@@ -1,0 +1,654 @@
+GVehicle:
+	Inherits: ^Vehicle
+	SelfHealing:
+		Step: 1
+		Ticks: 35
+		HealIfBelow: 100%
+		DamageCooldown: 400
+
+GTank:
+	Inherits: ^Tank
+	SelfHealing:
+		Step: 1
+		Ticks: 35
+		HealIfBelow: 100%
+		DamageCooldown: 400
+
+GE1:
+	Inherits: ^Infantry
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 10
+		Owner: gla
+	Valued:
+		Cost: 100
+	Tooltip:
+		Name: Rebel
+		Description: Lightweight infantry.\n  Strong vs Infantry\n  Weak vs Vehicles
+	Selectable:
+		Bounds: 12,17,0,-9
+	Health:
+		HP: 45
+	Mobile:
+		Speed: 5
+	AutoTarget:
+		ScanRadius: 4
+	AttackFrontal:
+		PrimaryWeapon: M1Carbine
+	TakeCover:
+	-RenderInfantry:
+	RenderInfantryProne:
+		Image: TSE4
+		IdleAnimations: idle1,idle2
+
+GE2:
+	Inherits: ^Infantry
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 20
+		Owner: gla
+	Valued:
+		Cost: 300
+	Tooltip:
+		Name: RPG Troop
+		Description: Anti-tank/Anti-aircraft infantry.\n  Strong vs Tanks, Aircraft\n  Weak vs Infantry
+	Selectable:
+		Bounds: 12,17,0,-9
+	Health:
+		HP: 35
+	Mobile:
+		Speed: 4
+	AttackFrontal:
+		PrimaryWeapon: RedEye
+		SecondaryWeapon: Dragon
+		PrimaryOffset: 0,0,0,-13
+	TakeCover:
+	-RenderInfantry:
+	RenderInfantryProne:
+		Image: E3
+		IdleAnimations: idle1,idle2
+
+GE3:
+	Inherits: ^Infantry
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 60
+		Owner: gla
+		Prerequisites: Radar
+	Valued:
+		Cost: 400
+	Tooltip:
+		Name: Chem Warrior
+		Icon: e5icon
+		Description: Anti-infantry unit.\n  Strong vs Infantry\n  Weak vs Vehicles
+	Selectable:
+		Bounds: 12,17,0,-9
+	Health:
+		HP: 50
+	Mobile:
+		Speed: 4
+	AttackFrontal:
+		PrimaryWeapon: ChemSprayer
+		PrimaryOffset: 0,0,0,-7
+		FireDelay: 6
+	TakeCover:
+	WithMuzzleFlash:
+	-RenderInfantry:
+	RenderInfantryProne:
+		Image: e5
+		IdleAnimations: idle1,idle2
+
+GE4:
+	Inherits: ^Infantry
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 25
+		Owner: gla
+	Valued:
+		Cost: 200
+	Tooltip:
+		Name: Terrorist
+		Description: Suicide bomber.\n  Strong vs Infantry, Vehicles\n  Weak vs Long range
+	Selectable:
+		Bounds: 12,17,0,-9
+		Voice: TerroristVoice
+	Armor:
+		Type: Alamantium
+	Health:
+		HP: 50
+	Mobile:
+		Speed: 5
+	AutoTarget:
+		ScanRadius: 7
+	TakeCover:
+		ProneDamage: 1.0
+		ProneSpeed: 1.25
+	AttackFrontal:
+		PrimaryWeapon: TerroristBomb
+	-RenderInfantry:
+	RenderInfantryProne:
+	Explodes:
+		Weapon: TerroristBomb
+		EmptyWeapon: 
+		Chance: 50
+
+GE5:
+	Inherits: ^Infantry
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 120
+		Prerequisites: gpal,!GE5Exist
+		Owner: gla
+	ProvidesCustomPrerequisite:
+		Prerequisite: GE5Exist
+	Valued:
+		Cost: 2500
+	Tooltip:
+		Name: Jarmen Kell
+		Description: Elite stealth infantry, armed with \na sniper rifle.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles\n  Special Ability: Destroy Building with C4
+	Selectable:
+		Voice: JarmenVoice
+		Bounds: 12,17,0,-9
+	Health:
+		HP: 190
+	Mobile:
+		Speed: 4
+	RevealsShroud:
+		Range: 11
+	Passenger:
+		PipType: Red
+	AttackFrontal:
+		PrimaryWeapon: GSniper
+	-RenderInfantry:
+	AnnounceOnBuild:
+	AnnounceOnKill:
+	TakeCover:
+	RenderInfantryProne:
+		Image: SLAV
+		IdleAnimations: idle1,idle2
+	SelfHealing:
+		Step: 1
+		Ticks: 30
+		HealIfBelow: 50%
+	Cloak:
+		InitialDelay: 0
+		CloakDelay: 100
+		CloakSound: ironcur9.aud
+		UncloakSound: ironcur9.aud
+		Palette: shadow
+	AutoTarget:
+		InitialStance: HoldFire
+	DetectCloaked:
+		Range: 7
+	C4Demolition:
+		C4Delay: 45
+
+GE6:
+	Inherits: ^Infantry
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 110
+		Prerequisites: gfix,geye
+		Owner: gla
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Hijacker
+		Description: Hijacks vehicles. Very fast. \n\nUnarmed
+	Selectable:
+		Voice: HijackerVoice
+		Bounds: 12,17,0,-9
+	Health:
+		HP: 60
+	Mobile:
+		Speed: 7
+	Passenger:
+		PipType: Red
+	EngineerRepair:
+	Captures:
+		CaptureTypes: vehicle
+	TakeCover:
+	-AutoTarget:
+	AttackMove:
+		JustMove: true
+	-RenderInfantry:
+	RenderInfantryProne:
+		Image: TSHIJACK
+		IdleAnimations: idle1,idle2
+	AnnounceOnBuild:
+#	Cloak:
+#		InitialDelay: 0
+#		CloakDelay: 100
+#		CloakSound: ironcur9.aud
+#		UncloakSound: ironcur9.aud
+#		Palette: shadow
+
+GTECH:
+	Inherits: ^Infantry
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 25
+		Owner: gla
+		Prerequisites: gfix
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Technician
+		Description: Fixes nearby vehicles and \ndoesn't afraid of anything.\n  Unarmed\n Special Ability: Upgrade GLA structures
+	Selectable:
+		Voice: WorkerVoice
+		Bounds: 12,17,0,-9
+	Health:
+		HP: 60
+	Mobile:
+		Speed: 4
+	RevealsShroud:
+		Range: 3
+	Passenger:
+		CargoType: Techy
+		PipType: Yellow
+	AutoHeal:
+	AttackMedic:
+		PrimaryWeapon: Wrench
+	TakeCover:
+	-AutoTarget:
+	AttackMove:
+		JustMove: true
+	-RenderInfantry:
+	RenderInfantryProne:
+		Image: MECH
+		IdleAnimations: idle1,idle2
+	SelfHealing:
+		Step: 1
+		Ticks: 15
+		HealIfBelow: 100%
+
+GHARV:
+	Inherits: ^Infantry
+	Buildable:
+		Queue: Infantry
+		Prerequisites: gproc
+		BuildPaletteOrder: 50
+		Owner: gla
+	Valued:
+		Cost: 400
+	Tooltip:
+		Name: Miner
+		Description: Collects Ore and Gems for processing.\n  Unarmed
+	Selectable:
+		Voice: WorkerVoice
+		Bounds: 14,17,0,-9
+		Priority: 7
+	Health:
+		HP: 100
+	Mobile:
+		Speed: 5
+		TerrainSpeeds:
+			Clear: 80
+			Rough: 80
+			Road: 100
+			Ore: 80
+			Beach: 80
+	Passenger:
+		PipType: Yellow
+#	TakeCover:
+	-AutoTarget:
+	AttackMove:
+		JustMove: true
+	-RenderInfantry:
+	RenderUnit:
+		Image: E6
+#		IdleAnimations: idle1,idle2
+	SelfHealing:
+		Step: 1
+		Ticks: 5
+		HealIfBelow: 100%
+	GpsDot:
+		String:Harvester
+	AutoTargetIgnore:
+	Harvester:
+		Capacity: 6
+		Resources: Ore,Gems
+		UnloadTicksPerBale: 1
+		PipCount: 3
+		FullyLoadedSpeed: 1.0
+
+GMGG:
+	Inherits: GVehicle
+	Buildable:
+		Queue: Vehicle
+		Prerequisites: gproc
+		BuildPaletteOrder: 10
+		Owner: gla
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Radar Truck
+		Description: Provides radar.\n  Unarmed
+	Selectable:
+		Priority: 3
+	Health:
+		HP: 300
+	Armor:
+		Type: Light
+	Mobile:
+		Speed: 6
+	RevealsShroud:
+		Range: 10
+	Explodes:
+		Weapon: UnitExplodeHeavy
+		EmptyWeapon: UnitExplodeHeavy
+	RenderUnitSpinner:
+		Image: mgg
+	MustBeDestroyed:
+	BaseBuilding:
+	-AttackMove:
+	ProvidesCustomPrerequisite:
+		Prerequisite: Radar
+	ProvidesRadar:
+	IronCurtainable:
+	InfiltrateForExploration:
+	SupportPowerChargeBar:
+	SpyPlanePower:
+		Image: smigicon
+		ChargeTime: 120
+		Description: Spy Plane
+		LongDesc: Reveals an area of the map.
+		SelectTargetSound: slcttgt1.aud
+		EndChargeSound: spypln1.aud
+
+GLTNK:
+	Inherits: GTank
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 40
+		Owner: gla
+	Valued:
+		Cost: 650
+	Tooltip:
+		Name: Scorpion Tank
+		Description: Light Tank, good for scouting.\n  Strong vs Light Vehicles\n  Weak vs Tanks, Aircraft
+	Health:
+		HP: 280
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 7
+	RevealsShroud:
+		Range: 5
+	Turreted:
+		ROT: 4
+	AttackTurreted:
+		PrimaryWeapon: 90mmD
+		PrimaryRecoil: 2
+		SecondaryWeapon: ScorpionRPG
+		AlignIdleTurrets: true
+	RenderUnitTurreted:
+	AutoTarget:
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+#	LeavesHusk:
+#		HuskActor: 1TNK.Husk
+	Selectable:
+		Bounds: 24,24
+
+GFTNK:
+	Inherits: GTank
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Toxin Tank
+		Description: Heavily armored chemical-throwing vehicle.\n  Strong vs Infantry, Buildings\n  Weak vs Aircraft
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 200
+		Prerequisites: gpal
+		Owner: gla
+	Mobile:
+		ROT: 5
+		Speed: 9
+	Health:
+		HP: 350
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 5
+	AttackFrontal:
+		PrimaryWeapon: DualChemSprayer
+		PrimaryOffset: 0,-5,3,2
+		PrimaryLocalOffset: 2,0,0,0,0, -2,0,0,0,0
+		FireDelay: 6
+	RenderUnit:
+	AutoTarget:
+	WithMuzzleFlash:
+	Explodes:
+		Weapon: NapalmBomb
+		EmptyWeapon: NapalmBomb
+
+GMTNK:
+	Inherits: GTank
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 40
+		Prerequisites: gblk,gfix
+		Owner: gla
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Marauder Tank
+		Description: Medium battle tank.\n  Strong vs Light Vehicles\n  Weak vs Tanks, Aircraft
+	Health:
+		HP: 380
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 7
+		ROT: 3
+	RevealsShroud:
+		Range: 5
+	Turreted:
+		ROT: 3
+	AttackTurreted:
+		PrimaryWeapon: 120mmD
+		PrimaryRecoil: 3
+		PrimaryRecoilRecovery: 0.9
+		AlignIdleTurrets: true
+	RenderUnitTurreted:
+	AutoTarget:
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+#	LeavesHusk:
+#		HuskActor: 1TNK.Husk
+	Selectable:
+		Bounds: 34,34
+
+GDTRK:
+	Inherits: GVehicle
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 850
+		Prerequisites: gblk,gfix
+		Owner: gla
+	Valued:
+		Cost: 2100
+	Tooltip:
+		Name: Demo Truck
+		Icon: DTRKICON
+		Description: Suicide bomber truck.\n  Strong vs Everything
+	Health:
+		HP: 150
+	Armor:
+		Type: Light
+	Mobile:
+		Speed: 10
+	RevealsShroud:
+		Range: 5
+	RenderUnit:
+		Image: DTRK
+	Passenger: 
+		CargoType: Vehicle
+		PipType: Yellow
+		Weight: 5
+	AttackMove:
+		JustMove: yes
+	-Chronoshiftable: 
+	DemoTruck: 
+	-IronCurtainable: 
+	Explodes:
+		Weapon: AtomicTruck
+		EmptyWeapon: AtomicTruck
+	ShakeOnDeath:
+	AttackFrontal:
+		PrimaryWeapon: AtomicTruckKill
+
+GBGGY:
+	Inherits: GVehicle
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 30
+		Prerequisites: gpal
+		Owner: gla
+	Valued:
+		Cost: 900
+	Tooltip:
+		Name: Rocket Buggy
+		Description: GLA's extremely fast and\nlight-weight artillery.\n  Strong vs Vehicles, Structures\n  Weak vs Infantry, Aircraft
+	Health:
+		HP: 130
+	Armor:
+		Type: Light
+	Mobile:
+		ROT: 10
+		Speed: 11
+	RevealsShroud:
+		Range: 9
+	Turreted:
+		ROT: 3
+	AttackTurreted:
+		PrimaryWeapon: Rockets.Buggy
+		PrimaryOffset: 0,0,0,-2
+	RenderUnitTurreted:
+	WithMuzzleFlash:
+	AutoTarget:
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+
+
+GMCV:
+	Inherits: GVehicle
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 110
+		Prerequisites: gfix
+		Owner: gla
+	Valued:
+		Cost: 3000
+	Tooltip:
+		Name: Mobile Construction Vehicle
+		Icon: MCVICON
+		Description: Deploys into another Construction Yard.\n  Unarmed
+	Selectable:
+		Priority: 7
+		Bounds: 42,42
+	Health:
+		HP: 900
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 6
+		Crushes: wall, atmine, crate, infantry, lightvehicle
+	RevealsShroud:
+		Range: 4
+	Transforms:
+		IntoActor: fact
+		Offset:-1,-1
+		Facing: 96
+		TransformSounds: placbldg.aud, build5.aud
+		NoTransformSounds: nodeply1.aud
+	RenderUnit:
+		Image: MCV
+	MustBeDestroyed:
+	BaseBuilding:
+	Passenger:
+		Weight: 8
+	-AttackMove:
+
+GSCUD:
+	Inherits: GVehicle
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 40
+		Prerequisites: gblk,gmslo
+		Owner: gla
+	Valued:
+		Cost: 2500
+	Tooltip:
+		Name: SCUD Launcher
+		Description: Long-range rocket artillery.\n  Strong vs Infantry, Buildings\n  Weak vs Tanks, Aircraft
+	Health:
+		HP: 150
+	Armor:
+		Type: Light
+	Mobile:
+		Speed: 3
+		ROT: 2
+	RevealsShroud:
+		Range: 11
+	AttackFrontal:
+		PrimaryWeapon: RealSCUD
+	RenderUnitReload:
+		Image: V2RL
+		Scale: 1.2
+	AutoTarget:
+	Explodes:
+		Weapon: AtomicTruck
+		EmptyWeapon: UnitExplodeSmall
+	RenderRangeCircle:
+
+GJEEP:
+	Inherits: GVehicle
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 30
+		Owner: gla
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Ranger
+		Icon: JEEPICON
+		Description: Fast scout & anti-infantry vehicle.\n  Strong vs Infantry\n  Weak vs Tanks, Aircraft
+	Health:
+		HP: 150
+	Armor:
+		Type: Light
+	Mobile:
+		ROT: 10
+		Speed: 12
+	RevealsShroud:
+		Range: 8
+	Turreted:
+		ROT: 10
+	AttackTurreted:
+		PrimaryWeapon: M60mg
+		PrimaryOffset: 0,0,0,-2
+	RenderUnitTurreted:
+		Image: JEEP
+	WithMuzzleFlash:
+	AutoTarget:
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+	Cargo:
+		Types: Infantry,Techy
+		Passengers: 1
+		MaxWeight: 1
+		PipCount: 1
+		UnloadFacing: 220
+	TransformOnPassenger@ge4:
+		PassengerTypes: ge4
+		OnEnter: JEEP.ge4
+		OnExit: GJEEP
+		SkipMakeAnims: true
