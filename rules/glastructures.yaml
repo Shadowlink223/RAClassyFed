@@ -763,3 +763,6 @@ GSTG.cloak:
 		CloakSound: ironcur9.aud
 		UncloakSound: ironcur9.aud
 		Palette: shadow
+	Health:
+		HP: 701
+	Armor:
