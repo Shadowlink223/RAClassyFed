@@ -3584,3 +3584,5 @@ GSniper:
 			Heavy: 5%
 		InfDeath: 1
 
+	Range: 2.0
+		Speed: 3

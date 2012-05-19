@@ -567,3 +567,4 @@ TSHIJACK:
 #		CloakSound: ironcur9.aud
 #		UncloakSound: ironcur9.aud
 #		Palette: shadow
+	-CrushableInfantry:
