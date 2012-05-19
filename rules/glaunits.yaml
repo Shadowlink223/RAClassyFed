@@ -652,3 +652,4 @@ GJEEP:
 		OnEnter: JEEP.ge4
 		OnExit: GJEEP
 		SkipMakeAnims: true
+	-CrushableInfantry:
